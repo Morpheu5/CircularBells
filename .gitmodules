@@ -1,0 +1,3 @@
+[submodule "blocks/mopViews"]
+	path = blocks/mopViews
+	url = git@github.com:Morpheu5/mopViews
