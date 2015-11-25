@@ -3,15 +3,25 @@
 #include "mopView.h"
 
 class BellView : public mop::View {
-	int _scaleGrade = 0; // +1
+	float _radius = 0.0f;
+	ColorAf _color = ColorAf(0,0,0,1);
+	int _pitch = -1;
 	
-	gl::BatchRef _circle;
+	gl::BatchRef _rimCircle = nullptr;
+	gl::BatchRef _bellCircle = nullptr;
+	
+	vec2 _pushForce;
 	
 public:
 	BellView();
+	void update() override;
 	void draw() override;
 	bool hitTest(vec2 position) override;
 	
-	void setScaleGrade(int grade);
-	const int getScaleGrade() const { return _scaleGrade; }
+	void setRadius(float size);
+	void setColor(ColorAf color) { _color = color; }
+	void setPitch(int pitch) { _pitch = pitch; }
+	const int getPitch() const { return _pitch; }
+	
+	void push(vec2 force) { _pushForce = force; }
 };

@@ -21,6 +21,7 @@
 		A3A9CA951C00F52000CAE19B /* BellView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A9CA931C00F52000CAE19B /* BellView.cpp */; };
 		A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A9CA971C0106CC00CAE19B /* EPSSampler.m */; };
 		A3A9CA9D1C010CA600CAE19B /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = A3A9CA9C1C010CA600CAE19B /* Sounds */; };
+		A3BC80841C05CB5D00384791 /* FirstViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3BC80831C05CB5D00384791 /* FirstViewController.mm */; };
 		A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACB1C00AB24008D5DBC /* mopRootView.cpp */; };
 		A3EF0AD51C00AB24008D5DBC /* mopView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACD1C00AB24008D5DBC /* mopView.cpp */; };
 		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -50,6 +51,8 @@
 		A3A9CA961C0106CC00CAE19B /* EPSSampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPSSampler.h; sourceTree = "<group>"; };
 		A3A9CA971C0106CC00CAE19B /* EPSSampler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPSSampler.m; sourceTree = "<group>"; };
 		A3A9CA9C1C010CA600CAE19B /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = /Users/morpheu5/src/CircularBells/xcode_ios/../resources/Sounds; sourceTree = "<absolute>"; };
+		A3BC80821C05CB5D00384791 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		A3BC80831C05CB5D00384791 /* FirstViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirstViewController.mm; sourceTree = "<group>"; };
 		A3EF0ACB1C00AB24008D5DBC /* mopRootView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mopRootView.cpp; sourceTree = "<group>"; };
 		A3EF0ACC1C00AB24008D5DBC /* mopRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopRootView.h; sourceTree = "<group>"; };
 		A3EF0ACD1C00AB24008D5DBC /* mopView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mopView.cpp; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				A3A9CA961C0106CC00CAE19B /* EPSSampler.h */,
 				A3A9CA971C0106CC00CAE19B /* EPSSampler.m */,
 				F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.mm */,
+				A3BC80821C05CB5D00384791 /* FirstViewController.h */,
+				A3BC80831C05CB5D00384791 /* FirstViewController.mm */,
 			);
 			name = Source;
 			path = ../src;
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3EF0AD51C00AB24008D5DBC /* mopView.cpp in Sources */,
+				A3BC80841C05CB5D00384791 /* FirstViewController.mm in Sources */,
 				A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */,
 				D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */,
 				A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */,
@@ -346,8 +352,12 @@
 		00692BF614FF149000D0A05E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CircularBells_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
@@ -359,8 +369,10 @@
 					"\"$(CINDER_PATH)/lib/libcinder-iphone-sim_d.a\"",
 					"-lz",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "74d51bbc-d6b9-4357-8090-5050b3e65dfa";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -368,8 +380,11 @@
 		00692BF714FF149000D0A05E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CircularBells_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
@@ -381,8 +396,10 @@
 					"\"$(CINDER_PATH)/lib/libcinder-iphone-sim.a\"",
 					"-lz",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "74d51bbc-d6b9-4357-8090-5050b3e65dfa";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
