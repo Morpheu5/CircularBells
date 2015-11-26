@@ -52,7 +52,9 @@ void CircularBellsApp::setup() {
 		v->setPosition(rPos);
 		v->getTouchDownInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchDown));
 		v->getTouchUpInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
+		v->getTouchUpOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
 		v->getTouchDragInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
+		v->getTouchDragOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
 		v->setRadius(100.0f - 2*tones[i]);
 		v->setPitch(48 + tones[i]);
 		auto color = colors[i%7];// + vec4(0.4*(i/7), 0.4*(i/7), 0.4*(i/7), 1.0);
@@ -86,6 +88,7 @@ void CircularBellsApp::draw() {
 	gl::clear(ColorAf(ColorModel::CM_HSV, 300.0f/360.0f, 0.1f, 0.5f, 1.0f));
 	gl::color(Color::white());
 	
+	gl::pushMatrices();
 	gl::setMatrices(_cam);
 	{
 		gl::ScopedMatrices m;
@@ -93,8 +96,9 @@ void CircularBellsApp::draw() {
 		gl::multModelMatrix(t);
 		_rootView->draw();
 	}
-
-	// Draw UI stuff
+	
+	gl::popMatrices();
+	gl::drawSolidRect(Rectf(0,0,100,50));
 }
 
 void CircularBellsApp::resize() {
@@ -113,19 +117,22 @@ void CircularBellsApp::rotateInterface(UIInterfaceOrientation orientation, NSTim
 void CircularBellsApp::noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		[_sampler startPlayingNote:bellView->getPitch() withVelocity:1.0];
-//		_notesLifetime[note] = 10;
 	}
 }
 
 void CircularBellsApp::noteViewTouchUp(mop::View *view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		[_sampler stopPlayingNote:bellView->getPitch()];
+		
+		if(length(position - prevPosition) > 2.0f) {
+			bellView->push(position - prevPosition);
+		}
 	}
 }
 
 void CircularBellsApp::noteViewDragged(mop::View *view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
-		bellView->push(position - prevPosition);
+		bellView->setPosition(bellView->getPosition() + position - prevPosition);
 	}
 }
 
