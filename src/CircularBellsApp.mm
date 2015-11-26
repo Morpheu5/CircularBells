@@ -4,6 +4,8 @@
 #include "cinder/Perlin.h"
 #include "cinder/Timeline.h"
 
+#include "CircularBellsApp.h"
+
 #include "mopViews.h"
 #include "BellView.h"
 
@@ -17,50 +19,10 @@ using namespace std;
 
 FirstViewController *sFirstVC = [[FirstViewController alloc] init];
 
-class CircularBellsApp : public App, public mop::mopViewsApp {
-	CameraOrtho _cam;
-	mat4 _projection;
-	vec4 _screen;
-	
-	float _w, _h;
-	float _zoom;
-	vec2 _pan;
-
-	shared_ptr<mop::RootView> _rootView;
-	list<shared_ptr<mop::View>> _views;
-	
-	EPSSampler* _sampler;
-	map<int, int> _notesLifetime;
-	
-	Perlin _noise;
-	CueRef _cue;
-	
-	void _timedPush();
-	
-public:
-	void setup() override;
-	void update() override;
-	void draw() override;
-	
-	const vec2 screenToWorld(const vec2& p) override {
-		auto q = vec2(glm::unProject(vec3(p, 0.0f), mat4(), _projection, _screen));
-		return q;
-	}
-	
-	void noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
-	void noteViewTouchUp(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
-	void noteViewDragged(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
-};
-
 void CircularBellsApp::setup() {
 	_zoom = 1.0;
-	_w = getWindowHeight()/(_zoom);
-	_h = getWindowWidth()/(_zoom);
-	if(getOrientation() & InterfaceOrientation::PortraitAll) {
-		auto t = _w;
-		_w = _h;
-		_h = t;
-	}
+	_w = getWindowWidth()/(_zoom);
+	_h = getWindowHeight()/(_zoom);
 	_pan = vec2(0,0);
 	_cam = CameraOrtho(-_w/_zoom, _w/_zoom, -_h/_zoom, _h/_zoom, -1000, 1000);
 	_cam.lookAt(vec3(0,0,1), vec3(0));
@@ -118,20 +80,6 @@ void CircularBellsApp::_timedPush() {
 
 void CircularBellsApp::update() {
 	_rootView->update();
-	
-//	for(auto e : _notesLifetime) {
-//		if(e.second == 0) {
-//			[_sampler stopPlayingNote:e.first];
-//		} else {
-//			--_notesLifetime[e.first];
-//		}
-//	}
-	
-	// FIXME This stuff should probably be somewhere else for performance.
-	_cam.lookAt(vec3(_pan, 1), vec3(_pan, 0));
-	_cam.setOrtho(-_w/_zoom, _w/_zoom, -_h/_zoom, _h/_zoom, -1000, 1000);
-	_projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
-	_screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
 }
 
 void CircularBellsApp::draw() {
@@ -147,6 +95,19 @@ void CircularBellsApp::draw() {
 	}
 
 	// Draw UI stuff
+}
+
+void CircularBellsApp::resize() {
+	console() << getWindowSize() << endl;
+	_w = getWindowWidth()/(_zoom);
+	_h = getWindowHeight()/(_zoom);
+	_cam.lookAt(vec3(_pan, 1), vec3(_pan, 0));
+	_cam.setOrtho(-_w/_zoom, _w/_zoom, -_h/_zoom, _h/_zoom, -1000, 1000);
+	_projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
+	_screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
+}
+
+void CircularBellsApp::rotateInterface(UIInterfaceOrientation orientation, NSTimeInterval duration) {
 }
 
 void CircularBellsApp::noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {

@@ -1,6 +1,7 @@
 #import "FirstViewController.h"
 
 #include "cinder/app/App.h"
+#include "CircularBellsApp.h"
 
 @implementation FirstViewController
 
@@ -16,6 +17,14 @@
 	[self setNavigationBarHidden:YES];
 //	cinderViewParent.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.infoButton];
 //	cinderViewParent.toolbarItems = [self tabBarItems];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+	[super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+	
+	[coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+//		ci::app::App::get()->resize();
+	}];
 }
 
 - (void)didReceiveMemoryWarning {
