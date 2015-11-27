@@ -88,7 +88,11 @@
 - (IBAction)scaleSelect:(id)sender {
 	ScaleSelectionTableViewController *vc = [[ScaleSelectionTableViewController alloc] initWithStyle:UITableViewStylePlain];
 	vc.modalPresentationStyle = UIModalPresentationPopover;
-	vc.popoverPresentationController.barButtonItem = sender;
+	vc.modalPresentationCapturesStatusBarAppearance = YES;
+	if([vc respondsToSelector:@selector(popoverPresentationController)]) {
+		vc.popoverPresentationController.barButtonItem = sender;
+	}
+	
 	[self presentViewController:vc
 					   animated:YES
 					 completion:nil];

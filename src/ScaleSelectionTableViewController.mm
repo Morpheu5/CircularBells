@@ -42,6 +42,14 @@
 	return _scaleNames.size();
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	if(section == 0) {
+		return @"Choose a scale…";
+	} else {
+		return @"";
+	}
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scaleCell" forIndexPath:indexPath];
 	cell.textLabel.text = [NSString stringWithUTF8String:_scaleNames[indexPath.row].c_str()];
