@@ -28,6 +28,11 @@ class CircularBellsApp : public App, public mop::mopViewsApp {
 	
 	void _timedPush();
 	
+	int _root;
+	vector<int> _tones;
+	map<string, vector<int>> _scales;
+	string _currentScaleName;
+	
 public:
 	void setup() override;
 	void update() override;
@@ -44,4 +49,10 @@ public:
 	void noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
 	void noteViewTouchUp(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
 	void noteViewDragged(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
+	
+	void rootDragged(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
+	
+	const string& getCurrentScaleName() { return _currentScaleName; }
+	void setCurrentScale(string &name);
+	vector<string> getAvailableScales();
 };

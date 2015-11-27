@@ -1,11 +1,21 @@
 #import "FirstViewController.h"
+#import "ScaleSelectionTableViewController.h"
 
 #include "cinder/app/App.h"
 #include "CircularBellsApp.h"
 
 @interface FirstViewController()
-	@property (nonatomic) BOOL isBannerVisible;
-	@property (strong, nonatomic) ADBannerView* bannerView;
+
+@property (nonatomic) BOOL isBannerVisible;
+@property (strong, nonatomic) ADBannerView *bannerView;
+
+@property (strong, nonatomic) UIButton *pullDownButton;
+
+- (IBAction)pullDownPushed:(UIButton *)sender;
+- (IBAction)pushUpPushed:(UIButton *)sender;
+
+- (IBAction)scaleSelect:(id)sender;
+
 @end
 
 @implementation FirstViewController
@@ -18,10 +28,19 @@
 	
 	self.viewControllers = @[cinderViewParent];
 	
-	cinderViewParent.title = @"Circular Bells";
+	cinderViewParent.title = @"";
 	[self setNavigationBarHidden:YES];
+	cinderViewParent.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/push-up.png"]
+																						  style:UIBarButtonItemStylePlain
+																						 target:self	 action:@selector(pushUpPushed:)];
 	//cinderViewParent.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.infoButton];
 	//cinderViewParent.toolbarItems = [self tabBarItems];
+	
+	UIBarButtonItem *keyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/scale.png"]
+																  style:UIBarButtonItemStylePlain
+																 target:self action:@selector(scaleSelect:)];
+	
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[keyButton]];
 
 	_isBannerVisible = NO;
 	_bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
@@ -29,8 +48,53 @@
 	frame.origin.y = self.view.bounds.size.height;
 	_bannerView.frame = frame;
 	_bannerView.delegate = self;
-	[self.view addSubview:_bannerView];
+//	[self.view addSubview:_bannerView];
+	// TODO: Enable this ^
+	
+	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];
+	_pullDownButton = [[UIButton alloc] init];
+	_pullDownButton.backgroundColor = [UIColor colorWithPatternImage:pullDownImage];
+	_pullDownButton.alpha = 0.5f;
+	[_pullDownButton addTarget:self action:@selector(pullDownPushed:) forControlEvents:UIControlEventTouchUpInside];
+	
+	[cinderViewParent.view addSubview:_pullDownButton];
+	_pullDownButton.translatesAutoresizingMaskIntoConstraints = NO;
+	[cinderViewParent.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=0)-[_pullDownButton(44.0)]-(==10)-|"
+																				  options:0
+																				  metrics:nil
+																					views:NSDictionaryOfVariableBindings(_pullDownButton)]];
+	[cinderViewParent.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(==10)-[_pullDownButton(44.0)]-(>=0)-|"
+																				  options:0
+																				  metrics:nil
+																					views:NSDictionaryOfVariableBindings(_pullDownButton)]];
 }
+
+#pragma mark - UI settings stuff
+
+- (IBAction)pullDownPushed:(UIButton *)sender {
+	[UIView animateWithDuration:0.25 animations:^{
+		_pullDownButton.alpha = 0.0f;
+	}];
+	[self setNavigationBarHidden:NO animated:YES];
+}
+
+- (IBAction)pushUpPushed:(UIButton *)sender {
+	[self setNavigationBarHidden:YES animated:YES];
+	[UIView animateWithDuration:0.25 animations:^{
+		_pullDownButton.alpha = 0.5f;
+	}];
+}
+
+- (IBAction)scaleSelect:(id)sender {
+	ScaleSelectionTableViewController *vc = [[ScaleSelectionTableViewController alloc] initWithStyle:UITableViewStylePlain];
+	vc.modalPresentationStyle = UIModalPresentationPopover;
+	vc.popoverPresentationController.barButtonItem = sender;
+	[self presentViewController:vc
+					   animated:YES
+					 completion:nil];
+}
+
+#pragma mark - iAd stuff
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
 	if(!_isBannerVisible) {
@@ -56,7 +120,6 @@
 	}
 }
 
-//- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
 - (void)viewDidLayoutSubviews {
 	CGSize bigSize = self.view.bounds.size;
 	CGSize newSize = [_bannerView sizeThatFits:bigSize];
@@ -67,17 +130,11 @@
 	}
 }
 
+#pragma mark - Memory management
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 @end

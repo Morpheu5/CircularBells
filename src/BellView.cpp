@@ -26,6 +26,7 @@ void BellView::draw() {
 	_rimCircle->draw();
 	gl::color(_color);
 	_bellCircle->draw();
+	gl::color(Color::white());
 }
 
 bool BellView::hitTest(vec2 point) {
