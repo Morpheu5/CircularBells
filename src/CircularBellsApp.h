@@ -8,7 +8,7 @@
 #import "EPSSampler.h"
 #import <UIKit/UIKit.h>
 
-class CircularBellsApp : public App, public mop::mopViewsApp {
+class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	CameraOrtho _cam;
 	mat4 _projection;
 	vec4 _screen;
@@ -25,6 +25,7 @@ class CircularBellsApp : public App, public mop::mopViewsApp {
 	
 	Perlin _noise;
 	CueRef _cue;
+	bool _noiseEnabled = true;
 	
 	void _timedPush();
 	
@@ -33,6 +34,8 @@ class CircularBellsApp : public App, public mop::mopViewsApp {
 	map<string, vector<int>> _scales;
 	string _currentScaleName;
 	
+	string _instrumentName;
+	
 public:
 	void setup() override;
 	void update() override;
@@ -40,6 +43,9 @@ public:
 	
 	void resize() override;
 	void rotateInterface(UIInterfaceOrientation orientation, NSTimeInterval duration);
+	
+	void willResignActive();
+	void didBecomeActive();
 	
 	const vec2 screenToWorld(const vec2& p) override {
 		auto q = vec2(glm::unProject(vec3(p, 0.0f), mat4(), _projection, _screen));
@@ -52,7 +58,12 @@ public:
 	
 	void rootDragged(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
 	
+	void setInstrument(string name);
+	string& getInstrument() { return _instrumentName; }
 	const string& getCurrentScaleName() { return _currentScaleName; }
-	void setCurrentScale(string &name);
+	void setCurrentScale(string name);
 	vector<string> getAvailableScales();
+	
+	void togglePerlin() { _noiseEnabled = !_noiseEnabled; }
+	bool isPerlinEnabled() { return _noiseEnabled; }
 };

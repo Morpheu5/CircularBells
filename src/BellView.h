@@ -12,6 +12,8 @@ class BellView : public mop::View {
 	
 	vec2 _pushForce;
 	
+	bool _still = false;
+	
 public:
 	BellView();
 	void update() override;
@@ -19,9 +21,15 @@ public:
 	bool hitTest(vec2 position) override;
 	
 	void setRadius(float size);
+	float getRadius() { return _radius; }
+	
 	void setColor(ColorAf color) { _color = color; }
+	
 	void setPitch(int pitch) { _pitch = pitch; }
 	const int getPitch() const { return _pitch; }
 	
-	void push(vec2 force) { _pushForce = force; }
+	void push(vec2 force) { if(!_still) _pushForce += force; }
+	
+	bool isStill() { return _still; }
+	void setStill(bool still = true) { _still = still; }
 };

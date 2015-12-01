@@ -288,7 +288,7 @@
 						<key>min key</key>
 						<integer>48</integer>
 						<key>root key</key>
-						<integer>61</integer>
+						<integer>60</integer>
 						<key>waveform</key>
 						<integer>268435457</integer>
 					</dict>
@@ -317,7 +317,7 @@
 	<key>file-references</key>
 	<dict>
 		<key>Sample:268435457</key>
-		<string>/Users/morpheu5/Library/Audio/Sounds/C.wav</string>
+		<string>/Users/morpheu5/Library/Audio/Sounds/Xylo-C5.wav</string>
 	</dict>
 	<key>fine tune</key>
 	<integer>0</integer>

@@ -15,7 +15,7 @@ void BellView::setRadius(float size) {
 void BellView::update() {
 	if(length(_pushForce) > 0.01f) {
 		_position += _pushForce;
-		_pushForce *= vec2(0.9);
+		_pushForce *= vec2(0.5);
 	} else {
 		_pushForce = vec2(0.0f);
 	}
