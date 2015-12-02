@@ -21,6 +21,14 @@
 	_currentScaleName = theApp->getCurrentScaleName();
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	ci::app::setFrameRate(1.0f);
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	ci::app::setFrameRate(60.0f);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

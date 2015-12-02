@@ -1,5 +1,7 @@
 #import "PresetsTableViewController.h"
 
+#include "CircularBellsApp.h"
+
 @interface PresetsTableViewController ()
 
 @end
@@ -10,6 +12,14 @@
     [super viewDidLoad];
 	
 	[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"presetCell"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	ci::app::setFrameRate(1.0f);
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	ci::app::setFrameRate(60.0f);
 }
 
 - (void)didReceiveMemoryWarning {

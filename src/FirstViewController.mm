@@ -97,9 +97,9 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-	if(viewController == ci::app::getWindow()->getNativeViewController()) {
-		ci::app::setFrameRate(60.0f);
-	}
+//	if(viewController == ci::app::getWindow()->getNativeViewController()) {
+//		ci::app::setFrameRate(60.0f);
+//	}
 }
 
 - (IBAction)pullDownPushed:(UIButton *)sender {
@@ -147,7 +147,6 @@
 }
 
 - (IBAction)supportUs:(id)sender {
-	ci::app::setFrameRate(1.0f);
 	SupportUsViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SupportUs"];
 	vc.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	
@@ -204,6 +203,8 @@
 		}];
 	}
 }
+
+// TODO Throttle down and back up on banners.
 
 - (void)viewDidLayoutSubviews {
 	CGSize bigSize = self.view.bounds.size;

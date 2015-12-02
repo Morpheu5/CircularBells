@@ -2,6 +2,8 @@
 #import <StoreKit/StoreKit.h>
 #import "MBProgressHUD.h"
 
+#include "CircularBellsApp.h"
+
 @implementation SupportUsViewController
 
 - (void)viewDidLoad {
@@ -16,6 +18,14 @@
 	}
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAdsPurchased) name:@"RemoveAdsPurchased" object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	ci::app::setFrameRate(1.0f);
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	ci::app::setFrameRate(60.0f);
 }
 
 - (void)didReceiveMemoryWarning {

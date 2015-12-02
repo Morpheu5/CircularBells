@@ -85,10 +85,18 @@ void CircularBellsApp::setup() {
 }
 
 void CircularBellsApp::willResignActive() {
-	ci::app::setFrameRate(0.0f);
+	_cue->reset();
+	_cue = nullptr;
+	_active = false;
+	ci::app::setFrameRate(0.5f);
 }
 
 void CircularBellsApp::didBecomeActive() {
+	_cue = timeline().add(bind(&CircularBellsApp::_timedPush, this), timeline().getCurrentTime() + 1);
+	_cue->setDuration(1);
+	_cue->setAutoRemove(false);
+	_cue->setLoop();
+	_active = true;
 	ci::app::setFrameRate(60.0f);
 }
 
@@ -126,6 +134,10 @@ void CircularBellsApp::_timedPush() {
 }
 
 void CircularBellsApp::update() {
+	if(!_active) {
+		return;
+	}
+	
 	if(_noiseEnabled) {
 		auto subViews = _rootView->getSubviews();
 		for(auto a = subViews.begin(); a != prev(subViews.end()); ++a) {
@@ -148,6 +160,10 @@ void CircularBellsApp::update() {
 }
 
 void CircularBellsApp::draw() {
+	if(!_active) {
+		return;
+	}
+
 	gl::clear(ColorAf(ColorModel::CM_HSV, 300.0f/360.0f, 0.1f, 0.5f, 1.0f));
 	gl::color(Color::white());
 	
@@ -205,6 +221,7 @@ CINDER_APP(CircularBellsApp,
 		   [](App::Settings* settings) {
 			   settings->setHighDensityDisplayEnabled(true);
 			   settings->setMultiTouchEnabled();
+			   settings->setFrameRate(60.0f);
 //			   settings->disableFrameRate();
 			   settings->prepareWindow(Window::Format().rootViewController(sFirstVC));
 		   });

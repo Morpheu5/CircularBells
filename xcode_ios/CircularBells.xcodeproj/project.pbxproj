@@ -17,7 +17,7 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */; };
 		9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03240AEABE9D4FBC87CA7719 /* Images.xcassets */; };
-		A36851CA1C0B4E7C00180A4D /* SupportUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36851C91C0B4E7C00180A4D /* SupportUsViewController.m */; };
+		A36851CA1C0B4E7C00180A4D /* SupportUsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */; };
 		A36851CC1C0B553300180A4D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A36851CB1C0B553300180A4D /* Storyboard.storyboard */; };
 		A38503561C0738D7001F1866 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38503551C0738D7001F1866 /* iAd.framework */; };
 		A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A4C00A1C0C7A9900812274 /* MBProgressHUD.m */; };
@@ -28,7 +28,7 @@
 		A3A9CA9D1C010CA600CAE19B /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = A3A9CA9C1C010CA600CAE19B /* Sounds */; };
 		A3B077771C0DD4E50000C276 /* InstrumentSelectViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B077761C0DD4E50000C276 /* InstrumentSelectViewController.mm */; };
 		A3B0777A1C0DF3BE0000C276 /* InstrumentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B077791C0DF3BE0000C276 /* InstrumentCellView.m */; };
-		A3B077801C0E38440000C276 /* PresetsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B0777F1C0E38440000C276 /* PresetsTableViewController.m */; };
+		A3B077801C0E38440000C276 /* PresetsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B0777F1C0E38440000C276 /* PresetsTableViewController.mm */; };
 		A3BC80841C05CB5D00384791 /* FirstViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3BC80831C05CB5D00384791 /* FirstViewController.mm */; };
 		A3BF67F61C08BAE9006F8B24 /* ScaleSelectionTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3BF67F51C08BAE9006F8B24 /* ScaleSelectionTableViewController.mm */; };
 		A3BF67F81C08CB44006F8B24 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BF67F71C08CB44006F8B24 /* Launch Screen.storyboard */; };
@@ -58,7 +58,7 @@
 		96F8211F2EEB48B5AC79BBB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A36851C41C09B6A800180A4D /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		A36851C81C0B4E7C00180A4D /* SupportUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportUsViewController.h; sourceTree = "<group>"; };
-		A36851C91C0B4E7C00180A4D /* SupportUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportUsViewController.m; sourceTree = "<group>"; };
+		A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SupportUsViewController.mm; sourceTree = "<group>"; };
 		A36851CB1C0B553300180A4D /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		A38503551C0738D7001F1866 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A3A4C0091C0C7A9900812274 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		A3B077781C0DF3BE0000C276 /* InstrumentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentCellView.h; sourceTree = "<group>"; };
 		A3B077791C0DF3BE0000C276 /* InstrumentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstrumentCellView.m; sourceTree = "<group>"; };
 		A3B0777E1C0E38440000C276 /* PresetsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresetsTableViewController.h; sourceTree = "<group>"; };
-		A3B0777F1C0E38440000C276 /* PresetsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresetsTableViewController.m; sourceTree = "<group>"; };
+		A3B0777F1C0E38440000C276 /* PresetsTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PresetsTableViewController.mm; sourceTree = "<group>"; };
 		A3BC80821C05CB5D00384791 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		A3BC80831C05CB5D00384791 /* FirstViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FirstViewController.mm; sourceTree = "<group>"; };
 		A3BF67F41C08BAE9006F8B24 /* ScaleSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleSelectionTableViewController.h; sourceTree = "<group>"; };
@@ -228,11 +228,11 @@
 				A3BF67F41C08BAE9006F8B24 /* ScaleSelectionTableViewController.h */,
 				A3BF67F51C08BAE9006F8B24 /* ScaleSelectionTableViewController.mm */,
 				A36851C81C0B4E7C00180A4D /* SupportUsViewController.h */,
-				A36851C91C0B4E7C00180A4D /* SupportUsViewController.m */,
+				A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */,
 				A3B077751C0DD4E50000C276 /* InstrumentSelectViewController.h */,
 				A3B077761C0DD4E50000C276 /* InstrumentSelectViewController.mm */,
 				A3B0777E1C0E38440000C276 /* PresetsTableViewController.h */,
-				A3B0777F1C0E38440000C276 /* PresetsTableViewController.m */,
+				A3B0777F1C0E38440000C276 /* PresetsTableViewController.mm */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -338,10 +338,10 @@
 			files = (
 				A3EF0AD51C00AB24008D5DBC /* mopView.cpp in Sources */,
 				A3B0777A1C0DF3BE0000C276 /* InstrumentCellView.m in Sources */,
-				A36851CA1C0B4E7C00180A4D /* SupportUsViewController.m in Sources */,
+				A36851CA1C0B4E7C00180A4D /* SupportUsViewController.mm in Sources */,
 				A3BF67F61C08BAE9006F8B24 /* ScaleSelectionTableViewController.mm in Sources */,
 				A3BC80841C05CB5D00384791 /* FirstViewController.mm in Sources */,
-				A3B077801C0E38440000C276 /* PresetsTableViewController.m in Sources */,
+				A3B077801C0E38440000C276 /* PresetsTableViewController.mm in Sources */,
 				A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */,
 				D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */,
 				A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */,

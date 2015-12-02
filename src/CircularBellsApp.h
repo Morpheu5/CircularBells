@@ -36,6 +36,8 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	
 	string _instrumentName;
 	
+	bool _active = true;
+	
 public:
 	void setup() override;
 	void update() override;
