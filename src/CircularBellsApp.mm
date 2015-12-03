@@ -34,14 +34,17 @@ void CircularBellsApp::setup() {
 	getWindow()->getSignalTouchesMoved().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchMoved));
 	getWindow()->getSignalTouchesEnded().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchEnded));
 	
-	_scales["Major"] =		{ 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24 };
-	_scales["Dorian"] =		{ 0, 2, 3, 5, 7, 9, 10, 12, 14, 15, 17, 19, 21, 22, 24 };
-	_scales["Phrygian"] =	{ 0, 1, 3, 5, 7, 8, 10, 12, 13, 15, 17, 19, 20, 22, 24 };
-	_scales["Lydian"] =		{ 0, 2, 4, 6, 7, 9, 11, 12, 14, 16, 18, 19, 21, 23, 24 };
-	_scales["Myxolydian"] =	{ 0, 2, 4, 5, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24 };
-	_scales["Minor"] =		{ 0, 2, 3, 5, 7, 8, 10, 12, 14, 15, 17, 19, 20, 22, 24 };
-	_scales["Locrian"] =	{ 0, 1, 3, 5, 6, 8, 10, 12, 13, 15, 17, 18, 20, 22, 24 };
-
+	_scales.push_back(pair<string, vector<int>>("Major", { 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24 }));
+	_scales.push_back(pair<string, vector<int>>("Dorian", { 0, 2, 3, 5, 7, 9, 10, 12, 14, 15, 17, 19, 21, 22, 24 }));
+	_scales.push_back(pair<string, vector<int>>("Phrygian", { 0, 1, 3, 5, 7, 8, 10, 12, 13, 15, 17, 19, 20, 22, 24 }));
+	_scales.push_back(pair<string, vector<int>>("Lydian", { 0, 2, 4, 6, 7, 9, 11, 12, 14, 16, 18, 19, 21, 23, 24 }));
+	_scales.push_back(pair<string, vector<int>>("Myxolydian", { 0, 2, 4, 5, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24 }));
+	_scales.push_back(pair<string, vector<int>>("Minor", { 0, 2, 3, 5, 7, 8, 10, 12, 14, 15, 17, 19, 20, 22, 24 }));
+	_scales.push_back(pair<string, vector<int>>("Locrian", { 0, 1, 3, 5, 6, 8, 10, 12, 13, 15, 17, 18, 20, 22, 24 }));
+	setCurrentScale("Major");
+	setInstrument("CircBell");
+	
+	// Make them bells!
 	vector<ColorAf> colors {
 		ColorAf(ColorModel::CM_HSV,         0.0, 1.0, 0.8, 1.0),		//
 		ColorAf(ColorModel::CM_HSV,  30.0/360.0, 1.0, 1.0, 1.0),		//
@@ -51,12 +54,11 @@ void CircularBellsApp::setup() {
 		ColorAf(ColorModel::CM_HSV, 210.0/360.0, 1.0, 0.8, 1.0),		//
 		ColorAf(ColorModel::CM_HSV, 290.0/360.0, 1.0, 0.8, 1.0),		//
 	};
-	_tones = _scales["Major"];
 	float a = toRadians(360.0/(_tones.size()+1));
 	for(int i = 0; i < _tones.size(); ++i) {
 		auto v = make_shared<BellView>();
 		v->setSize(vec2(100.0f));
-		vec2 rPos = vec2(rotate(a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0));
+		vec2 rPos = vec2(rotate((float)M_PI-a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0));
 		v->setPosition(rPos);
 		v->getTouchDownInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchDown));
 		v->getTouchUpInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
@@ -69,11 +71,8 @@ void CircularBellsApp::setup() {
 		v->setColor(color);
 		_rootView->addSubView(v);
 	}
-	_currentScaleName = "Major";
-	
-	_rootView->getTouchDragInside().connect(ci::signals::slot(this, &CircularBellsApp::rootDragged));
 
-	setInstrument("CircBell");
+	_rootView->getTouchDragInside().connect(ci::signals::slot(this, &CircularBellsApp::rootDragged));
 	
 	_cue = timeline().add(bind(&CircularBellsApp::_timedPush, this), timeline().getCurrentTime() + 1);
 	_cue->setDuration(1);
@@ -115,9 +114,12 @@ vector<string> CircularBellsApp::getAvailableScales() {
 }
 
 void CircularBellsApp::setCurrentScale(string name) {
-	if(_scales.find(name) != _scales.end()) {
-		_tones = _scales[name];
-		_currentScaleName = name;
+	for(auto it = _scales.begin(); it != _scales.end(); ++it) {
+		if(it->first == name) {
+			_tones = it->second;
+			_currentScaleName = name;
+			return;
+		}
 	}
 }
 
@@ -149,11 +151,15 @@ void CircularBellsApp::update() {
 					auto bPos = bBell->getPosition();
 					auto aRadius = aBell->getRadius();
 					auto bRadius = bBell->getRadius();
-					float F = 0.25f * (aRadius*bRadius)/pow(length(aPos-bPos)*2.0f, 2.0f);
+					float F = 5*(aRadius*bRadius)/pow(length(aPos-bPos)*3.0f, 2.0f);
 					aBell->push(F * normalize(aPos - bPos));
 					bBell->push(F * normalize(bPos - aPos));
 				}
 			}
+		}
+		for(auto b : subViews) {
+			auto bell = dynamic_pointer_cast<BellView>(b);
+			bell->push(-0.001f * bell->getPosition());
 		}
 	}
 	_rootView->update();
@@ -177,7 +183,6 @@ void CircularBellsApp::draw() {
 }
 
 void CircularBellsApp::resize() {
-	console() << getWindowSize() << endl;
 	_w = getWindowWidth()/(_zoom);
 	_h = getWindowHeight()/(_zoom);
 	_cam.lookAt(vec3(_pan, 1), vec3(_pan, 0));

@@ -42,11 +42,11 @@
 																   style:UIBarButtonItemStylePlain
 																  target:self
 																  action:@selector(bellPushed:)];
-	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
-																	  style:UIBarButtonItemStylePlain
-																	 target:self
-																	 action:@selector(presetsPushed:)];
-	UIBarButtonItem *perlinButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/pause.png"]
+//	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
+//																	  style:UIBarButtonItemStylePlain
+//																	 target:self
+//																	 action:@selector(presetsPushed:)];
+	UIBarButtonItem *perlinButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/perlin.png"]
 																	 style:UIBarButtonItemStylePlain
 																	target:self
 																	action:@selector(togglePerlin:)];
@@ -94,12 +94,6 @@
 
 - (BOOL)prefersStatusBarHidden {
 	return YES;
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//	if(viewController == ci::app::getWindow()->getNativeViewController()) {
-//		ci::app::setFrameRate(60.0f);
-//	}
 }
 
 - (IBAction)pullDownPushed:(UIButton *)sender {
@@ -221,8 +215,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-	[[SKPaymentQueue defaultQueue] removeTransactionObserver:_storeObserver];
-	_storeObserver = nil;
 }
 
 @end

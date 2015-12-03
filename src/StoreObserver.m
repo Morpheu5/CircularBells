@@ -31,7 +31,8 @@
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
 	if([transaction.payment.productIdentifier isEqualToString:@"net.morpheu5.circularbells.removeads"]) {
-		[[NSUserDefaults standardUserDefaults] setObject:transaction.transactionReceipt forKey:@"RemoveAds"];
+//		[[NSUserDefaults standardUserDefaults] setObject:transaction.transactionReceipt forKey:@"RemoveAds"];
+		[[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"RemoveAds"];
 		[[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveAdsPurchased" object:self];
 	}
@@ -39,7 +40,8 @@
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
 	if([transaction.payment.productIdentifier isEqualToString:@"net.morpheu5.circularbells.removeads"]) {
-		[[NSUserDefaults standardUserDefaults] setObject:transaction.transactionReceipt forKey:@"RemoveAds"];
+//		[[NSUserDefaults standardUserDefaults] setObject:transaction.transactionReceipt forKey:@"RemoveAds"];
+		[[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"RemoveAds"];
 		[[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveAdsPurchased" object:self];
 	}

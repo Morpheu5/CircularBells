@@ -3,16 +3,28 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>preset</key>
-		<string>CircBell</string>
 		<key>name</key>
 		<string>Tone Bells</string>
+		<key>preset</key>
+		<string>CircBell</string>
+		<key>iap</key>
+		<false/>
 	</dict>
 	<dict>
-		<key>preset</key>
-		<string>Xylo</string>
 		<key>name</key>
 		<string>Xylophone</string>
+		<key>preset</key>
+		<string>Xylo</string>
+		<key>iap</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Vibraphone</string>
+		<key>preset</key>
+		<string>Vibraphone</string>
+		<key>iap</key>
+		<false/>
 	</dict>
 </array>
 </plist>

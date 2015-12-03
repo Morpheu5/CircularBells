@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are a tiny bunch of app makers. If you like Circular Bells, here is how you can support us to make more beautiful apps!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-aa-zNN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are a tiny bunch of app makers. If you like Circular Bells, here is how you can support us to make more beautiful apps!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-aa-zNN">
                                 <rect key="frame" x="20" y="28" width="560" height="78"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Ads" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-DZ-1tj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Ads" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-DZ-1tj">
                                 <rect key="frame" x="73" y="126" width="94" height="20"/>
                                 <animations/>
                                 <constraints>
@@ -52,8 +52,8 @@
                                     <action selector="removeAdsPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="ZA8-n3-MNA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gh-92-10r">
-                                <rect key="frame" x="73" y="154" width="507" height="62"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="8gh-92-10r">
+                                <rect key="frame" x="73" y="154" width="507" height="20"/>
                                 <animations/>
                                 <string key="text">You don't like ads. That's OK, we don't like them either, but we need them to keep making great apps. Hit the cart button and get rid of them for a small fee… or for free if you already paid for this!</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -69,8 +69,8 @@
                                     <action selector="restorePurchasesPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jb7-BB-Nq6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-Ja-0ck">
-                                <rect key="frame" x="73" y="236" width="119" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-Ja-0ck">
+                                <rect key="frame" x="73" y="194" width="119" height="20"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="X1A-rc-5ew"/>
@@ -85,7 +85,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaS-21-aYD">
-                                <rect key="frame" x="20" y="236" width="45" height="45"/>
+                                <rect key="frame" x="20" y="194" width="45" height="45"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="ch6-ZA-fB7"/>
@@ -96,13 +96,26 @@
                                     <action selector="commentPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="TCs-Mp-LDo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you like this app, why not tell others? Rate this app on the App Store, and leave a comment." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-Jw-dWU">
-                                <rect key="frame" x="73" y="264" width="507" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you like this app, why not tell others? Rate this app on the App Store, and leave a comment." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-Jw-dWU">
+                                <rect key="frame" x="73" y="222" width="507" height="20"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-JJ-dn4">
+                                <rect key="frame" x="210" y="282" width="181" height="49"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                                <state key="normal" title="Get in touch!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getInTouchPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jHQ-R6-V3F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,6 +124,7 @@
                             <constraint firstItem="cLT-Ja-0ck" firstAttribute="top" secondItem="GaS-21-aYD" secondAttribute="top" id="5Nx-gi-L72"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dcn-aa-zNN" secondAttribute="trailing" id="6Jg-oz-dQ1"/>
                             <constraint firstItem="Mnd-Jw-dWU" firstAttribute="top" secondItem="cLT-Ja-0ck" secondAttribute="bottom" constant="8" id="Bt7-La-fIs"/>
+                            <constraint firstItem="bPw-JJ-dn4" firstAttribute="top" secondItem="Mnd-Jw-dWU" secondAttribute="bottom" constant="40" id="DEB-r3-UMO"/>
                             <constraint firstItem="GaS-21-aYD" firstAttribute="top" secondItem="8gh-92-10r" secondAttribute="bottom" constant="20" id="GBm-2I-m7a"/>
                             <constraint firstItem="iju-YR-Ana" firstAttribute="top" secondItem="a3M-Yu-QIu" secondAttribute="bottom" constant="20" id="JvL-PB-unK"/>
                             <constraint firstItem="8gh-92-10r" firstAttribute="leading" secondItem="DTY-DZ-1tj" secondAttribute="leading" id="LEK-tg-tAl"/>
@@ -126,18 +140,20 @@
                             <constraint firstItem="KOA-pI-fEV" firstAttribute="top" secondItem="dcn-aa-zNN" secondAttribute="bottom" constant="20" id="oY8-Dr-hMy"/>
                             <constraint firstAttribute="leadingMargin" secondItem="GaS-21-aYD" secondAttribute="leading" id="sKi-6m-kRk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Mnd-Jw-dWU" secondAttribute="trailing" id="tfu-ty-W7Q"/>
+                            <constraint firstItem="bPw-JJ-dn4" firstAttribute="centerX" secondItem="w9J-b7-c1t" secondAttribute="centerX" id="uwj-5h-lsH"/>
                             <constraint firstItem="a3M-Yu-QIu" firstAttribute="centerX" secondItem="w9J-b7-c1t" secondAttribute="centerX" id="xjo-DV-8Y4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentButton" destination="GaS-21-aYD" id="MCS-Kv-q6s"/>
+                        <outlet property="getInTouchButton" destination="bPw-JJ-dn4" id="sAm-gY-4OU"/>
                         <outlet property="removeAdsButton" destination="KOA-pI-fEV" id="Ufs-yQ-uSP"/>
                         <outlet property="removeAdsLabel" destination="DTY-DZ-1tj" id="l6A-Wj-gHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9w-de-wWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589" y="502"/>
+            <point key="canvasLocation" x="589" y="501"/>
         </scene>
         <!--Instrument Select View Controller-->
         <scene sceneID="mJZ-J3-Vl1">
@@ -168,7 +184,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

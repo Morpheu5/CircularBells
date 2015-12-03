@@ -17,6 +17,9 @@
 		[self removeAdsPurchased];
 	}
 	
+	_getInTouchButton.layer.cornerRadius = 6.0;
+	_getInTouchButton.clipsToBounds = YES;
+	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAdsPurchased) name:@"RemoveAdsPurchased" object:nil];
 }
 
@@ -35,6 +38,10 @@
 
 - (BOOL)prefersStatusBarHidden {
 	return YES;
+}
+
+- (IBAction)getInTouchPushed:(UIButton *)sender {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.andreafranceschini.org/contact"]];
 }
 
 - (IBAction)restorePurchasesPushed:(UIButton *)sender {

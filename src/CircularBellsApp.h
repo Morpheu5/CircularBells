@@ -25,13 +25,13 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	
 	Perlin _noise;
 	CueRef _cue;
-	bool _noiseEnabled = true;
+	bool _noiseEnabled = false;
 	
 	void _timedPush();
 	
 	int _root;
 	vector<int> _tones;
-	map<string, vector<int>> _scales;
+	vector<pair<string, vector<int>>> _scales;
 	string _currentScaleName;
 	
 	string _instrumentName;

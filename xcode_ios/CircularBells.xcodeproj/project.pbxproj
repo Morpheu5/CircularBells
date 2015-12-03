@@ -17,6 +17,8 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */; };
 		9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03240AEABE9D4FBC87CA7719 /* Images.xcassets */; };
+		A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A31340AC1C10A4DF0099FED3 /* iTunesArtwork */; };
+		A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */; };
 		A36851CA1C0B4E7C00180A4D /* SupportUsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */; };
 		A36851CC1C0B553300180A4D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A36851CB1C0B553300180A4D /* Storyboard.storyboard */; };
 		A38503561C0738D7001F1866 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38503551C0738D7001F1866 /* iAd.framework */; };
@@ -44,7 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00692BCF14FF149000D0A05E /* CircularBells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircularBells.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00692BCF14FF149000D0A05E /* Circular Bells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circular Bells.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00748057165D41390024B57A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
 		0087D25412CD809F002CD69F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		00A66A351965AC8800B17EB3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -56,6 +58,8 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		96F8211F2EEB48B5AC79BBB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A31340AC1C10A4DF0099FED3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		A36851C41C09B6A800180A4D /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		A36851C81C0B4E7C00180A4D /* SupportUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportUsViewController.h; sourceTree = "<group>"; };
 		A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SupportUsViewController.mm; sourceTree = "<group>"; };
@@ -142,7 +146,7 @@
 		00692BD014FF149000D0A05E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00692BCF14FF149000D0A05E /* CircularBells.app */,
+				00692BCF14FF149000D0A05E /* Circular Bells.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,6 +195,8 @@
 		00692BD914FF149000D0FFFF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A31340AC1C10A4DF0099FED3 /* iTunesArtwork */,
+				A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */,
 				BEBF5E2121D644A190B307D0 /* CircularBells_Prefix.pch */,
 				F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */,
 				03240AEABE9D4FBC87CA7719 /* Images.xcassets */,
@@ -263,9 +269,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00692BCE14FF149000D0A05E /* CircularBells */ = {
+		00692BCE14FF149000D0A05E /* Circular Bells */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "CircularBells" */;
+			buildConfigurationList = 00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "Circular Bells" */;
 			buildPhases = (
 				00692BCB14FF149000D0A05E /* Sources */,
 				00692BCC14FF149000D0A05E /* Frameworks */,
@@ -275,9 +281,9 @@
 			);
 			dependencies = (
 			);
-			name = CircularBells;
+			name = "Circular Bells";
 			productName = CircularBells;
-			productReference = 00692BCF14FF149000D0A05E /* CircularBells.app */;
+			productReference = 00692BCF14FF149000D0A05E /* Circular Bells.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -310,7 +316,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00692BCE14FF149000D0A05E /* CircularBells */,
+				00692BCE14FF149000D0A05E /* Circular Bells */,
 			);
 		};
 /* End PBXProject section */
@@ -323,6 +329,8 @@
 				A3BF67F81C08CB44006F8B24 /* Launch Screen.storyboard in Resources */,
 				A3A9CA9D1C010CA600CAE19B /* Sounds in Resources */,
 				00748058165D41390024B57A /* assets in Resources */,
+				A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */,
+				A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */,
 				46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */,
 				9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */,
 				A36851CC1C0B553300180A4D /* Storyboard.storyboard in Resources */,
@@ -393,7 +401,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,7 +443,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,7 +475,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e677647f-b123-45b3-a88b-a2ad66c03e1c";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -495,7 +503,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "42bc9de1-533d-498f-815b-966ad277953d";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -512,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "CircularBells" */ = {
+		00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "Circular Bells" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00692BF614FF149000D0A05E /* Debug */,
