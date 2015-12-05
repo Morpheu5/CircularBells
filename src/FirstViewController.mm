@@ -50,12 +50,16 @@
 																	 style:UIBarButtonItemStylePlain
 																	target:self
 																	action:@selector(togglePerlin:)];
+	UIBarButtonItem *lockButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/unlocked.png"]
+																   style:UIBarButtonItemStylePlain
+																  target:self
+																  action:@selector(toggleLock:)];
 	UIBarButtonItem *supportUsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/info.png"]
 																		style:UIBarButtonItemStylePlain
 																	   target:self
 																	   action:@selector(supportUs:)];
 	
-	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, keyButton, bellButton, /*presetsButton,*/ perlinButton]];
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, keyButton, bellButton, /*presetsButton,*/ perlinButton, lockButton]];
 	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton]];
 	
 	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];
@@ -155,6 +159,16 @@
 		[sender setImage:[UIImage imageNamed:@"assets/icons/pause.png"]];
 	} else {
 		[sender setImage:[UIImage imageNamed:@"assets/icons/perlin.png"]];
+	}
+}
+
+- (void)toggleLock:(UIBarButtonItem *)sender {
+	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
+	theApp->toggleLocked();
+	if(theApp->isLocked()) {
+		[sender setImage:[UIImage imageNamed:@"assets/icons/locked.png"]];
+	} else {
+		[sender setImage:[UIImage imageNamed:@"assets/icons/unlocked.png"]];
 	}
 }
 

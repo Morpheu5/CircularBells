@@ -209,12 +209,20 @@ void CircularBellsApp::noteViewTouchUp(mop::View *view, mop::TouchSignalType typ
 }
 
 void CircularBellsApp::noteViewDragged(mop::View *view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
+	if(_locked) {
+		return;
+	}
+
 	if(auto bellView = static_cast<BellView*>(view)) {
 		bellView->setPosition(bellView->getPosition() + position - prevPosition);
 	}
 }
 
 void CircularBellsApp::rootDragged(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
+	if(_locked) {
+		return;
+	}
+	
 	_pan -= (position - prevPosition);
 	_cam.lookAt(vec3(_pan, 1), vec3(_pan, 0));
 	_cam.setOrtho(-_w/_zoom, _w/_zoom, -_h/_zoom, _h/_zoom, -1000, 1000);

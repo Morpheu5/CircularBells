@@ -37,6 +37,7 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	string _instrumentName;
 	
 	bool _active = true;
+	bool _locked = false;
 	
 public:
 	void setup() override;
@@ -68,4 +69,6 @@ public:
 	
 	void togglePerlin() { _noiseEnabled = !_noiseEnabled; }
 	bool isPerlinEnabled() { return _noiseEnabled; }
+	void toggleLocked() { _locked = !_locked; }
+	bool isLocked() { return _locked; }
 };
