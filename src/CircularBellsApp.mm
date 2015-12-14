@@ -17,7 +17,7 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-FirstViewController *sFirstVC = [[FirstViewController alloc] init];
+FirstViewController *sFirstVC = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"FirstVC"];//[[FirstViewController alloc] init];
 
 void CircularBellsApp::setup() {
 	_zoom = 1.0;
@@ -54,6 +54,7 @@ void CircularBellsApp::setup() {
 		ColorAf(ColorModel::CM_HSV, 210.0/360.0, 1.0, 0.8, 1.0),		//
 		ColorAf(ColorModel::CM_HSV, 290.0/360.0, 1.0, 0.8, 1.0),		//
 	};
+	//console() << _w << " " << _h << endl;
 	float a = toRadians(360.0/(_tones.size()+1));
 	for(int i = 0; i < _tones.size(); ++i) {
 		auto v = make_shared<BellView>();
@@ -87,7 +88,7 @@ void CircularBellsApp::willResignActive() {
 	_cue->reset();
 	_cue = nullptr;
 	_active = false;
-	ci::app::setFrameRate(0.5f);
+	ci::app::setFrameRate(0.1f);
 }
 
 void CircularBellsApp::didBecomeActive() {
@@ -151,7 +152,7 @@ void CircularBellsApp::update() {
 					auto bPos = bBell->getPosition();
 					auto aRadius = aBell->getRadius();
 					auto bRadius = bBell->getRadius();
-					float F = 5*(aRadius*bRadius)/pow(length(aPos-bPos)*3.0f, 2.0f);
+					float F = (_w * 0.08)*(aRadius*bRadius)/pow(length(aPos-bPos)*3.0f, 2.0f);
 					aBell->push(F * normalize(aPos - bPos));
 					bBell->push(F * normalize(bPos - aPos));
 				}
@@ -159,7 +160,7 @@ void CircularBellsApp::update() {
 		}
 		for(auto b : subViews) {
 			auto bell = dynamic_pointer_cast<BellView>(b);
-			bell->push(-0.001f * bell->getPosition());
+			bell->push(-0.01f * bell->getPosition());
 		}
 	}
 	_rootView->update();

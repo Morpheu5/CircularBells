@@ -21,6 +21,10 @@
 	_getInTouchButton.clipsToBounds = YES;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAdsPurchased) name:@"RemoveAdsPurchased" object:nil];
+
+	[_contentView sizeToFit];
+	_scrollView.contentSize = _contentView.bounds.size;
+	NSLog(@"%f %f", _scrollView.contentSize.width, _scrollView.contentSize.height);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -29,6 +33,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 	ci::app::setFrameRate(60.0f);
+	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
+	cinderViewParent.title = @"";
 }
 
 - (void)didReceiveMemoryWarning {

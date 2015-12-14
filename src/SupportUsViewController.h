@@ -10,6 +10,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *getInTouchButton;
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+
 - (void)removeAdsPurchased;
 - (IBAction)removeAdsPushed:(UIButton *)sender;
 - (IBAction)commentPushed:(UIButton *)sender;

@@ -479,7 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e677647f-b123-45b3-a88b-a2ad66c03e1c";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -507,7 +507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "57317f52-5ede-4281-a30e-17e7452b102d";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

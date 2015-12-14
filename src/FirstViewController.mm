@@ -24,7 +24,7 @@
 	
 	cinderViewParent.navigationController.delegate = self;
 	
-	cinderViewParent.title = @"Circular Bells";
+//	cinderViewParent.title = @"Circular Bells";
 	[self setNavigationBarHidden:YES];
 	[self.navigationBar setTintColor:[UIColor purpleColor]];
 	UIBarButtonItem *leftSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -145,6 +145,8 @@
 }
 
 - (IBAction)supportUs:(id)sender {
+	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
+	cinderViewParent.title = @"Back";
 	SupportUsViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SupportUs"];
 	vc.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	
