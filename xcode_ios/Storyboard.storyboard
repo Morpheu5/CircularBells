@@ -31,21 +31,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-97-BBM">
+                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-97-BBM">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
-                                    <view autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="IXF-KF-KCH">
+                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="IXF-KF-KCH">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="We are a tiny bunch of app makers. If you like Circular Bells, here is how you can support us to make more beautiful apps!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-aa-zNN" userLabel="Big Head">
-                                                <rect key="frame" x="8" y="28" width="584" height="77.5"/>
+                                                <rect key="frame" x="8" y="203" width="584" height="77.5"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOA-pI-fEV">
-                                                <rect key="frame" x="20" y="125.5" width="45" height="45"/>
+                                                <rect key="frame" x="20" y="300.5" width="45" height="45"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="yKJ-Vd-bdq"/>
@@ -57,7 +57,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Ads" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-DZ-1tj" userLabel="Remove Ads Title">
-                                                <rect key="frame" x="73" y="125.5" width="93.5" height="19.5"/>
+                                                <rect key="frame" x="73" y="301" width="93.5" height="19.5"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="mIT-YC-AOO"/>
@@ -72,7 +72,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="8gh-92-10r" userLabel="Remove Ads Description">
-                                                <rect key="frame" x="73" y="153.5" width="507" height="19.5"/>
+                                                <rect key="frame" x="73" y="329" width="507" height="19.5"/>
                                                 <animations/>
                                                 <string key="text">You don't like ads. That's OK, we don't like them either, but we need them to keep making great apps. Hit the cart button and get rid of them for a small fee… or for free if you already paid for this!</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -80,7 +80,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaS-21-aYD" userLabel="Feedback Button">
-                                                <rect key="frame" x="20" y="192.5" width="45" height="45"/>
+                                                <rect key="frame" x="20" y="368.5" width="45" height="45"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="0Dp-Wm-BhB"/>
@@ -92,7 +92,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-Ja-0ck" userLabel="Feedback Title">
-                                                <rect key="frame" x="73" y="192.5" width="118.5" height="19.5"/>
+                                                <rect key="frame" x="73" y="369" width="118.5" height="19.5"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="X1A-rc-5ew"/>
@@ -107,52 +107,80 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="If you like this app, why not tell others? Rate this app on the App Store, and leave a comment." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-Jw-dWU" userLabel="Feedback Description">
-                                                <rect key="frame" x="73" y="220.5" width="507" height="19.5"/>
+                                                <rect key="frame" x="73" y="397" width="507" height="19.5"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-JJ-dn4">
-                                                <rect key="frame" x="209" y="259.5" width="181" height="49"/>
-                                                <animations/>
-                                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-J8-MQG">
+                                                <rect key="frame" x="106" y="446.5" width="388" height="49"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3M-Yu-QIu" userLabel="Restore purchases Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="49"/>
+                                                        <animations/>
+                                                        <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.50196081399917603" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="49" id="vKc-MK-9so"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                                                        <state key="normal" title="Restore purchases"/>
+                                                        <connections>
+                                                            <action selector="restorePurchasesPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jb7-BB-Nq6"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-JJ-dn4">
+                                                        <rect key="frame" x="214" y="0.0" width="174" height="49"/>
+                                                        <animations/>
+                                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="49" id="EcD-c3-HOn"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                                                        <state key="normal" title="Get in touch!">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="getInTouchPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jHQ-R6-V3F"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="49" id="Wxm-Cm-MHx"/>
+                                                    <constraint firstItem="bPw-JJ-dn4" firstAttribute="leading" secondItem="a3M-Yu-QIu" secondAttribute="trailing" constant="40" id="2Rd-bd-jSa"/>
+                                                    <constraint firstAttribute="bottom" secondItem="a3M-Yu-QIu" secondAttribute="bottom" id="3n3-Wu-h1f"/>
+                                                    <constraint firstItem="a3M-Yu-QIu" firstAttribute="top" secondItem="hBK-J8-MQG" secondAttribute="top" id="FSP-zR-RII"/>
+                                                    <constraint firstItem="bPw-JJ-dn4" firstAttribute="width" secondItem="a3M-Yu-QIu" secondAttribute="width" id="UaO-2z-Ykq"/>
+                                                    <constraint firstItem="bPw-JJ-dn4" firstAttribute="top" secondItem="hBK-J8-MQG" secondAttribute="top" id="VSs-aQ-3bK"/>
+                                                    <constraint firstItem="a3M-Yu-QIu" firstAttribute="leading" secondItem="hBK-J8-MQG" secondAttribute="leading" id="dOk-DA-u6z"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bPw-JJ-dn4" secondAttribute="bottom" id="eDa-Im-1yI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bPw-JJ-dn4" secondAttribute="trailing" id="gja-2Y-xUx"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
-                                                <state key="normal" title="Get in touch!">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="getInTouchPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jHQ-R6-V3F"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3M-Yu-QIu" userLabel="Restore purchases Button">
-                                                <rect key="frame" x="229" y="328.5" width="142" height="32"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <state key="normal" title="Restore purchases"/>
-                                                <connections>
-                                                    <action selector="restorePurchasesPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jb7-BB-Nq6"/>
-                                                </connections>
-                                            </button>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assets/colorwheel.png" translatesAutoresizingMaskIntoConstraints="NO" id="qUh-KF-ga5">
+                                                <rect key="frame" x="212.5" y="20" width="175" height="175"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="175" id="X7E-IB-yyC"/>
+                                                    <constraint firstAttribute="height" constant="175" id="hfw-WR-mZ6"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="dcn-aa-zNN" firstAttribute="top" secondItem="IXF-KF-KCH" secondAttribute="topMargin" constant="20" id="2G8-26-wO6"/>
+                                            <constraint firstItem="qUh-KF-ga5" firstAttribute="centerX" secondItem="IXF-KF-KCH" secondAttribute="centerX" id="0gx-0h-YnJ"/>
+                                            <constraint firstItem="hBK-J8-MQG" firstAttribute="centerX" secondItem="IXF-KF-KCH" secondAttribute="centerX" id="3FY-Hs-8Hh"/>
                                             <constraint firstItem="Mnd-Jw-dWU" firstAttribute="top" secondItem="cLT-Ja-0ck" secondAttribute="bottom" constant="8" id="503-n2-ckA"/>
+                                            <constraint firstItem="dcn-aa-zNN" firstAttribute="top" secondItem="qUh-KF-ga5" secondAttribute="bottom" constant="8" id="7am-md-f2W"/>
                                             <constraint firstItem="DTY-DZ-1tj" firstAttribute="leading" secondItem="KOA-pI-fEV" secondAttribute="trailing" constant="8" id="7bj-Jw-yw2"/>
                                             <constraint firstItem="KOA-pI-fEV" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leading" constant="20" id="8bQ-kZ-w3z"/>
-                                            <constraint firstItem="a3M-Yu-QIu" firstAttribute="top" secondItem="bPw-JJ-dn4" secondAttribute="bottom" constant="20" id="8kk-mw-2m9"/>
+                                            <constraint firstItem="hBK-J8-MQG" firstAttribute="top" secondItem="Mnd-Jw-dWU" secondAttribute="bottom" constant="30" id="Bt8-zN-QnJ"/>
                                             <constraint firstItem="DTY-DZ-1tj" firstAttribute="top" secondItem="KOA-pI-fEV" secondAttribute="top" id="G6t-KY-jQS"/>
-                                            <constraint firstItem="a3M-Yu-QIu" firstAttribute="centerX" secondItem="bPw-JJ-dn4" secondAttribute="centerX" id="PQG-05-jHP"/>
+                                            <constraint firstItem="qUh-KF-ga5" firstAttribute="top" secondItem="IXF-KF-KCH" secondAttribute="top" constant="20" id="Gs8-8v-mbJ"/>
                                             <constraint firstItem="dcn-aa-zNN" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leadingMargin" id="QDA-t4-p5f"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="dcn-aa-zNN" secondAttribute="trailing" id="ZS1-5V-qvT"/>
-                                            <constraint firstItem="bPw-JJ-dn4" firstAttribute="centerX" secondItem="IXF-KF-KCH" secondAttribute="centerX" id="Zxf-3F-fMV"/>
                                             <constraint firstItem="cLT-Ja-0ck" firstAttribute="top" secondItem="GaS-21-aYD" secondAttribute="top" id="aNY-wd-gCe"/>
-                                            <constraint firstItem="bPw-JJ-dn4" firstAttribute="top" secondItem="Mnd-Jw-dWU" secondAttribute="bottom" constant="20" id="adk-mP-njY"/>
                                             <constraint firstItem="GaS-21-aYD" firstAttribute="top" secondItem="8gh-92-10r" secondAttribute="bottom" constant="20" id="bFo-3G-f8A"/>
                                             <constraint firstItem="8gh-92-10r" firstAttribute="top" secondItem="DTY-DZ-1tj" secondAttribute="bottom" constant="8" id="c3f-UJ-Bha"/>
                                             <constraint firstAttribute="trailing" secondItem="8gh-92-10r" secondAttribute="trailing" constant="20" id="ckK-N7-EFt"/>
@@ -193,6 +221,7 @@
                         <outlet property="getInTouchButton" destination="bPw-JJ-dn4" id="sAm-gY-4OU"/>
                         <outlet property="removeAdsButton" destination="KOA-pI-fEV" id="Ufs-yQ-uSP"/>
                         <outlet property="removeAdsLabel" destination="DTY-DZ-1tj" id="l6A-Wj-gHT"/>
+                        <outlet property="restorePurchasesButton" destination="a3M-Yu-QIu" id="HZo-df-nm5"/>
                         <outlet property="scrollView" destination="vaf-97-BBM" id="ID6-cF-xa1"/>
                     </connections>
                 </viewController>
@@ -271,6 +300,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="assets/colorwheel.png" width="16" height="16"/>
         <image name="assets/icons/comment.png" width="16" height="16"/>
         <image name="assets/icons/purchase.png" width="16" height="16"/>
     </resources>

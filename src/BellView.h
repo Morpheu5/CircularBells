@@ -5,6 +5,7 @@
 class BellView : public mop::View {
 	float _radius = 0.0f;
 	ColorAf _color = ColorAf(0,0,0,1);
+	ColorAf _rimMultColor = ColorAf(0.8f, 0.8f, 0.8f, 1.0f);
 	int _pitch = -1;
 	
 	gl::BatchRef _rimCircle = nullptr;

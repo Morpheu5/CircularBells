@@ -17,6 +17,10 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */; };
 		9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03240AEABE9D4FBC87CA7719 /* Images.xcassets */; };
+		A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FA1C1F35AC0002446F /* Fabric.framework */; };
+		A305D2011C1F36940002446F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FE1C1F36940002446F /* Security.framework */; };
+		A305D2021C1F36940002446F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FF1C1F36940002446F /* SystemConfiguration.framework */; };
+		A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D2001C1F36940002446F /* Crashlytics.framework */; };
 		A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A31340AC1C10A4DF0099FED3 /* iTunesArtwork */; };
 		A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */; };
 		A36851CA1C0B4E7C00180A4D /* SupportUsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */; };
@@ -58,6 +62,10 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		96F8211F2EEB48B5AC79BBB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A305D1FA1C1F35AC0002446F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		A305D1FE1C1F36940002446F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A305D1FF1C1F36940002446F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A305D2001C1F36940002446F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		A31340AC1C10A4DF0099FED3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		A36851C41C09B6A800180A4D /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
@@ -111,18 +119,22 @@
 			files = (
 				A38503561C0738D7001F1866 /* iAd.framework in Frameworks */,
 				C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */,
+				A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */,
 				C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */,
+				A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */,
 				C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */,
 				DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
+				A305D2021C1F36940002446F /* SystemConfiguration.framework in Frameworks */,
 				00CFDF6B1138442D0091E310 /* CoreGraphics.framework in Frameworks */,
 				C727C02E121B400300192073 /* CoreVideo.framework in Frameworks */,
 				C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */,
 				A3A4C0101C0DB28200812274 /* StoreKit.framework in Frameworks */,
 				00A66A361965AC8800B17EB3 /* Accelerate.framework in Frameworks */,
+				A305D2011C1F36940002446F /* Security.framework in Frameworks */,
 				0087D25512CD809F002CD69F /* CoreText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +166,10 @@
 		00692BD214FF149000D0A05E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A305D1FE1C1F36940002446F /* Security.framework */,
+				A305D1FF1C1F36940002446F /* SystemConfiguration.framework */,
+				A305D2001C1F36940002446F /* Crashlytics.framework */,
+				A305D1FA1C1F35AC0002446F /* Fabric.framework */,
 				A3A4C00F1C0DB28200812274 /* StoreKit.framework */,
 				A36851C41C09B6A800180A4D /* SceneKit.framework */,
 				A38503551C0738D7001F1866 /* iAd.framework */,
@@ -276,6 +292,7 @@
 				00692BCB14FF149000D0A05E /* Sources */,
 				00692BCC14FF149000D0A05E /* Frameworks */,
 				00692BCD14FF149000D0A05E /* Resources */,
+				A305D1F91C1F357B0002446F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -338,6 +355,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A305D1F91C1F357B0002446F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run ddb29e64c009024b2d39faa2e1e721cdb2194123 dc2217db9134c8a76eb6744fc0160365baea7f066f1f66e042fd0703250b1ce7";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		00692BCB14FF149000D0A05E /* Sources */ = {
@@ -465,6 +498,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Andrea Franceschini (APT37F7659)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrea Franceschini (APT37F7659)";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CircularBells_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
@@ -493,6 +530,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrea Franceschini (4P5WJRFVXA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrea Franceschini (4P5WJRFVXA)";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CircularBells_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;

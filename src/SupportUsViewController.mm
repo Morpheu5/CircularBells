@@ -19,12 +19,13 @@
 	
 	_getInTouchButton.layer.cornerRadius = 6.0;
 	_getInTouchButton.clipsToBounds = YES;
+
+	_restorePurchasesButton.layer.cornerRadius = 6.0;
+	_restorePurchasesButton.clipsToBounds = YES;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAdsPurchased) name:@"RemoveAdsPurchased" object:nil];
 
-	[_contentView sizeToFit];
-	_scrollView.contentSize = _contentView.bounds.size;
-	NSLog(@"%f %f", _scrollView.contentSize.width, _scrollView.contentSize.height);
+	_scrollView.contentSize = CGSizeMake(_contentView.bounds.size.width, _contentView.bounds.size.height - 44.0);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

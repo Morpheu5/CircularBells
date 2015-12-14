@@ -54,6 +54,9 @@ public:
 		auto q = vec2(glm::unProject(vec3(p, 0.0f), mat4(), _projection, _screen));
 		return q;
 	}
+
+	map<int, vec2> getPositions();
+	void setPositions(map<int, vec2> positions);
 	
 	void noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
 	void noteViewTouchUp(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);

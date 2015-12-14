@@ -8,6 +8,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *removeAdsButton;
 @property (retain, nonatomic) IBOutlet UILabel *removeAdsLabel;
 @property (strong, nonatomic) IBOutlet UIButton *getInTouchButton;
+@property (nonatomic, strong) IBOutlet UIButton *restorePurchasesButton;
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;

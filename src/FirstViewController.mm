@@ -10,8 +10,8 @@
 @implementation FirstViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-	
+	[super viewDidLoad];
+
 	// Prepare the store observer for in-app purchases
 	_storeObserver = [[[StoreObserver alloc] init] retain];
 	[[SKPaymentQueue defaultQueue] addTransactionObserver:_storeObserver];
@@ -58,9 +58,8 @@
 																		style:UIBarButtonItemStylePlain
 																	   target:self
 																	   action:@selector(supportUs:)];
-	
-	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, keyButton, bellButton, /*presetsButton,*/ perlinButton, lockButton]];
-	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton]];
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, keyButton, bellButton/*, presetsButton*/]];
+	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, lockButton, perlinButton]];
 	
 	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];
 	_pullDownButton = [[UIButton alloc] init];

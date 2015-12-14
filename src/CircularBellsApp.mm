@@ -11,6 +11,9 @@
 
 #import "EPSSampler.h"
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 #import "FirstViewController.h"
 
 using namespace ci;
@@ -82,6 +85,9 @@ void CircularBellsApp::setup() {
 	
 	getSignalWillResignActive().connect(ci::signals::slot(this, &CircularBellsApp::willResignActive));
 	getSignalDidBecomeActive().connect(ci::signals::slot(this, &CircularBellsApp::didBecomeActive));
+
+	// Let's make this last
+	[Fabric with:@[[Answers class], [Crashlytics class]]];
 }
 
 void CircularBellsApp::willResignActive() {
@@ -98,6 +104,24 @@ void CircularBellsApp::didBecomeActive() {
 	_cue->setLoop();
 	_active = true;
 	ci::app::setFrameRate(60.0f);
+}
+
+map<int, vec2> CircularBellsApp::getPositions() {
+	map<int, vec2> positions;
+	for(auto v : _rootView->getSubviews()) {
+		if(auto bv = dynamic_pointer_cast<BellView>(v)) {
+			positions[bv->getPitch()] = bv->getPosition();
+		}
+	}
+	return positions;
+}
+
+void CircularBellsApp::setPositions(map<int, vec2> positions) {
+	for(auto v : _rootView->getSubviews()) {
+		if(auto bv = dynamic_pointer_cast<BellView>(v)) {
+			bv->setPosition(positions[bv->getPitch()]);
+		}
+	}
 }
 
 void CircularBellsApp::setInstrument(string name) {

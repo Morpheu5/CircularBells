@@ -22,7 +22,7 @@ void BellView::update() {
 }
 
 void BellView::draw() {
-	gl::color(_color * ColorAf(0.8f, 0.8f, 0.8f, 1.0f));
+	gl::color(_color * _rimMultColor);
 	_rimCircle->draw();
 	gl::color(_color);
 	_bellCircle->draw();
