@@ -40,7 +40,9 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	bool _locked = false;
 	
 public:
+	void launch() override;
 	void setup() override;
+	void setupNotes();
 	void update() override;
 	void draw() override;
 	
@@ -54,6 +56,8 @@ public:
 		auto q = vec2(glm::unProject(vec3(p, 0.0f), mat4(), _projection, _screen));
 		return q;
 	}
+	
+	string saveScreenshot();
 
 	map<int, vec2> getPositions();
 	void setPositions(map<int, vec2> positions);
@@ -74,4 +78,7 @@ public:
 	bool isPerlinEnabled() { return _noiseEnabled; }
 	void toggleLocked() { _locked = !_locked; }
 	bool isLocked() { return _locked; }
+	
+	void slowDownFrameRate() { ci::app::setFrameRate(1.0f); }
+	void speedUpFrameRate() { ci::app::setFrameRate(60.0f); }
 };

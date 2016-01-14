@@ -1,3 +1,5 @@
+#import <Social/Social.h>
+
 #import "FirstViewController.h"
 #import "ScaleSelectionTableViewController.h"
 #import "InstrumentSelectViewController.h"
@@ -6,12 +8,13 @@
 
 #include "cinder/app/App.h"
 #include "CircularBellsApp.h"
+#include "lzw.h"
 
 @implementation FirstViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+	
 	// Prepare the store observer for in-app purchases
 	_storeObserver = [[[StoreObserver alloc] init] retain];
 	[[SKPaymentQueue defaultQueue] addTransactionObserver:_storeObserver];
@@ -24,7 +27,6 @@
 	
 	cinderViewParent.navigationController.delegate = self;
 	
-//	cinderViewParent.title = @"Circular Bells";
 	[self setNavigationBarHidden:YES];
 	[self.navigationBar setTintColor:[UIColor purpleColor]];
 	UIBarButtonItem *leftSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -42,10 +44,10 @@
 																   style:UIBarButtonItemStylePlain
 																  target:self
 																  action:@selector(bellPushed:)];
-//	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
-//																	  style:UIBarButtonItemStylePlain
-//																	 target:self
-//																	 action:@selector(presetsPushed:)];
+	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
+																	  style:UIBarButtonItemStylePlain
+																	 target:self
+																	 action:@selector(presetsPushed:)];
 	UIBarButtonItem *perlinButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/perlin.png"]
 																	 style:UIBarButtonItemStylePlain
 																	target:self
@@ -54,12 +56,15 @@
 																   style:UIBarButtonItemStylePlain
 																  target:self
 																  action:@selector(toggleLock:)];
+//	UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+//																				 target:self
+//																				 action:@selector(sharePushed:)];
 	UIBarButtonItem *supportUsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/info.png"]
 																		style:UIBarButtonItemStylePlain
 																	   target:self
 																	   action:@selector(supportUs:)];
-	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, keyButton, bellButton/*, presetsButton*/]];
-	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, lockButton, perlinButton]];
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, keyButton, bellButton, presetsButton]];
+	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, /*shareButton,*/ lockButton, perlinButton]];
 	
 	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];
 	_pullDownButton = [[UIButton alloc] init];
@@ -140,7 +145,6 @@
 						otherButtonTitles:nil]
 		show];
 	}
-
 }
 
 - (IBAction)supportUs:(id)sender {
@@ -174,8 +178,66 @@
 }
 
 - (void)presetsPushed:(UIBarButtonItem *)sender {
-	PresetsTableViewController *vc = [[PresetsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+	PresetsTableViewController *vc = (PresetsTableViewController *)[[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"PresetsVC"]; //[[PresetsTableViewController alloc] init];
 	vc.modalPresentationStyle = UIModalPresentationFormSheet;
+	
+	[self presentViewController:vc
+					   animated:YES
+					 completion:nil];
+}
+
+- (void)sharePushed:(UIBarButtonItem *)sender {
+	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
+	NSString *path = [NSString stringWithUTF8String:theApp->saveScreenshot().c_str()];
+	UIImage *image = [UIImage imageWithContentsOfFile:path];
+	map<int, vec2> positions = theApp->getPositions();
+	
+	ostringstream stream;
+	for(pair<int, vec2> p : positions) {
+		stream << to_string((int)round(p.second.x)) << "," << to_string((int)round(p.second.y)) << ",";
+	}
+	string src = stream.str();
+	src.pop_back();
+	
+	std::vector<int> compressed;
+	compress(src, std::back_inserter(compressed));
+	u16string compressedString;
+	for(int i : compressed) {
+		auto c = (char16_t)i;
+		compressedString.push_back(c);
+	}
+
+	NSData *s_data = [NSData dataWithBytes:compressedString.data() length:compressedString.size()*sizeof(char16_t)];
+	NSString *s_base64 = [s_data base64EncodedStringWithOptions:0];
+	NSString *s_urlencoded = [s_base64 stringByAddingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
+	
+	/*
+	NSString *d_base64 = [s_urlencoded stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
+	NSData *d_data = [[NSData alloc] initWithBase64EncodedString:d_base64 options:0];
+	
+	vector<int> d_compressed;
+	for(int i = 0; i < d_data.length/2; ++i) {
+		int d = 0;
+		[d_data getBytes:&d range:NSMakeRange(2*i, 2)];
+		d_compressed.push_back(d);
+	}
+	
+	string dst;
+	if(d_compressed == compressed) {
+		console() << "Success!" << endl;
+		dst = decompress(d_compressed.begin(), d_compressed.end());
+	}
+	 */
+	
+	UIActivityViewController *vc = [[UIActivityViewController alloc]
+									initWithActivityItems:@[[NSString stringWithFormat:@"Look what I made with #CircularBells! http://cb.morpheu5.net/v1/%@", s_urlencoded], image]
+									applicationActivities:nil];
+	
+	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		if([vc respondsToSelector:@selector(popoverPresentationController)]) {
+			vc.popoverPresentationController.barButtonItem = sender;
+		}
+	}
 	
 	[self presentViewController:vc
 					   animated:YES
@@ -211,6 +273,18 @@
 			_isBannerVisible = NO;
 		}];
 	}
+}
+
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
+	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
+	theApp->slowDownFrameRate();
+
+	return true;
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner {
+	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
+	theApp->speedUpFrameRate();
 }
 
 // TODO Throttle down and back up on banners.

@@ -4,6 +4,7 @@
 #include "cinder/Perlin.h"
 #include "cinder/Timeline.h"
 
+#import "CBAppDelegateImpl.h"
 #include "CircularBellsApp.h"
 
 #include "mopViews.h"
@@ -20,7 +21,18 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-FirstViewController *sFirstVC = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"FirstVC"];//[[FirstViewController alloc] init];
+FirstViewController *sFirstVC = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"FirstVC"];
+
+void CircularBellsApp::launch() {
+	const auto &args = getCommandLineArgs();
+	int argc = (int)args.size();
+	
+	char* argv[argc];
+	for( int i = 0; i < argc; i++ )
+		argv[i] = const_cast<char *>( args[i].c_str() );
+	
+	::UIApplicationMain( argc, argv, nil, ::NSStringFromClass( [CBAppDelegateImpl class] ) );
+}
 
 void CircularBellsApp::setup() {
 	_zoom = 1.0;
@@ -32,11 +44,6 @@ void CircularBellsApp::setup() {
 	_projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
 	_screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
 	
-	_rootView = make_shared<mop::RootView>();
-	getWindow()->getSignalTouchesBegan().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchBegan));
-	getWindow()->getSignalTouchesMoved().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchMoved));
-	getWindow()->getSignalTouchesEnded().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchEnded));
-	
 	_scales.push_back(pair<string, vector<int>>("Major", { 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24 }));
 	_scales.push_back(pair<string, vector<int>>("Dorian", { 0, 2, 3, 5, 7, 9, 10, 12, 14, 15, 17, 19, 21, 22, 24 }));
 	_scales.push_back(pair<string, vector<int>>("Phrygian", { 0, 1, 3, 5, 7, 8, 10, 12, 13, 15, 17, 19, 20, 22, 24 }));
@@ -44,44 +51,12 @@ void CircularBellsApp::setup() {
 	_scales.push_back(pair<string, vector<int>>("Myxolydian", { 0, 2, 4, 5, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24 }));
 	_scales.push_back(pair<string, vector<int>>("Minor", { 0, 2, 3, 5, 7, 8, 10, 12, 14, 15, 17, 19, 20, 22, 24 }));
 	_scales.push_back(pair<string, vector<int>>("Locrian", { 0, 1, 3, 5, 6, 8, 10, 12, 13, 15, 17, 18, 20, 22, 24 }));
-	setCurrentScale("Major");
-	setInstrument("CircBell");
-	
-	// Make them bells!
-	vector<ColorAf> colors {
-		ColorAf(ColorModel::CM_HSV,         0.0, 1.0, 0.8, 1.0),		//
-		ColorAf(ColorModel::CM_HSV,  30.0/360.0, 1.0, 1.0, 1.0),		//
-		ColorAf(ColorModel::CM_HSV,  60.0/360.0, 1.0, 1.0, 1.0),		//
-		ColorAf(ColorModel::CM_HSV, 120.0/360.0, 1.0, 0.8, 1.0),		//
-		ColorAf(ColorModel::CM_HSV, 190.0/360.0, 1.0, 1.0, 1.0),		//
-		ColorAf(ColorModel::CM_HSV, 210.0/360.0, 1.0, 0.8, 1.0),		//
-		ColorAf(ColorModel::CM_HSV, 290.0/360.0, 1.0, 0.8, 1.0),		//
-	};
-	//console() << _w << " " << _h << endl;
-	float a = toRadians(360.0/(_tones.size()+1));
-	for(int i = 0; i < _tones.size(); ++i) {
-		auto v = make_shared<BellView>();
-		v->setSize(vec2(100.0f));
-		vec2 rPos = vec2(rotate((float)M_PI-a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0));
-		v->setPosition(rPos);
-		v->getTouchDownInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchDown));
-		v->getTouchUpInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
-		v->getTouchUpOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
-		v->getTouchDragInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
-		v->getTouchDragOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
-		v->setRadius(100.0f - 2*_tones[i]);
-		v->setPitch(i);
-		auto color = colors[i%7];
-		v->setColor(color);
-		_rootView->addSubView(v);
-	}
 
+	_rootView = make_shared<mop::RootView>();
+	getWindow()->getSignalTouchesBegan().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchBegan));
+	getWindow()->getSignalTouchesMoved().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchMoved));
+	getWindow()->getSignalTouchesEnded().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchEnded));
 	_rootView->getTouchDragInside().connect(ci::signals::slot(this, &CircularBellsApp::rootDragged));
-	
-	_cue = timeline().add(bind(&CircularBellsApp::_timedPush, this), timeline().getCurrentTime() + 1);
-	_cue->setDuration(1);
-	_cue->setAutoRemove(false);
-	_cue->setLoop();
 	
 	getSignalWillResignActive().connect(ci::signals::slot(this, &CircularBellsApp::willResignActive));
 	getSignalDidBecomeActive().connect(ci::signals::slot(this, &CircularBellsApp::didBecomeActive));
@@ -90,11 +65,118 @@ void CircularBellsApp::setup() {
 	[Fabric with:@[[Answers class], [Crashlytics class]]];
 }
 
+void CircularBellsApp::setupNotes() {
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSError *error;
+	NSURL *url = [fm URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
+	NSDictionary *state = nil;
+	if(url != nil) {
+		url = [url URLByAppendingPathComponent:@"restoreState.plist"];
+		if([fm fileExistsAtPath:url.path]) {
+			state = [NSDictionary dictionaryWithContentsOfURL:url];
+		}
+	}
+	if(state != nil) {
+		NSString *scale = (NSString *)state[@"scale"];
+		NSString *instrument = (NSString *)state[@"instrument"];
+		setCurrentScale([scale cStringUsingEncoding:NSUTF8StringEncoding]);
+		setInstrument([instrument cStringUsingEncoding:NSUTF8StringEncoding]);
+	} else {
+		// Some sensible defaults
+		setCurrentScale("Major");
+		setInstrument("CircBell");
+	}
+	
+	if(_rootView->getSubviews().empty()) {
+		// We have to start fresh
+		vector<ColorAf> colors {
+			ColorAf(ColorModel::CM_HSV,         0.0, 1.0, 0.8, 1.0),		//
+			ColorAf(ColorModel::CM_HSV,  30.0/360.0, 1.0, 1.0, 1.0),		//
+			ColorAf(ColorModel::CM_HSV,  60.0/360.0, 1.0, 1.0, 1.0),		//
+			ColorAf(ColorModel::CM_HSV, 120.0/360.0, 1.0, 0.8, 1.0),		//
+			ColorAf(ColorModel::CM_HSV, 190.0/360.0, 1.0, 1.0, 1.0),		//
+			ColorAf(ColorModel::CM_HSV, 210.0/360.0, 1.0, 0.8, 1.0),		//
+			ColorAf(ColorModel::CM_HSV, 290.0/360.0, 1.0, 0.8, 1.0),		//
+		};
+
+		float a = toRadians(360.0/(_tones.size()+1));
+
+		for(int i = 0; i < _tones.size(); ++i) {
+			auto bv = make_shared<BellView>();
+			bv->setRadius(100.0f - 2*_tones[i]);
+			bv->setSize(vec2(bv->getRadius()));
+			bv->setPitch(i);
+			auto color = colors[i%7];
+			bv->setColor(color);
+			
+			if(state != nil) {
+				// But if we do have a state, let's restore it
+				NSString *pitch = [NSString stringWithFormat:@"%d", i];
+				NSArray *notePosition = (NSArray *)state[@"notes"][pitch];
+				bv->setPosition(vec2( ((NSNumber *)notePosition[0]).floatValue, ((NSNumber *)notePosition[1]).floatValue ));
+			} else {
+				vec2 rPos = vec2(rotate((float)M_PI-a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0));
+				bv->setPosition(rPos);
+			}
+			
+			bv->getTouchDownInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchDown));
+			bv->getTouchUpInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
+			bv->getTouchUpOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
+			bv->getTouchDragInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
+			bv->getTouchDragOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
+			
+			_rootView->addSubView(bv);
+		}
+	} else {
+		// We have them already, let's see if we have a state
+		if(state != nil) {
+			// We have a state
+			for(auto v : _rootView->getSubviews()) {
+				if(auto bv = dynamic_pointer_cast<BellView>(v)) {
+					NSString *pitch = [NSString stringWithFormat:@"%d", bv->getPitch()];
+					NSArray *notePosition = (NSArray *)state[@"notes"][pitch];
+					bv->setPosition(vec2( ((NSNumber *)notePosition[0]).floatValue, ((NSNumber *)notePosition[1]).floatValue ));
+				}
+			}
+		} else {
+			// We don't have a state
+			// So we do nothing
+		}
+	}
+	
+	if(state != nil) {
+		[fm removeItemAtURL:url error:&error];
+	}
+}
+
 void CircularBellsApp::willResignActive() {
 	_cue->reset();
 	_cue = nullptr;
 	_active = false;
-	ci::app::setFrameRate(0.1f);
+	
+	// Save the current state
+	NSMutableDictionary *state = [@{} mutableCopy];
+	NSMutableDictionary *notes = [@{} mutableCopy];
+	
+	for(auto v : _rootView->getSubviews()) {
+		if(auto bv = dynamic_pointer_cast<BellView>(v)) {
+			NSArray *notePosition = @[[NSNumber numberWithFloat:bv->getPosition().x], [NSNumber numberWithFloat:bv->getPosition().y]];
+			[notes setObject:notePosition forKey:[NSString stringWithFormat:@"%d", bv->getPitch()]];
+		}
+	}
+	state[@"notes"] = notes;
+	state[@"instrument"] = [NSString stringWithUTF8String:_instrumentName.c_str()];
+	state[@"scale"] = [NSString stringWithUTF8String:_currentScaleName.c_str()];
+	
+	NSError *error;
+	NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
+	BOOL success;
+	if(url != nil) {
+		url = [url URLByAppendingPathComponent:@"restoreState.plist"];
+		success = [state writeToFile:url.path atomically:YES];
+	}
+	
+	slowDownFrameRate();
 }
 
 void CircularBellsApp::didBecomeActive() {
@@ -103,7 +185,22 @@ void CircularBellsApp::didBecomeActive() {
 	_cue->setAutoRemove(false);
 	_cue->setLoop();
 	_active = true;
-	ci::app::setFrameRate(60.0f);
+
+	setupNotes();
+	
+	speedUpFrameRate();
+}
+
+string CircularBellsApp::saveScreenshot() {
+	NSError *error;
+	NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
+	if(url != nil) {
+		url = [url URLByAppendingPathComponent:@"screenshot.png"];
+		string path = string(url.path.UTF8String);
+		writeImage(path, copyWindowSurface());
+		return path;
+	}
+	return "";
 }
 
 map<int, vec2> CircularBellsApp::getPositions() {
@@ -260,6 +357,5 @@ CINDER_APP(CircularBellsApp,
 			   settings->setHighDensityDisplayEnabled(true);
 			   settings->setMultiTouchEnabled();
 			   settings->setFrameRate(60.0f);
-//			   settings->disableFrameRate();
 			   settings->prepareWindow(Window::Format().rootViewController(sFirstVC));
 		   });

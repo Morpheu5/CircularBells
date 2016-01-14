@@ -140,7 +140,7 @@
 #pragma mark - Leave comment business logic
 
 - (IBAction)commentPushed:(UIButton *)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1062362784"]];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/it/app/circular-bells/id1062362784?mt=8&ls=1"]];
 }
 
 @end
