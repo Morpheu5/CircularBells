@@ -65,6 +65,25 @@ void CircularBellsApp::setup() {
 	[Fabric with:@[[Answers class], [Crashlytics class]]];
 }
 
+vector<vec2> CircularBellsApp::getInitialPositions() {
+	vector<vec2> positions;
+	float a = toRadians(360.0/(_tones.size()+1));
+	for(int i = 0; i < _tones.size(); ++i) {
+		positions.push_back(vec2(rotate((float)M_PI-a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0)));
+	}
+	return positions;
+}
+
+void CircularBellsApp::resetPositions() {
+	auto positions = getInitialPositions();
+	for(auto v : _rootView->getSubviews()) {
+		if(auto bv = dynamic_pointer_cast<BellView>(v)) {
+			vec2 d = positions[bv->id()-1] - bv->getPosition();
+			bv->push(0.5f*d);
+		}
+	}
+}
+
 void CircularBellsApp::setupNotes() {
 	NSFileManager *fm = [NSFileManager defaultManager];
 	NSError *error;
@@ -99,7 +118,7 @@ void CircularBellsApp::setupNotes() {
 			ColorAf(ColorModel::CM_HSV, 290.0/360.0, 1.0, 0.8, 1.0),		//
 		};
 
-		float a = toRadians(360.0/(_tones.size()+1));
+		vector<vec2> positions = getInitialPositions();
 
 		for(int i = 0; i < _tones.size(); ++i) {
 			auto bv = make_shared<BellView>();
@@ -115,8 +134,7 @@ void CircularBellsApp::setupNotes() {
 				NSArray *notePosition = (NSArray *)state[@"notes"][pitch];
 				bv->setPosition(vec2( ((NSNumber *)notePosition[0]).floatValue, ((NSNumber *)notePosition[1]).floatValue ));
 			} else {
-				vec2 rPos = vec2(rotate((float)M_PI-a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0));
-				bv->setPosition(rPos);
+				bv->setPosition(positions[i]);
 			}
 			
 			bv->getTouchDownInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchDown));

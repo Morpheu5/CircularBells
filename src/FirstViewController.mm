@@ -36,35 +36,57 @@
 																	 style:UIBarButtonItemStylePlain
 																	target:self
 																	action:@selector(pushUpPushed:)];
-	UIBarButtonItem *keyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/scale.png"]
+	pushUpButton.accessibilityLabel = @"Push up";
+
+	UIBarButtonItem *scalesButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/scale.png"]
 																  style:UIBarButtonItemStylePlain
 																 target:self
 																 action:@selector(scalePushed:)];
+	scalesButton.accessibilityLabel = @"Change scale";
+
 	UIBarButtonItem *bellButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/bell.png"]
 																   style:UIBarButtonItemStylePlain
 																  target:self
 																  action:@selector(bellPushed:)];
+	bellButton.accessibilityLabel = @"Change instrument";
+
 	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
 																	  style:UIBarButtonItemStylePlain
 																	 target:self
 																	 action:@selector(presetsPushed:)];
+	presetsButton.accessibilityLabel = @"Change preset";
+
+	UIBarButtonItem *resetPositionsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/resetpositions.png"]
+																			  style:UIBarButtonItemStylePlain
+																			target:self
+																			action:@selector(resetPositionsPushed:)];
+	resetPositionsButton.accessibilityLabel = @"Go back to initial position";
+
 	UIBarButtonItem *perlinButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/perlin.png"]
 																	 style:UIBarButtonItemStylePlain
 																	target:self
 																	action:@selector(togglePerlin:)];
+	perlinButton.accessibilityLabel = @"Toggle bells floating";
+
 	UIBarButtonItem *lockButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/unlocked.png"]
 																   style:UIBarButtonItemStylePlain
 																  target:self
 																  action:@selector(toggleLock:)];
+	lockButton.accessibilityLabel = @"Lock bells";
+
 //	UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 //																				 target:self
 //																				 action:@selector(sharePushed:)];
+//	shareButton = @"Share you work";
+
 	UIBarButtonItem *supportUsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/info.png"]
 																		style:UIBarButtonItemStylePlain
 																	   target:self
 																	   action:@selector(supportUs:)];
-	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, keyButton, bellButton, presetsButton]];
-	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, /*shareButton,*/ lockButton, perlinButton]];
+	supportUsButton.accessibilityLabel = @"About us";
+	
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, scalesButton, bellButton, presetsButton]];
+	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, /*shareButton,*/ lockButton, perlinButton, resetPositionsButton]];
 	
 	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];
 	_pullDownButton = [[UIButton alloc] init];
@@ -184,6 +206,11 @@
 	[self presentViewController:vc
 					   animated:YES
 					 completion:nil];
+}
+
+- (void)resetPositionsPushed:(UIBarButtonItem *)sender {
+	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
+	theApp->resetPositions();
 }
 
 - (void)sharePushed:(UIBarButtonItem *)sender {

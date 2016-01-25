@@ -25,6 +25,7 @@
 - (IBAction)presetsPushed:(UIBarButtonItem *)sender;
 - (IBAction)togglePerlin:(UIBarButtonItem *)sender;
 - (IBAction)toggleLock:(UIBarButtonItem *)sender;
+- (void)resetPositionsPushed:(UIBarButtonItem *)sender;
 
 - (IBAction)supportUs:(id)sender;
 

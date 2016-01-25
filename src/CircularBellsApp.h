@@ -56,6 +56,9 @@ public:
 		auto q = vec2(glm::unProject(vec3(p, 0.0f), mat4(), _projection, _screen));
 		return q;
 	}
+
+	vector<vec2> getInitialPositions();
+	void resetPositions();
 	
 	string saveScreenshot();
 
