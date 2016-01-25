@@ -44,18 +44,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOA-pI-fEV">
-                                                <rect key="frame" x="20" y="300.5" width="45" height="45"/>
+                                                <rect key="frame" x="20" y="300.5" width="65" height="65"/>
+                                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="yKJ-Vd-bdq"/>
-                                                    <constraint firstAttribute="height" constant="45" id="yh8-K9-H8t"/>
+                                                    <constraint firstAttribute="width" constant="65" id="yKJ-Vd-bdq"/>
+                                                    <constraint firstAttribute="height" constant="65" id="yh8-K9-H8t"/>
                                                 </constraints>
+                                                <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                 <state key="normal" image="assets/icons/purchase.png"/>
                                                 <connections>
                                                     <action selector="removeAdsPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="ZA8-n3-MNA"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Ads" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-DZ-1tj" userLabel="Remove Ads Title">
-                                                <rect key="frame" x="73" y="301" width="93.5" height="19.5"/>
+                                                <rect key="frame" x="105" y="295.5" width="93.5" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="mIT-YC-AOO"/>
                                                 </constraints>
@@ -69,25 +72,27 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="8gh-92-10r" userLabel="Remove Ads Description">
-                                                <rect key="frame" x="73" y="329" width="507" height="19.5"/>
+                                                <rect key="frame" x="105" y="323.5" width="475" height="19.5"/>
                                                 <string key="text">You don't like ads. That's OK, we don't like them either, but we need them to keep making great apps. Hit the cart button and get rid of them for a small fee… or for free if you already paid for this!</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaS-21-aYD" userLabel="Feedback Button">
-                                                <rect key="frame" x="20" y="368.5" width="45" height="45"/>
+                                                <rect key="frame" x="20" y="363" width="65" height="65"/>
+                                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="0Dp-Wm-BhB"/>
-                                                    <constraint firstAttribute="height" constant="45" id="GIC-CF-Snw"/>
+                                                    <constraint firstAttribute="width" constant="65" id="0Dp-Wm-BhB"/>
+                                                    <constraint firstAttribute="height" constant="65" id="GIC-CF-Snw"/>
                                                 </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="assets/icons/comment.png"/>
                                                 <connections>
                                                     <action selector="commentPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="TCs-Mp-LDo"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-Ja-0ck" userLabel="Feedback Title">
-                                                <rect key="frame" x="73" y="369" width="118.5" height="19.5"/>
+                                                <rect key="frame" x="105" y="358" width="118.5" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="X1A-rc-5ew"/>
                                                 </constraints>
@@ -101,13 +106,13 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="If you like this app, why not tell others? Rate this app on the App Store, and leave a comment." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-Jw-dWU" userLabel="Feedback Description">
-                                                <rect key="frame" x="73" y="397" width="507" height="19.5"/>
+                                                <rect key="frame" x="105" y="386" width="475" height="19.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-J8-MQG">
-                                                <rect key="frame" x="106" y="447" width="388" height="49"/>
+                                                <rect key="frame" x="106" y="436" width="388" height="49"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3M-Yu-QIu" userLabel="Restore purchases Button">
                                                         <rect key="frame" x="0.0" y="0.0" width="174" height="49"/>
@@ -164,14 +169,14 @@
                                             <constraint firstItem="hBK-J8-MQG" firstAttribute="centerX" secondItem="IXF-KF-KCH" secondAttribute="centerX" id="3FY-Hs-8Hh"/>
                                             <constraint firstItem="Mnd-Jw-dWU" firstAttribute="top" secondItem="cLT-Ja-0ck" secondAttribute="bottom" constant="8" id="503-n2-ckA"/>
                                             <constraint firstItem="dcn-aa-zNN" firstAttribute="top" secondItem="qUh-KF-ga5" secondAttribute="bottom" constant="8" id="7am-md-f2W"/>
-                                            <constraint firstItem="DTY-DZ-1tj" firstAttribute="leading" secondItem="KOA-pI-fEV" secondAttribute="trailing" constant="8" id="7bj-Jw-yw2"/>
+                                            <constraint firstItem="DTY-DZ-1tj" firstAttribute="leading" secondItem="KOA-pI-fEV" secondAttribute="trailing" constant="20" id="7bj-Jw-yw2"/>
                                             <constraint firstItem="KOA-pI-fEV" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leading" constant="20" id="8bQ-kZ-w3z"/>
                                             <constraint firstItem="hBK-J8-MQG" firstAttribute="top" secondItem="Mnd-Jw-dWU" secondAttribute="bottom" constant="30" id="Bt8-zN-QnJ"/>
-                                            <constraint firstItem="DTY-DZ-1tj" firstAttribute="top" secondItem="KOA-pI-fEV" secondAttribute="top" id="G6t-KY-jQS"/>
+                                            <constraint firstItem="DTY-DZ-1tj" firstAttribute="top" secondItem="KOA-pI-fEV" secondAttribute="top" constant="-5" id="G6t-KY-jQS"/>
                                             <constraint firstItem="qUh-KF-ga5" firstAttribute="top" secondItem="IXF-KF-KCH" secondAttribute="top" constant="20" id="Gs8-8v-mbJ"/>
                                             <constraint firstItem="dcn-aa-zNN" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leadingMargin" id="QDA-t4-p5f"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="dcn-aa-zNN" secondAttribute="trailing" id="ZS1-5V-qvT"/>
-                                            <constraint firstItem="cLT-Ja-0ck" firstAttribute="top" secondItem="GaS-21-aYD" secondAttribute="top" id="aNY-wd-gCe"/>
+                                            <constraint firstItem="cLT-Ja-0ck" firstAttribute="top" secondItem="GaS-21-aYD" secondAttribute="top" constant="-5" id="aNY-wd-gCe"/>
                                             <constraint firstItem="GaS-21-aYD" firstAttribute="top" secondItem="8gh-92-10r" secondAttribute="bottom" constant="20" id="bFo-3G-f8A"/>
                                             <constraint firstItem="8gh-92-10r" firstAttribute="top" secondItem="DTY-DZ-1tj" secondAttribute="bottom" constant="8" id="c3f-UJ-Bha"/>
                                             <constraint firstAttribute="trailing" secondItem="8gh-92-10r" secondAttribute="trailing" constant="20" id="ckK-N7-EFt"/>
@@ -180,7 +185,7 @@
                                             <constraint firstItem="8gh-92-10r" firstAttribute="leading" secondItem="DTY-DZ-1tj" secondAttribute="leading" id="ob4-FX-dnY"/>
                                             <constraint firstItem="GaS-21-aYD" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leading" constant="20" id="prs-fP-unh"/>
                                             <constraint firstItem="Mnd-Jw-dWU" firstAttribute="leading" secondItem="cLT-Ja-0ck" secondAttribute="leading" id="qnG-U6-rgB"/>
-                                            <constraint firstItem="cLT-Ja-0ck" firstAttribute="leading" secondItem="GaS-21-aYD" secondAttribute="trailing" constant="8" id="vUV-mq-KbL"/>
+                                            <constraint firstItem="cLT-Ja-0ck" firstAttribute="leading" secondItem="GaS-21-aYD" secondAttribute="trailing" constant="20" id="vUV-mq-KbL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -310,7 +315,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

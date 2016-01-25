@@ -16,6 +16,12 @@
 	if([[NSUserDefaults standardUserDefaults] objectForKey:@"RemoveAds"] != nil) {
 		[self removeAdsPurchased];
 	}
+
+	_commentButton.layer.cornerRadius = 6.0;
+	_commentButton.clipsToBounds = YES;
+
+	_removeAdsButton.layer.cornerRadius = 6.0;
+	_removeAdsButton.clipsToBounds = YES;
 	
 	_getInTouchButton.layer.cornerRadius = 6.0;
 	_getInTouchButton.clipsToBounds = YES;
