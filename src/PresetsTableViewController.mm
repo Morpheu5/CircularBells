@@ -56,7 +56,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"presetCell" forIndexPath:indexPath];
     
-	cell.textLabel.text = @"Preset name";
+	cell.textLabel.text = NSLocalizedString(@"Preset name", nil);
 	
 	
     return cell;
@@ -64,12 +64,12 @@
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewRowAction *renameAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-																			title:@"Rename"
+																			title:NSLocalizedString(@"Rename", nil)
 																		  handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
 																			  // Do the rename here
 																		  }];
 	UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
-																			title:@"Delete"
+																			title:NSLocalizedString(@"Delete", nil)
 																		  handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
 																			  // Do the delete here
 																		  }];

@@ -54,7 +54,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	if(section == 0) {
-		return @"Choose a scale…";
+		return NSLocalizedString(@"Choose a scale…", nil);
 	} else {
 		return @"";
 	}

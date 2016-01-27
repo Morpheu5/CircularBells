@@ -4,7 +4,12 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>Tone Bells</string>
+		<dict>
+			<key>en</key>
+			<string>Tone Bells</string>
+			<key>it</key>
+			<string>Campanelle</string>
+		</dict>
 		<key>preset</key>
 		<string>CircBell</string>
 		<key>iap</key>
@@ -12,7 +17,12 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Xylophone</string>
+		<dict>
+			<key>en</key>
+			<string>Xylophone</string>
+			<key>it</key>
+			<string>Xilofono</string>
+		</dict>
 		<key>preset</key>
 		<string>Xylo</string>
 		<key>iap</key>
@@ -20,7 +30,12 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Vibraphone</string>
+		<dict>
+			<key>en</key>
+			<string>Vibraphone</string>
+			<key>it</key>
+			<string>Vibrafono</string>
+		</dict>
 		<key>preset</key>
 		<string>Vibraphone</string>
 		<key>iap</key>

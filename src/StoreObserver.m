@@ -48,10 +48,10 @@
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
-	[[[UIAlertView alloc] initWithTitle:@"Purchase failed"
-								message:[NSString stringWithFormat:@"The purchase could not be completed (error: %@). Please try again later, we are very sorry for the inconvenience.", transaction.error.localizedDescription]
+	[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Purchase failed", nil)
+								message:[NSString stringWithFormat:NSLocalizedString(@"The purchase could not be completed (error: %@). Please try again later, we are very sorry for the inconvenience.", nil), transaction.error.localizedDescription]
 							   delegate:nil
-					  cancelButtonTitle:@"OK"
+					  cancelButtonTitle:NSLocalizedString(@"OK", nil)
 					  otherButtonTitles:nil]
 	 show];
 	[[SKPaymentQueue defaultQueue] finishTransaction:transaction];

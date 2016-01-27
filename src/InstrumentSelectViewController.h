@@ -5,4 +5,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *instrumentsList;
 
+@property (strong, nonatomic) NSString *languageCode;
+
 @end

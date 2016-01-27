@@ -36,56 +36,56 @@
 																	 style:UIBarButtonItemStylePlain
 																	target:self
 																	action:@selector(pushUpPushed:)];
-	pushUpButton.accessibilityLabel = @"Push up";
+	pushUpButton.accessibilityLabel = NSLocalizedString(@"Push up", @"a11y");
 
 	UIBarButtonItem *scalesButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/scale.png"]
 																  style:UIBarButtonItemStylePlain
 																 target:self
 																 action:@selector(scalePushed:)];
-	scalesButton.accessibilityLabel = @"Change scale";
+	scalesButton.accessibilityLabel = NSLocalizedString(@"Change scale", @"a11y");
 
 	UIBarButtonItem *bellButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/bell.png"]
 																   style:UIBarButtonItemStylePlain
 																  target:self
 																  action:@selector(bellPushed:)];
-	bellButton.accessibilityLabel = @"Change instrument";
+	bellButton.accessibilityLabel = NSLocalizedString(@"Change instrument", @"a11y");
 
 	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
 																	  style:UIBarButtonItemStylePlain
 																	 target:self
 																	 action:@selector(presetsPushed:)];
-	presetsButton.accessibilityLabel = @"Change preset";
+	presetsButton.accessibilityLabel = NSLocalizedString(@"Change preset", @"a11y");
 
 	UIBarButtonItem *resetPositionsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/resetpositions.png"]
 																			  style:UIBarButtonItemStylePlain
 																			target:self
 																			action:@selector(resetPositionsPushed:)];
-	resetPositionsButton.accessibilityLabel = @"Go back to initial position";
+	resetPositionsButton.accessibilityLabel = NSLocalizedString(@"Go back to initial position", @"a11y");
 
 	UIBarButtonItem *perlinButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/perlin.png"]
 																	 style:UIBarButtonItemStylePlain
 																	target:self
 																	action:@selector(togglePerlin:)];
-	perlinButton.accessibilityLabel = @"Toggle bells floating";
+	perlinButton.accessibilityLabel = NSLocalizedString(@"Toggle bells floating", @"a11y");
 
 	UIBarButtonItem *lockButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/unlocked.png"]
 																   style:UIBarButtonItemStylePlain
 																  target:self
 																  action:@selector(toggleLock:)];
-	lockButton.accessibilityLabel = @"Lock bells";
+	lockButton.accessibilityLabel = NSLocalizedString(@"Lock bells", @"a11y");
 
 //	UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 //																				 target:self
 //																				 action:@selector(sharePushed:)];
-//	shareButton = @"Share you work";
+//	shareButton.accessibilityLabel = NSLocalizedString(@"Share you work", @"a11y");
 
 	UIBarButtonItem *supportUsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/info.png"]
 																		style:UIBarButtonItemStylePlain
 																	   target:self
 																	   action:@selector(supportUs:)];
-	supportUsButton.accessibilityLabel = @"About us";
-	
-	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, scalesButton, bellButton, presetsButton]];
+	supportUsButton.accessibilityLabel = NSLocalizedString(@"About us", @"a11y");
+
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, scalesButton, bellButton/*, presetsButton */]];
 	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, /*shareButton,*/ lockButton, perlinButton, resetPositionsButton]];
 	
 	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];
@@ -160,12 +160,12 @@
 						   animated:YES
 						 completion:nil];
 	} else {
-		[[[UIAlertView alloc] initWithTitle:@"Unexpected error"
-								  message:@"Instrument list not found. Please contact us and report this bug."
-								 delegate:nil
-						cancelButtonTitle:@"OK"
-						otherButtonTitles:nil]
-		show];
+		[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unexpected error", nil)
+									message:NSLocalizedString(@"Instrument list not found. Please contact us and report this bug.", nil)
+								   delegate:nil
+						  cancelButtonTitle:NSLocalizedString(@"OK", nil)
+						  otherButtonTitles:nil]
+		 show];
 	}
 }
 
@@ -173,7 +173,7 @@
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
 	cinderViewParent.title = @"Back";
 	SupportUsViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SupportUs"];
-	vc.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+	vc.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil) style:UIBarButtonItemStylePlain target:nil action:nil];
 	
 	UIViewController *cVc = ci::app::getWindow()->getNativeViewController();
 	[cVc.navigationController pushViewController:vc animated:YES];
@@ -257,7 +257,7 @@
 	 */
 	
 	UIActivityViewController *vc = [[UIActivityViewController alloc]
-									initWithActivityItems:@[[NSString stringWithFormat:@"Look what I made with #CircularBells! http://cb.morpheu5.net/v1/%@", s_urlencoded], image]
+									initWithActivityItems:@[[NSString stringWithFormat:NSLocalizedString(@"Look what I made with #CircularBells! http://cb.morpheu5.net/v1/%@", @"Share message"), s_urlencoded], image]
 									applicationActivities:nil];
 	
 	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {

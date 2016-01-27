@@ -1,0 +1,34 @@
+
+/* Class = "UILabel"; text = "Non ti piace la pubblicità. Va bene così, non piace neanche a noi, ma ci serve per continuare a fare app. Schiaccia il carrello per rimuovere la pubblicità per pochi spiccioli… o per niente, se l'hai già fatto in passato!"; ObjectID = "8gh-92-10r"; */
+"8gh-92-10r.text" = "Non ti piace la pubblicità. Va bene così, non piace neanche a noi, ma ci serve per continuare a fare app. Schiaccia il carrello per rimuovere la pubblicità per pochi spiccioli… o per niente, se l'hai già fatto in passato!";
+
+/* Class = "UILabel"; text = "Rimuovi la pubblicità"; ObjectID = "DTY-DZ-1tj"; */
+"DTY-DZ-1tj.text" = "Rimuovi la pubblicità";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "MP9-C4-4ON"; */
+"MP9-C4-4ON.text" = "Title";
+
+/* Class = "UILabel"; text = "Se ti piace questa app, perché non lo racconti in giro? Puoi votarla e lasciare un commento sull'App Store."; ObjectID = "Mnd-Jw-dWU"; */
+"Mnd-Jw-dWU.text" = "Se ti piace questa app, perché non lo racconti in giro? Puoi votarla e lasciare un commento sull'App Store.";
+
+/* Class = "UIButton"; normalTitle = "Ripristina acquisti"; ObjectID = "a3M-Yu-QIu"; */
+"a3M-Yu-QIu.normalTitle" = "Ripristina acquisti";
+
+/* Class = "UIButton"; normalTitle = "Contattaci!"; ObjectID = "bPw-JJ-dn4"; */
+"bPw-JJ-dn4.normalTitle" = "Contattaci!";
+
+/* Class = "UILabel"; text = "Dì al mondo cosa ne pensi"; ObjectID = "cLT-Ja-0ck"; */
+"cLT-Ja-0ck.text" = "Dì al mondo cosa ne pensi";
+
+/* Class = "UILabel"; text = "Siamo un piccolo gruppo di designer.
+ Se Circular Bells ti piace, ecco come
+ incoraggiarci a fare altre app!"; ObjectID = "dcn-aa-zNN"; */
+"dcn-aa-zNN.text" = "Siamo un piccolo gruppo di designer.
+Se Circular Bells ti piace, ecco come
+incoraggiarci a fare altre app!";
+
+/* Class = "UIViewController"; title = "Circular Bells"; ObjectID = "oFe-r0-mFH"; */
+"oFe-r0-mFH.title" = "Circular Bells";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "oP2-rX-NHR"; */
+"oP2-rX-NHR.text" = "Title";

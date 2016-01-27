@@ -15,6 +15,8 @@
 	
 	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
 	_currentInstrument = theApp->getInstrument();
+
+	_languageCode = [[NSBundle preferredLocalizationsFromArray:@[@"en", @"it"]] objectAtIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -34,7 +36,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	if(section == 0) {
-		return @"Choose an instrument…";
+		return NSLocalizedString(@"Choose an instrument…", nil);
 	} else {
 		return @"";
 	}
@@ -55,7 +57,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     InstrumentCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"instrumentCell" forIndexPath:indexPath];
     
-	cell.textLabel.text = _instrumentsList[indexPath.row][@"name"];
+	cell.textLabel.text = _instrumentsList[indexPath.row][@"name"][_languageCode];
 	if([[NSString stringWithUTF8String:_currentInstrument.c_str()] isEqualToString:_instrumentsList[indexPath.row][@"preset"]]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	} else {

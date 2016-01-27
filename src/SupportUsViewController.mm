@@ -71,7 +71,7 @@
 - (IBAction)removeAdsPushed:(UIButton *)sender {
 	_hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	_hud.mode = MBProgressHUDModeIndeterminate;
-	_hud.labelText = @"Contacting Store…";
+	_hud.labelText = NSLocalizedString(@"Contacting Store…", nil);
 	if([SKPaymentQueue canMakePayments]) {
 		_productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithArray:@[@"net.morpheu5.circularbells.removeads"]]];
 		_productsRequest.delegate = self;
@@ -83,10 +83,10 @@
 }
 
 - (void)showStoreError {
-	[[[UIAlertView alloc] initWithTitle:@"Store unavailable"
-								message:@"Sorry, the store is unavailable, and you can't remove ads right now. Please try again later, we are very sorry for the inconvenience."
+	[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Store unavailable", nil)
+								message:NSLocalizedString(@"Sorry, the store is unavailable, and you can't remove ads right now. Please try again later, we are very sorry for the inconvenience.", nil)
 							   delegate:self
-					  cancelButtonTitle:@"OK"
+					  cancelButtonTitle:NSLocalizedString(@"OK", nil)
 					  otherButtonTitles:nil]
 	 show];
 }
@@ -123,10 +123,10 @@
 		SKMutablePayment *paymentRequest = [SKMutablePayment paymentWithProduct:_requestedProduct];
 		[paymentRequest setSimulatesAskToBuyInSandbox:YES];
 		[[SKPaymentQueue defaultQueue] addPayment:paymentRequest];
-		[[[UIAlertView alloc] initWithTitle:@"Thank you!"
-									message:@"Your payment is being processed by the store, and your purchase will be delivered as soon as possible!"
+		[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Thank you!", nil)
+									message:NSLocalizedString(@"Your payment is being processed by the store, and your purchase will be delivered as soon as possible!", nil)
 								   delegate:nil
-						  cancelButtonTitle:@"OK"
+						  cancelButtonTitle:NSLocalizedString(@"OK", nil)
 						  otherButtonTitles:nil]
 		 show];
 	} else {
@@ -135,10 +135,10 @@
 }
 
 - (void)showPurchaseUnavailableError {
-	[[[UIAlertView alloc] initWithTitle:@"Purchase unavailable"
-								message:@"An unexpected error happened while initiating the transaction. Please try again later, we are very sorry for the inconvenience."
+	[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Purchase unavailable", nil)
+								message:NSLocalizedString(@"An unexpected error happened while initiating the transaction. Please try again later, we are very sorry for the inconvenience.", nil)
 							   delegate:nil
-					  cancelButtonTitle:@"OK"
+					  cancelButtonTitle:NSLocalizedString(@"OK", nil)
 					  otherButtonTitles:nil]
 	 show];
 }
