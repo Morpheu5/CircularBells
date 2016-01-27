@@ -74,7 +74,7 @@ void CircularBellsApp::resetPositions() {
 	auto positions = getInitialPositions();
 	for(auto v : _rootView->getSubviews()) {
 		if(auto bv = dynamic_pointer_cast<BellView>(v)) {
-			vec2 d = positions[bv->id()-1] - bv->getPosition();
+			vec2 d = positions[bv->id()-2] - bv->getPosition();
 			bv->push(0.5f*d);
 		}
 	}
