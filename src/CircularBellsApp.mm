@@ -12,9 +12,6 @@
 
 #import "EPSSampler.h"
 
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-
 #import "FirstViewController.h"
 
 using namespace ci;
@@ -62,7 +59,6 @@ void CircularBellsApp::setup() {
 	getSignalDidBecomeActive().connect(ci::signals::slot(this, &CircularBellsApp::didBecomeActive));
 
 	// Let's make this last
-	[Fabric with:@[[Answers class], [Crashlytics class]]];
 }
 
 vector<vec2> CircularBellsApp::getInitialPositions() {

@@ -7,6 +7,8 @@
 //
 
 #import "CBAppDelegateImpl.h"
+#import "Fabric/Fabric.h"
+#import "Crashlytics/Crashlytics.h"
 
 @implementation CBAppDelegateImpl
 
@@ -34,6 +36,8 @@
 								  withIntermediateDirectories:YES
 												   attributes:nil error:&error];
 	}
+
+	[Fabric with:@[[Answers class], [Crashlytics class]]];
 	
 	return YES;
 }
