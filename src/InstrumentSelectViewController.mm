@@ -16,7 +16,7 @@
 	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
 	_currentInstrument = theApp->getInstrument();
 
-	_languageCode = [[NSBundle preferredLocalizationsFromArray:@[@"en", @"it"]] objectAtIndex:0];
+	_languageCode = [[NSBundle preferredLocalizationsFromArray:@[@"es", @"en", @"it"]] objectAtIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

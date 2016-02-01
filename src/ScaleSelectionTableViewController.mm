@@ -3,7 +3,7 @@
 #import "ScaleSelectionTableViewController.h"
 
 @interface ScaleSelectionTableViewController () {
-	vector<string> _scaleNames;
+	vector<pair<string, string>> _scaleNames;
 	string _currentScaleName;
 }
 
@@ -62,8 +62,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scaleCell" forIndexPath:indexPath];
-	cell.textLabel.text = [NSString stringWithUTF8String:_scaleNames[indexPath.row].c_str()];
-	if(_scaleNames[indexPath.row] == _currentScaleName) {
+	cell.textLabel.text = [NSString stringWithUTF8String:_scaleNames[indexPath.row].second.c_str()];
+	if(_scaleNames[indexPath.row].first == _currentScaleName) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	} else {
 		cell.accessoryType = UITableViewCellAccessoryNone;
@@ -73,7 +73,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
-	theApp->setCurrentScale(_scaleNames[indexPath.row]);
+	theApp->setCurrentScale(_scaleNames[indexPath.row].first);
 	_currentScaleName = theApp->getCurrentScaleName();
 	[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }

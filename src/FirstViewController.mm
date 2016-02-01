@@ -171,7 +171,7 @@
 
 - (IBAction)supportUs:(id)sender {
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
-	cinderViewParent.title = @"Back";
+	cinderViewParent.title = NSLocalizedString(@"Back", nil);
 	SupportUsViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SupportUs"];
 	vc.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil) style:UIBarButtonItemStylePlain target:nil action:nil];
 	

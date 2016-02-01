@@ -40,14 +40,25 @@ void CircularBellsApp::setup() {
 	_cam.lookAt(vec3(0,0,1), vec3(0));
 	_projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
 	_screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
-	
-	_scales.push_back(pair<string, vector<int>>("Major", { 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24 }));
-	_scales.push_back(pair<string, vector<int>>("Dorian", { 0, 2, 3, 5, 7, 9, 10, 12, 14, 15, 17, 19, 21, 22, 24 }));
-	_scales.push_back(pair<string, vector<int>>("Phrygian", { 0, 1, 3, 5, 7, 8, 10, 12, 13, 15, 17, 19, 20, 22, 24 }));
-	_scales.push_back(pair<string, vector<int>>("Lydian", { 0, 2, 4, 6, 7, 9, 11, 12, 14, 16, 18, 19, 21, 23, 24 }));
-	_scales.push_back(pair<string, vector<int>>("Myxolydian", { 0, 2, 4, 5, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24 }));
-	_scales.push_back(pair<string, vector<int>>("Minor", { 0, 2, 3, 5, 7, 8, 10, 12, 14, 15, 17, 19, 20, 22, 24 }));
-	_scales.push_back(pair<string, vector<int>>("Locrian", { 0, 1, 3, 5, 6, 8, 10, 12, 13, 15, 17, 18, 20, 22, 24 }));
+
+	NSString *lang = [[NSBundle preferredLocalizationsFromArray:@[@"es", @"en", @"it"]] objectAtIndex:0];
+
+	NSString *filepath = [[NSBundle mainBundle] pathForResource:@"assets/Scales" ofType:@"plist"];
+	NSArray *scales = nil;
+	if([[NSFileManager defaultManager] fileExistsAtPath:filepath]) {
+		scales = [NSArray arrayWithContentsOfFile:filepath];
+	} else {
+		console() << "Horrible things happened!" << endl;
+	}
+	for(NSDictionary *scale in scales) {
+		vector<int> notes;
+		for(NSNumber *note in scale[@"notes"]) {
+			notes.push_back((int)[note intValue]);
+		}
+		string scaleId = [((NSString *)scale[@"id"]) UTF8String];
+		_scales.push_back(pair<string, vector<int>>(scaleId, notes));
+		_localizedScaleNames.push_back(pair<string, string>(scaleId, [((NSString *)scale[@"name"][lang]) UTF8String]));
+	}
 
 	_rootView = make_shared<mop::RootView>();
 	getWindow()->getSignalTouchesBegan().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchBegan));
@@ -57,8 +68,6 @@ void CircularBellsApp::setup() {
 	
 	getSignalWillResignActive().connect(ci::signals::slot(this, &CircularBellsApp::willResignActive));
 	getSignalDidBecomeActive().connect(ci::signals::slot(this, &CircularBellsApp::didBecomeActive));
-
-	// Let's make this last
 }
 
 vector<vec2> CircularBellsApp::getInitialPositions() {
@@ -92,13 +101,27 @@ void CircularBellsApp::setupNotes() {
 		}
 	}
 	if(state != nil) {
+		// If the stored scale isn't one of the available scales, reset it to "major"
+		// This should actually never happen more than once ever.
 		NSString *scale = (NSString *)state[@"scale"];
+		vector<pair<string, string>> scales = getAvailableScales();
+		string cScale = [scale cStringUsingEncoding:NSUTF8StringEncoding];
+		BOOL scaleFound = NO;
+		for(pair<string, string> p : scales) {
+			if(cScale == p.first) {
+				setCurrentScale(cScale);
+				scaleFound = YES;
+			}
+		}
+		if(!scaleFound) {
+			setCurrentScale("major");
+		}
+
 		NSString *instrument = (NSString *)state[@"instrument"];
-		setCurrentScale([scale cStringUsingEncoding:NSUTF8StringEncoding]);
 		setInstrument([instrument cStringUsingEncoding:NSUTF8StringEncoding]);
 	} else {
 		// Some sensible defaults
-		setCurrentScale("Major");
+		setCurrentScale("major");
 		setInstrument("CircBell");
 	}
 	
@@ -241,12 +264,8 @@ void CircularBellsApp::setInstrument(string name) {
 	_instrumentName = name;
 }
 
-vector<string> CircularBellsApp::getAvailableScales() {
-	vector<string> r;
-	for(auto e : _scales) {
-		r.push_back(e.first);
-	}
-	return r;
+vector<pair<string, string>> CircularBellsApp::getAvailableScales() {
+	return _localizedScaleNames;
 }
 
 void CircularBellsApp::setCurrentScale(string name) {

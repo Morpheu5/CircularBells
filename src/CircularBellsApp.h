@@ -32,6 +32,7 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	int _root;
 	vector<int> _tones;
 	vector<pair<string, vector<int>>> _scales;
+	vector<pair<string, string>> _localizedScaleNames;
 	string _currentScaleName;
 	
 	string _instrumentName;
@@ -75,7 +76,7 @@ public:
 	string& getInstrument() { return _instrumentName; }
 	const string& getCurrentScaleName() { return _currentScaleName; }
 	void setCurrentScale(string name);
-	vector<string> getAvailableScales();
+	vector<pair<string, string>> getAvailableScales();
 	
 	void togglePerlin() { _noiseEnabled = !_noiseEnabled; }
 	bool isPerlinEnabled() { return _noiseEnabled; }

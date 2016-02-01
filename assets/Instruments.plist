@@ -9,6 +9,8 @@
 			<string>Tone Bells</string>
 			<key>it</key>
 			<string>Campanelle</string>
+			<key>es</key>
+			<string>Campanas</string>
 		</dict>
 		<key>preset</key>
 		<string>CircBell</string>
@@ -22,6 +24,8 @@
 			<string>Xylophone</string>
 			<key>it</key>
 			<string>Xilofono</string>
+			<key>es</key>
+			<string>Xilófono</string>
 		</dict>
 		<key>preset</key>
 		<string>Xylo</string>
@@ -35,6 +39,8 @@
 			<string>Vibraphone</string>
 			<key>it</key>
 			<string>Vibrafono</string>
+			<key>es</key>
+			<string>Vibráfono</string>
 		</dict>
 		<key>preset</key>
 		<string>Vibraphone</string>
