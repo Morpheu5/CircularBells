@@ -1,15 +1,15 @@
 
 /* Class = "UILabel"; text = "Non ti piace la pubblicità. Va bene così, non piace neanche a noi, ma ci serve per continuare a fare app. Schiaccia il carrello per rimuovere la pubblicità per pochi spiccioli… o per niente, se l'hai già fatto in passato!"; ObjectID = "8gh-92-10r"; */
-"8gh-92-10r.text" = "Non ti piace la pubblicità. Va bene così, non piace neanche a noi, ma ci serve per continuare a fare app. Schiaccia il carrello per rimuovere la pubblicità per pochi spiccioli… o per niente, se l'hai già fatto in passato!";
+"8gh-92-10r.text" = "Non ti piace la pubblicità. Va bene così, non piace neanche a noi, ma ci serve per continuare a fare app. Schiaccia il carrello per rimuovere la pubblicità per pochi spiccioli… o gratis, se l'hai già fatto in passato!";
 
 /* Class = "UILabel"; text = "Rimuovi la pubblicità"; ObjectID = "DTY-DZ-1tj"; */
 "DTY-DZ-1tj.text" = "Rimuovi la pubblicità";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "MP9-C4-4ON"; */
-"MP9-C4-4ON.text" = "Title";
+"MP9-C4-4ON.text" = "Titolo";
 
 /* Class = "UILabel"; text = "Se ti piace questa app, perché non lo racconti in giro? Puoi votarla e lasciare un commento sull'App Store."; ObjectID = "Mnd-Jw-dWU"; */
-"Mnd-Jw-dWU.text" = "Se ti piace questa app, perché non lo racconti in giro? Puoi votarla e lasciare un commento sull'App Store.";
+"Mnd-Jw-dWU.text" = "Se ti piace questa app, perché non lo dici in giro? Vota sull'App Store e lascia un commento!";
 
 /* Class = "UIButton"; normalTitle = "Ripristina acquisti"; ObjectID = "a3M-Yu-QIu"; */
 "a3M-Yu-QIu.normalTitle" = "Ripristina acquisti";
@@ -31,4 +31,4 @@ incoraggiarci a fare altre app!";
 "oFe-r0-mFH.title" = "Circular Bells";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "oP2-rX-NHR"; */
-"oP2-rX-NHR.text" = "Title";
+"oP2-rX-NHR.text" = "Titolo";
