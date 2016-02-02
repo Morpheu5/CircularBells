@@ -1,9 +1,9 @@
 
 /* Class = "UILabel"; text = "You don't like ads. That's OK, we don't like them either, but we need them to keep making great apps. Hit the cart button and get rid of them for a small fee… or for free if you already paid for this!"; ObjectID = "8gh-92-10r"; */
-"8gh-92-10r.text" = "No te gustan los anuncios. Está bien, tampoco a nosotros, pero los necesitamos para seguir haciendo apps. Pulsas el boton y quitalos por un módico precio… o gratis si ya has pagado!";
+"8gh-92-10r.text" = "No te gustan anuncios. Está bien, tampoco a nosotros, pero los necesitamos para seguir haciendo apps. Pulsas el carrito y quitalos barato… o gratis si ya has pagado!";
 
 /* Class = "UILabel"; text = "Remove Ads"; ObjectID = "DTY-DZ-1tj"; */
-"DTY-DZ-1tj.text" = "Quitar anuncios";
+"DTY-DZ-1tj.text" = "Quitas anuncios";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "MP9-C4-4ON"; */
 "MP9-C4-4ON.text" = "Título";
@@ -12,7 +12,7 @@
 "Mnd-Jw-dWU.text" = "Si esta app the gusta, ¿porqué no lo dices? Vota en el App Store y dejas un comentario.";
 
 /* Class = "UIButton"; normalTitle = "Restore purchases"; ObjectID = "a3M-Yu-QIu"; */
-"a3M-Yu-QIu.normalTitle" = "Restaurar compras";
+"a3M-Yu-QIu.normalTitle" = "Recobres compras";
 
 /* Class = "UIButton"; normalTitle = "Get in touch!"; ObjectID = "bPw-JJ-dn4"; */
 "bPw-JJ-dn4.normalTitle" = "Contáctenos!";
@@ -24,8 +24,8 @@
 If you like Circular Bells, here is how you can
 support us to make more beautiful apps!"; ObjectID = "dcn-aa-zNN"; */
 "dcn-aa-zNN.text" = "Somos un pequeño grupo de diseñadores.
-Si te gusta Circular Bells, aprendes como
-puedes ayudarnos a hacer más apps!";
+Si te gusta Circular Bells, eso es como
+ayudarnos a hacer más apps!";
 
 /* Class = "UIViewController"; title = "Circular Bells"; ObjectID = "oFe-r0-mFH"; */
 "oFe-r0-mFH.title" = "Circular Bells";
