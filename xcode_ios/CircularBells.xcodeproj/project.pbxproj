@@ -106,8 +106,6 @@
 		A3BF67F41C08BAE9006F8B24 /* ScaleSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleSelectionTableViewController.h; sourceTree = "<group>"; };
 		A3BF67F51C08BAE9006F8B24 /* ScaleSelectionTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScaleSelectionTableViewController.mm; sourceTree = "<group>"; };
 		A3BF67F71C08CB44006F8B24 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		A3CD82F71C5CCB1800C7B586 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Storyboard.strings; sourceTree = "<group>"; };
-		A3CD82F81C5CCB1800C7B586 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A3D7A4621C070B7100CD354D /* CircularBellsApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularBellsApp.h; sourceTree = "<group>"; };
 		A3EF0ACB1C00AB24008D5DBC /* mopRootView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mopRootView.cpp; sourceTree = "<group>"; };
 		A3EF0ACC1C00AB24008D5DBC /* mopRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopRootView.h; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 				Base,
 				it,
 				es,
-				de,
 			);
 			mainGroup = 00692BC414FF149000D0A05E;
 			productRefGroup = 00692BD014FF149000D0A05E /* Products */;
@@ -429,7 +426,6 @@
 				A37E4A411C567DD7003C9760 /* Base */,
 				A37E4A421C567DF6003C9760 /* it */,
 				A36DD9C31C5A21840073891D /* es */,
-				A3CD82F71C5CCB1800C7B586 /* de */,
 			);
 			name = Storyboard.storyboard;
 			sourceTree = "<group>";
@@ -440,7 +436,6 @@
 				A37E4A461C567F54003C9760 /* Base */,
 				A341675C1C56A8F30084A4D8 /* it */,
 				A36DD9C41C5A21840073891D /* es */,
-				A3CD82F81C5CCB1800C7B586 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
