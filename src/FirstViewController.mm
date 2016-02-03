@@ -108,7 +108,8 @@
 
 	// Check if the in-app purchases registry exists
 	NSData *value = [[NSUserDefaults standardUserDefaults] dataForKey:@"RemoveAds"];
-	if(value == nil) { // The user hasn't given us their BIG MONEY!!1
+	if(value == nil) {
+		// The user hasn't given us their BIG MONEY!!1
 		// Setup iAd stuff
 		_isBannerVisible = NO;
 		_bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
@@ -117,7 +118,19 @@
 		_bannerView.frame = frame;
 		_bannerView.delegate = self;
 		[cinderViewParent.view addSubview:_bannerView];
+
+		_interstitialTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
+															  target:self
+															selector:@selector(fireInterstitialAd:)
+															userInfo:nil
+															 repeats:YES];
 	}
+	_canShowInterstitialAd = YES;
+	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyAutomatic;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	_interstitialTimer = nil;
 }
 
 #pragma mark - UI settings stuff
@@ -141,6 +154,7 @@
 }
 
 - (IBAction)scalePushed:(id)sender {
+	_canShowInterstitialAd = NO;
 	ScaleSelectionTableViewController *vc = [[ScaleSelectionTableViewController alloc] initWithStyle:UITableViewStylePlain];
 	vc.modalPresentationStyle = UIModalPresentationFormSheet;
 	
@@ -150,6 +164,7 @@
 }
 
 - (IBAction)bellPushed:(UIBarButtonItem *)sender {
+	_canShowInterstitialAd = NO;
 	InstrumentSelectViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"InstrumentSelectVC"];
 	NSString *filepath = [[NSBundle mainBundle] pathForResource:@"assets/Instruments" ofType:@"plist"];
 	if([[NSFileManager defaultManager] fileExistsAtPath:filepath]) {
@@ -170,6 +185,7 @@
 }
 
 - (IBAction)supportUs:(id)sender {
+	_canShowInterstitialAd = NO;
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
 	cinderViewParent.title = NSLocalizedString(@"Back", nil);
 	SupportUsViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SupportUs"];
@@ -200,6 +216,7 @@
 }
 
 - (void)presetsPushed:(UIBarButtonItem *)sender {
+	_canShowInterstitialAd = NO;
 	PresetsTableViewController *vc = (PresetsTableViewController *)[[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"PresetsVC"]; //[[PresetsTableViewController alloc] init];
 	vc.modalPresentationStyle = UIModalPresentationFormSheet;
 	
@@ -214,6 +231,7 @@
 }
 
 - (void)sharePushed:(UIBarButtonItem *)sender {
+	_canShowInterstitialAd = NO;
 	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
 	NSString *path = [NSString stringWithUTF8String:theApp->saveScreenshot().c_str()];
 	UIImage *image = [UIImage imageWithContentsOfFile:path];
@@ -276,6 +294,8 @@
 - (void)removeBanner {
 	_isBannerVisible = NO;
 	[_bannerView removeFromSuperview];
+	[_interstitialTimer invalidate];
+	_interstitialTimer = nil;
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
@@ -314,7 +334,15 @@
 	theApp->speedUpFrameRate();
 }
 
-// TODO Throttle down and back up on banners.
+// Interstitial things
+
+- (void)fireInterstitialAd:(NSTimer *)timer {
+	NSData *value = [[NSUserDefaults standardUserDefaults] dataForKey:@"RemoveAds"];
+	if(value == nil) {
+		// Only show ads if the user hasn't given us their BIG MONEY!!1
+		[self requestInterstitialAdPresentation];
+	}
+}
 
 - (void)viewDidLayoutSubviews {
 	CGSize bigSize = self.view.bounds.size;

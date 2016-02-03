@@ -4,6 +4,8 @@
 
 #include "CircularBellsApp.h"
 
+#import "FirstViewController.h"
+
 @implementation SupportUsViewController
 
 - (void)viewDidLoad {
@@ -39,6 +41,9 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+	if([self.parentViewController isKindOfClass:[FirstViewController class]]) {
+		((FirstViewController *)self.parentViewController).canShowInterstitialAd = YES;
+	}
 	ci::app::setFrameRate(60.0f);
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
 	cinderViewParent.title = @"";

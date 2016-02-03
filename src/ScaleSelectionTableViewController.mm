@@ -2,6 +2,8 @@
 
 #import "ScaleSelectionTableViewController.h"
 
+#import "FirstViewController.h"
+
 @interface ScaleSelectionTableViewController () {
 	vector<pair<string, string>> _scaleNames;
 	string _currentScaleName;
@@ -26,6 +28,9 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+	if([self.presentingViewController isKindOfClass:[FirstViewController class]]) {
+		((FirstViewController *)self.presentingViewController).canShowInterstitialAd = YES;
+	}
 	ci::app::setFrameRate(60.0f);
 }
 

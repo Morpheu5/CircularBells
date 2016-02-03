@@ -2,6 +2,8 @@
 
 #include "CircularBellsApp.h"
 
+#import "FirstViewController.h"
+
 @interface PresetsTableViewController ()
 
 @end
@@ -17,6 +19,9 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+	if([self.presentingViewController isKindOfClass:[FirstViewController class]]) {
+		((FirstViewController *)self.presentingViewController).canShowInterstitialAd = YES;
+	}
 	ci::app::setFrameRate(60.0f);
 }
 

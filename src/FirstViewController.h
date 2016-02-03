@@ -17,6 +17,10 @@
 
 @property (strong, nonatomic) StoreObserver *storeObserver;
 
+@property (strong, nonatomic) NSTimer *interstitialTimer;
+
+@property (nonatomic) BOOL canShowInterstitialAd;
+
 - (IBAction)pullDownPushed:(UIButton *)sender;
 - (IBAction)pushUpPushed:(UIButton *)sender;
 
@@ -30,5 +34,7 @@
 - (IBAction)supportUs:(id)sender;
 
 - (void)removeBanner;
+
+- (void)fireInterstitialAd:(NSTimer *)timer;
 
 @end
