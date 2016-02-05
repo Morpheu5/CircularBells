@@ -338,7 +338,7 @@
 
 - (void)fireInterstitialAd:(NSTimer *)timer {
 	NSData *value = [[NSUserDefaults standardUserDefaults] dataForKey:@"RemoveAds"];
-	if(value == nil) {
+	if(value == nil && _canShowInterstitialAd) {
 		// Only show ads if the user hasn't given us their BIG MONEY!!1
 		[self requestInterstitialAdPresentation];
 	}
