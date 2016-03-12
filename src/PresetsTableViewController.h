@@ -13,6 +13,8 @@
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIToolbar *toolBar;
 
+@property (retain, nonatomic) NSMutableArray *presets;
+
 - (IBAction)addPreset:(UIBarButtonItem *)sender;
 - (IBAction)done:(UIBarButtonItem *)sender;
 

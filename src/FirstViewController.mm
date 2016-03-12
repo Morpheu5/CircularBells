@@ -85,7 +85,7 @@
 																	   action:@selector(supportUs:)];
 	supportUsButton.accessibilityLabel = NSLocalizedString(@"About us", @"a11y");
 
-	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, scalesButton, bellButton/*, presetsButton */]];
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, scalesButton, bellButton, presetsButton]];
 	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, /*shareButton,*/ lockButton, perlinButton, resetPositionsButton]];
 	
 	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];

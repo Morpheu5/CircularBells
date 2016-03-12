@@ -4,14 +4,13 @@
 
 #import "FirstViewController.h"
 
-@interface PresetsTableViewController ()
-
-@end
-
 @implementation PresetsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	_presets = [@[] mutableCopy];
+
+	// TODO Load list of presets
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 0) {
-		return 40;
+		return _presets.count;
 	} else {
 		return 0;
 	}
@@ -89,6 +88,28 @@
 #pragma mark - Toolbar actions
 
 - (IBAction)addPreset:(UIBarButtonItem *)sender {
+	// TODO Investigate alerts with a text box
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Save As…", nil)
+							   message:nil
+							  delegate:self
+					 cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+					 otherButtonTitles:NSLocalizedString(@"Save", nil), nil];
+	[alert show];
+}
+
+- (void)savePreset:(UIAlertView *)sender {
+	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
+	auto positions = theApp->getPositions();
+	auto scaleName = theApp->getCurrentScaleName();
+
+	NSMutableArray *nsPositions = [@[] mutableCopy];
+	// There might be a map() opportunity here...
+	for(pair<int, vec2> bell : positions) {
+		[nsPositions addObject:@{@"pitch": [NSNumber numberWithInt:bell.first], @"x": [NSNumber numberWithFloat:bell.second.x], @"y": [NSNumber numberWithFloat:bell.second.y]}];
+	}
+
+	NSDictionary *preset = @{@"scaleName": [NSString stringWithUTF8String:scaleName.data()], @"positions": nsPositions};
+	NSLog(@"%@", preset);
 }
 
 - (IBAction)done:(UIBarButtonItem *)sender {
