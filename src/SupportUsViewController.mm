@@ -22,9 +22,6 @@
 	_commentButton.layer.cornerRadius = 6.0;
 	_commentButton.clipsToBounds = YES;
 
-	_removeAdsButton.layer.cornerRadius = 6.0;
-	_removeAdsButton.clipsToBounds = YES;
-	
 	_getInTouchButton.layer.cornerRadius = 6.0;
 	_getInTouchButton.clipsToBounds = YES;
 
@@ -41,9 +38,6 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	if([self.parentViewController isKindOfClass:[FirstViewController class]]) {
-		((FirstViewController *)self.parentViewController).canShowInterstitialAd = YES;
-	}
 	ci::app::setFrameRate(60.0f);
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
 	cinderViewParent.title = @"";
@@ -68,24 +62,24 @@
 
 #pragma mark - Remove ads business logic
 
-- (void)removeAdsPurchased {
-	[_removeAdsButton setImage:[UIImage imageNamed:@"assets/icons/purchased.png"] forState:UIControlStateNormal];
-	[_removeAdsButton setEnabled:NO];
-}
-
-- (IBAction)removeAdsPushed:(UIButton *)sender {
-	_hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-	_hud.mode = MBProgressHUDModeIndeterminate;
-	_hud.labelText = NSLocalizedString(@"Contacting Store…", nil);
-	if([SKPaymentQueue canMakePayments]) {
-		_productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithArray:@[@"net.morpheu5.circularbells.removeads"]]];
-		_productsRequest.delegate = self;
-		[_productsRequest start];
-	} else {
-		[_hud hide:YES];
-		[self showStoreError];
-	}
-}
+//- (void)removeAdsPurchased {
+//	[_removeAdsButton setImage:[UIImage imageNamed:@"assets/icons/purchased.png"] forState:UIControlStateNormal];
+//	[_removeAdsButton setEnabled:NO];
+//}
+//
+//- (IBAction)removeAdsPushed:(UIButton *)sender {
+//	_hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//	_hud.mode = MBProgressHUDModeIndeterminate;
+//	_hud.labelText = NSLocalizedString(@"Contacting Store…", nil);
+//	if([SKPaymentQueue canMakePayments]) {
+//		_productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithArray:@[@"net.morpheu5.circularbells.removeads"]]];
+//		_productsRequest.delegate = self;
+//		[_productsRequest start];
+//	} else {
+//		[_hud hide:YES];
+//		[self showStoreError];
+//	}
+//}
 
 - (void)showStoreError {
 	[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Store unavailable", nil)

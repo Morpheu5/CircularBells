@@ -50,11 +50,11 @@
 																  action:@selector(bellPushed:)];
 	bellButton.accessibilityLabel = NSLocalizedString(@"Change instrument", @"a11y");
 
-	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
-																	  style:UIBarButtonItemStylePlain
-																	 target:self
-																	 action:@selector(presetsPushed:)];
-	presetsButton.accessibilityLabel = NSLocalizedString(@"Change preset", @"a11y");
+//	UIBarButtonItem *presetsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/presets.png"]
+//																	  style:UIBarButtonItemStylePlain
+//																	 target:self
+//																	 action:@selector(presetsPushed:)];
+//	presetsButton.accessibilityLabel = NSLocalizedString(@"Change preset", @"a11y");
 
 	UIBarButtonItem *resetPositionsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"assets/icons/resetpositions.png"]
 																			  style:UIBarButtonItemStylePlain
@@ -85,7 +85,7 @@
 																	   action:@selector(supportUs:)];
 	supportUsButton.accessibilityLabel = NSLocalizedString(@"About us", @"a11y");
 
-	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, scalesButton, bellButton, presetsButton]];
+	[cinderViewParent.navigationItem setLeftBarButtonItems:@[leftSpacer, pushUpButton, scalesButton, bellButton/*, presetsButton*/]];
 	[cinderViewParent.navigationItem setRightBarButtonItems:@[supportUsButton, /*shareButton,*/ lockButton, perlinButton, resetPositionsButton]];
 	
 	UIImage *pullDownImage = [UIImage imageNamed:@"assets/icons/pull-down.png"];
@@ -111,26 +111,11 @@
 	if(value == nil) {
 		// The user hasn't given us their BIG MONEY!!1
 		// Setup iAd stuff
-		_isBannerVisible = NO;
-		_bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-		CGRect frame = _bannerView.frame;
-		frame.origin.y = self.view.bounds.size.height;
-		_bannerView.frame = frame;
-		_bannerView.delegate = self;
-		[cinderViewParent.view addSubview:_bannerView];
-
-		_interstitialTimer = [NSTimer scheduledTimerWithTimeInterval:300.0
-															  target:self
-															selector:@selector(fireInterstitialAd:)
-															userInfo:nil
-															 repeats:YES];
 	}
-	_canShowInterstitialAd = YES;
-	self.interstitialPresentationPolicy = ADInterstitialPresentationPolicyAutomatic;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	_interstitialTimer = nil;
+
 }
 
 #pragma mark - UI settings stuff
@@ -154,7 +139,6 @@
 }
 
 - (IBAction)scalePushed:(id)sender {
-	_canShowInterstitialAd = NO;
 	ScaleSelectionTableViewController *vc = [[ScaleSelectionTableViewController alloc] initWithStyle:UITableViewStylePlain];
 	vc.modalPresentationStyle = UIModalPresentationFormSheet;
 	
@@ -164,7 +148,6 @@
 }
 
 - (IBAction)bellPushed:(UIBarButtonItem *)sender {
-	_canShowInterstitialAd = NO;
 	InstrumentSelectViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"InstrumentSelectVC"];
 	NSString *filepath = [[NSBundle mainBundle] pathForResource:@"assets/Instruments" ofType:@"plist"];
 	if([[NSFileManager defaultManager] fileExistsAtPath:filepath]) {
@@ -185,7 +168,6 @@
 }
 
 - (IBAction)supportUs:(id)sender {
-	_canShowInterstitialAd = NO;
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
 	cinderViewParent.title = NSLocalizedString(@"Back", nil);
 	SupportUsViewController *vc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SupportUs"];
@@ -216,7 +198,6 @@
 }
 
 - (void)presetsPushed:(UIBarButtonItem *)sender {
-	_canShowInterstitialAd = NO;
 	PresetsTableViewController *vc = (PresetsTableViewController *)[[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"PresetsVC"]; //[[PresetsTableViewController alloc] init];
 	vc.modalPresentationStyle = UIModalPresentationFormSheet;
 	
@@ -231,7 +212,6 @@
 }
 
 - (void)sharePushed:(UIBarButtonItem *)sender {
-	_canShowInterstitialAd = NO;
 	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
 	NSString *path = [NSString stringWithUTF8String:theApp->saveScreenshot().c_str()];
 	UIImage *image = [UIImage imageWithContentsOfFile:path];
@@ -287,71 +267,6 @@
 	[self presentViewController:vc
 					   animated:YES
 					 completion:nil];
-}
-
-#pragma mark - iAd stuff
-
-- (void)removeBanner {
-	_isBannerVisible = NO;
-	[_bannerView removeFromSuperview];
-	[_interstitialTimer invalidate];
-	_interstitialTimer = nil;
-}
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-	if(!_isBannerVisible) {
-		[UIView animateWithDuration:0.5 animations:^{
-			CGRect frame = _bannerView.frame;
-			frame.origin.y -= frame.size.height;
-			_bannerView.frame = frame;
-		} completion:^(BOOL finished) {
-			_isBannerVisible = YES;
-		}];
-	}
-}
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-	if(_isBannerVisible) {
-		[UIView animateWithDuration:0.5 animations:^{
-			CGRect frame = _bannerView.frame;
-			frame.origin.y = self.view.bounds.size.height;
-			_bannerView.frame = frame;
-		} completion:^(BOOL finished) {
-			_isBannerVisible = NO;
-		}];
-	}
-}
-
-- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
-	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
-	theApp->slowDownFrameRate();
-
-	return true;
-}
-
-- (void)bannerViewActionDidFinish:(ADBannerView *)banner {
-	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
-	theApp->speedUpFrameRate();
-}
-
-// Interstitial things
-
-- (void)fireInterstitialAd:(NSTimer *)timer {
-	NSData *value = [[NSUserDefaults standardUserDefaults] dataForKey:@"RemoveAds"];
-	if(value == nil && _canShowInterstitialAd) {
-		// Only show ads if the user hasn't given us their BIG MONEY!!1
-		[self requestInterstitialAdPresentation];
-	}
-}
-
-- (void)viewDidLayoutSubviews {
-	CGSize bigSize = self.view.bounds.size;
-	CGSize newSize = [_bannerView sizeThatFits:bigSize];
-	if(_isBannerVisible) {
-		_bannerView.frame = CGRectMake(0, bigSize.height - newSize.height, newSize.width, newSize.height);
-	} else {
-		_bannerView.frame = CGRectMake(0, bigSize.height, newSize.width, newSize.height);
-	}
 }
 
 #pragma mark - Memory management

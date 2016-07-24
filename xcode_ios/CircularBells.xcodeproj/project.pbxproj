@@ -93,7 +93,7 @@
 		A3A9CA941C00F52000CAE19B /* BellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BellView.h; path = ../src/BellView.h; sourceTree = "<group>"; };
 		A3A9CA961C0106CC00CAE19B /* EPSSampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPSSampler.h; sourceTree = "<group>"; };
 		A3A9CA971C0106CC00CAE19B /* EPSSampler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPSSampler.m; sourceTree = "<group>"; };
-		A3A9CA9C1C010CA600CAE19B /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = /Users/morpheu5/src/CircularBells/xcode_ios/../resources/Sounds; sourceTree = "<absolute>"; };
+		A3A9CA9C1C010CA600CAE19B /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = "/Users/morpheu5/src/CircularBells/CircularBells-iOS/resources/Sounds"; sourceTree = "<absolute>"; };
 		A3B077751C0DD4E50000C276 /* InstrumentSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentSelectViewController.h; sourceTree = "<group>"; };
 		A3B077761C0DD4E50000C276 /* InstrumentSelectViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InstrumentSelectViewController.mm; sourceTree = "<group>"; };
 		A3B077781C0DF3BE0000C276 /* InstrumentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentCellView.h; sourceTree = "<group>"; };
@@ -448,7 +448,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CINDER_PATH = ../../cinder_0.9.0_mac;
+				CINDER_PATH = ../../../cinder_0.9.0_mac;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -497,7 +497,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CINDER_PATH = ../../cinder_0.9.0_mac;
+				CINDER_PATH = ../../../cinder_0.9.0_mac;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

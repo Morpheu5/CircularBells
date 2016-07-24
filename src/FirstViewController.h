@@ -6,20 +6,11 @@
 
 #include "cinder/Function.h"
 
-@interface FirstViewController : UINavigationController <ADBannerViewDelegate, UINavigationControllerDelegate>
-
-@property (nonatomic) BOOL isBannerVisible;
-@property (strong, nonatomic) ADBannerView *bannerView;
+@interface FirstViewController : UINavigationController <UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UIButton *pullDownButton;
 
-@property (strong, nonatomic) UIBarButtonItem *removeAdsButton;
-
 @property (strong, nonatomic) StoreObserver *storeObserver;
-
-@property (strong, nonatomic) NSTimer *interstitialTimer;
-
-@property (nonatomic) BOOL canShowInterstitialAd;
 
 - (IBAction)pullDownPushed:(UIButton *)sender;
 - (IBAction)pushUpPushed:(UIButton *)sender;
@@ -34,7 +25,5 @@
 - (IBAction)supportUs:(id)sender;
 
 - (void)removeBanner;
-
-- (void)fireInterstitialAd:(NSTimer *)timer;
 
 @end

@@ -5,8 +5,6 @@
 @interface SupportUsViewController : UIViewController <SKProductsRequestDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) MBProgressHUD *hud;
-@property (strong, nonatomic) IBOutlet UIButton *removeAdsButton;
-@property (retain, nonatomic) IBOutlet UILabel *removeAdsLabel;
 @property (strong, nonatomic) IBOutlet UIButton *getInTouchButton;
 @property (nonatomic, strong) IBOutlet UIButton *restorePurchasesButton;
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
@@ -14,8 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 
-- (void)removeAdsPurchased;
-- (IBAction)removeAdsPushed:(UIButton *)sender;
 - (IBAction)commentPushed:(UIButton *)sender;
 - (IBAction)getInTouchPushed:(UIButton *)sender;
 - (IBAction)restorePurchasesPushed:(UIButton *)sender;

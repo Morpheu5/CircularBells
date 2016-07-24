@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -43,43 +43,8 @@
                                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOA-pI-fEV">
-                                                <rect key="frame" x="20" y="300.5" width="65" height="65"/>
-                                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="65" id="yKJ-Vd-bdq"/>
-                                                    <constraint firstAttribute="height" constant="65" id="yh8-K9-H8t"/>
-                                                </constraints>
-                                                <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                <state key="normal" image="assets/icons/purchase.png"/>
-                                                <connections>
-                                                    <action selector="removeAdsPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="ZA8-n3-MNA"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Ads" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-DZ-1tj" userLabel="Remove Ads Title">
-                                                <rect key="frame" x="105" y="295.5" width="93.5" height="19.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="mIT-YC-AOO"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="mIT-YC-AOO"/>
-                                                    </mask>
-                                                </variation>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="8gh-92-10r" userLabel="Remove Ads Description">
-                                                <rect key="frame" x="105" y="323.5" width="475" height="19.5"/>
-                                                <string key="text">You don't like ads. That's OK, we don't like them either, but we need them to keep making great apps. Hit the cart button and get rid of them for a small fee… or for free if you already paid for this!</string>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaS-21-aYD" userLabel="Feedback Button">
-                                                <rect key="frame" x="20" y="363" width="65" height="65"/>
+                                                <rect key="frame" x="40" y="310.5" width="65" height="65"/>
                                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="65" id="0Dp-Wm-BhB"/>
@@ -92,7 +57,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-Ja-0ck" userLabel="Feedback Title">
-                                                <rect key="frame" x="105" y="358" width="118.5" height="19.5"/>
+                                                <rect key="frame" x="125" y="305.5" width="118.5" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="X1A-rc-5ew"/>
                                                 </constraints>
@@ -106,55 +71,11 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="If you like this app, why not tell others? Rate this app on the App Store, and leave a comment." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-Jw-dWU" userLabel="Feedback Description">
-                                                <rect key="frame" x="105" y="386" width="475" height="19.5"/>
+                                                <rect key="frame" x="125" y="333.5" width="435" height="19.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="hBK-J8-MQG">
-                                                <rect key="frame" x="106" y="436" width="388" height="49"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3M-Yu-QIu" userLabel="Restore purchases Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="49"/>
-                                                        <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.50196081399917603" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="49" id="vKc-MK-9so"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
-                                                        <state key="normal" title="Restore purchases"/>
-                                                        <connections>
-                                                            <action selector="restorePurchasesPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jb7-BB-Nq6"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-JJ-dn4">
-                                                        <rect key="frame" x="214" y="0.0" width="174" height="49"/>
-                                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="49" id="EcD-c3-HOn"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
-                                                        <state key="normal" title="Get in touch!">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="getInTouchPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jHQ-R6-V3F"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="bPw-JJ-dn4" firstAttribute="leading" secondItem="a3M-Yu-QIu" secondAttribute="trailing" constant="40" id="2Rd-bd-jSa"/>
-                                                    <constraint firstAttribute="bottom" secondItem="a3M-Yu-QIu" secondAttribute="bottom" id="3n3-Wu-h1f"/>
-                                                    <constraint firstItem="a3M-Yu-QIu" firstAttribute="top" secondItem="hBK-J8-MQG" secondAttribute="top" id="FSP-zR-RII"/>
-                                                    <constraint firstItem="bPw-JJ-dn4" firstAttribute="width" secondItem="a3M-Yu-QIu" secondAttribute="width" id="UaO-2z-Ykq"/>
-                                                    <constraint firstItem="bPw-JJ-dn4" firstAttribute="top" secondItem="hBK-J8-MQG" secondAttribute="top" id="VSs-aQ-3bK"/>
-                                                    <constraint firstItem="a3M-Yu-QIu" firstAttribute="leading" secondItem="hBK-J8-MQG" secondAttribute="leading" id="dOk-DA-u6z"/>
-                                                    <constraint firstAttribute="bottom" secondItem="bPw-JJ-dn4" secondAttribute="bottom" id="eDa-Im-1yI"/>
-                                                    <constraint firstAttribute="trailing" secondItem="bPw-JJ-dn4" secondAttribute="trailing" id="gja-2Y-xUx"/>
-                                                </constraints>
-                                            </view>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assets/colorwheel.png" translatesAutoresizingMaskIntoConstraints="NO" id="qUh-KF-ga5">
                                                 <rect key="frame" x="213" y="20" width="175" height="175"/>
                                                 <constraints>
@@ -162,28 +83,36 @@
                                                     <constraint firstAttribute="height" constant="175" id="hfw-WR-mZ6"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPw-JJ-dn4">
+                                                <rect key="frame" x="180" y="415.5" width="240" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="EcD-c3-HOn"/>
+                                                    <constraint firstAttribute="width" constant="240" id="HvV-7g-oRN"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                                                <size key="titleShadowOffset" width="4" height="4"/>
+                                                <state key="normal" backgroundImage="assets/icons/get-in-touch.png">
+                                                    <color key="titleShadowColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="getInTouchPushed:" destination="oFe-r0-mFH" eventType="touchUpInside" id="jHQ-R6-V3F"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="qUh-KF-ga5" firstAttribute="centerX" secondItem="IXF-KF-KCH" secondAttribute="centerX" id="0gx-0h-YnJ"/>
-                                            <constraint firstItem="hBK-J8-MQG" firstAttribute="centerX" secondItem="IXF-KF-KCH" secondAttribute="centerX" id="3FY-Hs-8Hh"/>
                                             <constraint firstItem="Mnd-Jw-dWU" firstAttribute="top" secondItem="cLT-Ja-0ck" secondAttribute="bottom" constant="8" id="503-n2-ckA"/>
                                             <constraint firstItem="dcn-aa-zNN" firstAttribute="top" secondItem="qUh-KF-ga5" secondAttribute="bottom" constant="8" id="7am-md-f2W"/>
-                                            <constraint firstItem="DTY-DZ-1tj" firstAttribute="leading" secondItem="KOA-pI-fEV" secondAttribute="trailing" constant="20" id="7bj-Jw-yw2"/>
-                                            <constraint firstItem="KOA-pI-fEV" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leading" constant="20" id="8bQ-kZ-w3z"/>
-                                            <constraint firstItem="hBK-J8-MQG" firstAttribute="top" secondItem="Mnd-Jw-dWU" secondAttribute="bottom" constant="30" id="Bt8-zN-QnJ"/>
-                                            <constraint firstItem="DTY-DZ-1tj" firstAttribute="top" secondItem="KOA-pI-fEV" secondAttribute="top" constant="-5" id="G6t-KY-jQS"/>
                                             <constraint firstItem="qUh-KF-ga5" firstAttribute="top" secondItem="IXF-KF-KCH" secondAttribute="top" constant="20" id="Gs8-8v-mbJ"/>
+                                            <constraint firstItem="bPw-JJ-dn4" firstAttribute="top" secondItem="GaS-21-aYD" secondAttribute="bottom" constant="40" id="Okd-b7-ySy"/>
                                             <constraint firstItem="dcn-aa-zNN" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leadingMargin" id="QDA-t4-p5f"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="dcn-aa-zNN" secondAttribute="trailing" id="ZS1-5V-qvT"/>
                                             <constraint firstItem="cLT-Ja-0ck" firstAttribute="top" secondItem="GaS-21-aYD" secondAttribute="top" constant="-5" id="aNY-wd-gCe"/>
-                                            <constraint firstItem="GaS-21-aYD" firstAttribute="top" secondItem="8gh-92-10r" secondAttribute="bottom" constant="20" id="bFo-3G-f8A"/>
-                                            <constraint firstItem="8gh-92-10r" firstAttribute="top" secondItem="DTY-DZ-1tj" secondAttribute="bottom" constant="8" id="c3f-UJ-Bha"/>
-                                            <constraint firstAttribute="trailing" secondItem="8gh-92-10r" secondAttribute="trailing" constant="20" id="ckK-N7-EFt"/>
-                                            <constraint firstItem="KOA-pI-fEV" firstAttribute="top" secondItem="dcn-aa-zNN" secondAttribute="bottom" constant="20" id="dTh-PP-wFR"/>
-                                            <constraint firstAttribute="trailing" secondItem="Mnd-Jw-dWU" secondAttribute="trailing" constant="20" id="jNc-d3-9ga"/>
-                                            <constraint firstItem="8gh-92-10r" firstAttribute="leading" secondItem="DTY-DZ-1tj" secondAttribute="leading" id="ob4-FX-dnY"/>
-                                            <constraint firstItem="GaS-21-aYD" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leading" constant="20" id="prs-fP-unh"/>
+                                            <constraint firstItem="bPw-JJ-dn4" firstAttribute="centerX" secondItem="IXF-KF-KCH" secondAttribute="centerX" id="i2G-rn-592"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mnd-Jw-dWU" secondAttribute="trailing" constant="40" id="jNc-d3-9ga"/>
+                                            <constraint firstItem="GaS-21-aYD" firstAttribute="top" secondItem="dcn-aa-zNN" secondAttribute="bottom" constant="30" id="kKg-r2-scM"/>
+                                            <constraint firstItem="GaS-21-aYD" firstAttribute="leading" secondItem="IXF-KF-KCH" secondAttribute="leading" constant="40" id="prs-fP-unh"/>
                                             <constraint firstItem="Mnd-Jw-dWU" firstAttribute="leading" secondItem="cLT-Ja-0ck" secondAttribute="leading" id="qnG-U6-rgB"/>
                                             <constraint firstItem="cLT-Ja-0ck" firstAttribute="leading" secondItem="GaS-21-aYD" secondAttribute="trailing" constant="20" id="vUV-mq-KbL"/>
                                         </constraints>
@@ -214,9 +143,6 @@
                         <outlet property="commentButton" destination="GaS-21-aYD" id="MCS-Kv-q6s"/>
                         <outlet property="contentView" destination="IXF-KF-KCH" id="FsD-Ch-XkK"/>
                         <outlet property="getInTouchButton" destination="bPw-JJ-dn4" id="sAm-gY-4OU"/>
-                        <outlet property="removeAdsButton" destination="KOA-pI-fEV" id="Ufs-yQ-uSP"/>
-                        <outlet property="removeAdsLabel" destination="DTY-DZ-1tj" id="l6A-Wj-gHT"/>
-                        <outlet property="restorePurchasesButton" destination="a3M-Yu-QIu" id="HZo-df-nm5"/>
                         <outlet property="scrollView" destination="vaf-97-BBM" id="ID6-cF-xa1"/>
                     </connections>
                 </viewController>
@@ -368,7 +294,7 @@
     <resources>
         <image name="assets/colorwheel.png" width="16" height="16"/>
         <image name="assets/icons/comment.png" width="16" height="16"/>
-        <image name="assets/icons/purchase.png" width="16" height="16"/>
+        <image name="assets/icons/get-in-touch.png" width="16" height="16"/>
     </resources>
     <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
