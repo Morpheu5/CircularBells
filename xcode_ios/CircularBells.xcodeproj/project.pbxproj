@@ -43,10 +43,7 @@
 		A3BF67F81C08CB44006F8B24 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BF67F71C08CB44006F8B24 /* Launch Screen.storyboard */; };
 		A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACB1C00AB24008D5DBC /* mopRootView.cpp */; };
 		A3EF0AD51C00AB24008D5DBC /* mopView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACD1C00AB24008D5DBC /* mopView.cpp */; };
-		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; };
-		C727C02E121B400300192073 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02D121B400300192073 /* CoreVideo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */; };
 		D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.mm */; };
 		DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */; };
@@ -131,9 +128,7 @@
 			files = (
 				A3BC44101C31D86800E74C67 /* Social.framework in Frameworks */,
 				A38503561C0738D7001F1866 /* iAd.framework in Frameworks */,
-				C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */,
 				A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */,
-				C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */,
 				A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */,
 				C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */,
 				DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */,
@@ -143,7 +138,6 @@
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
 				A305D2021C1F36940002446F /* SystemConfiguration.framework in Frameworks */,
 				00CFDF6B1138442D0091E310 /* CoreGraphics.framework in Frameworks */,
-				C727C02E121B400300192073 /* CoreVideo.framework in Frameworks */,
 				C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */,
 				A3A4C0101C0DB28200812274 /* StoreKit.framework in Frameworks */,
 				00A66A361965AC8800B17EB3 /* Accelerate.framework in Frameworks */,
@@ -332,6 +326,7 @@
 				TargetAttributes = {
 					00692BCE14FF149000D0A05E = {
 						DevelopmentTeam = 4P5WJRFVXA;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -545,7 +540,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Andrea Franceschini (APT37F7659)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrea Franceschini (APT37F7659)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -565,7 +561,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e677647f-b123-45b3-a88b-a2ad66c03e1c";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -579,7 +576,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrea Franceschini (4P5WJRFVXA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrea Franceschini (4P5WJRFVXA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -599,7 +597,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.morpheu5.CircularBells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "57317f52-5ede-4281-a30e-17e7452b102d";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

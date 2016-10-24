@@ -59,8 +59,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     InstrumentCellView *cell = [tableView dequeueReusableCellWithIdentifier:@"instrumentCell" forIndexPath:indexPath];
-    
-	cell.textLabel.text = _instrumentsList[indexPath.row][@"name"][_languageCode];
+
+	NSString *lc = [[NSBundle preferredLocalizationsFromArray:@[@"es", @"en", @"it"]] objectAtIndex:0];
+	cell.textLabel.text = _instrumentsList[indexPath.row][@"name"][lc];
 	if([[NSString stringWithUTF8String:_currentInstrument.c_str()] isEqualToString:_instrumentsList[indexPath.row][@"preset"]]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	} else {

@@ -18,7 +18,7 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-FirstViewController *sFirstVC = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"FirstVC"];
+FirstViewController *sFirstVC = [[FirstViewController alloc] init]; //[[UIStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"FirstVC"];
 
 void CircularBellsApp::launch() {
 	const auto &args = getCommandLineArgs();
@@ -384,11 +384,14 @@ void CircularBellsApp::rootDragged(mop::View* view, mop::TouchSignalType type, v
 	_projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
 }
 
+void CircularBellsApp::prepareSettings(App::Settings* settings) {
+	settings->setHighDensityDisplayEnabled(true);
+	settings->setMultiTouchEnabled();
+	settings->setFrameRate(60.0f);
+	settings->prepareWindow(Window::Format().rootViewController(sFirstVC));
+}
+
 CINDER_APP(CircularBellsApp,
 		   RendererGl(RendererGl::Options().msaa(1)),
-		   [](App::Settings* settings) {
-			   settings->setHighDensityDisplayEnabled(true);
-			   settings->setMultiTouchEnabled();
-			   settings->setFrameRate(60.0f);
-			   settings->prepareWindow(Window::Format().rootViewController(sFirstVC));
-		   });
+		   CircularBellsApp::prepareSettings
+		   );

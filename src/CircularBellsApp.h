@@ -41,6 +41,7 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	bool _locked = false;
 	
 public:
+	static void prepareSettings(Settings *settings);
 	void launch() override;
 	void setup() override;
 	void setupNotes();

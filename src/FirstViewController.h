@@ -24,6 +24,4 @@
 
 - (IBAction)supportUs:(id)sender;
 
-- (void)removeBanner;
-
 @end
