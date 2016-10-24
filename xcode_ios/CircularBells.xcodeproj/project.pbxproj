@@ -27,7 +27,6 @@
 		A375D7861C3D935B00510021 /* CBAppDelegateImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = A375D7851C3D935B00510021 /* CBAppDelegateImpl.mm */; };
 		A37E4A3E1C567DCA003C9760 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37E4A401C567DCA003C9760 /* Storyboard.storyboard */; };
 		A37E4A451C567F54003C9760 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37E4A471C567F54003C9760 /* Localizable.strings */; };
-		A38503561C0738D7001F1866 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38503551C0738D7001F1866 /* iAd.framework */; };
 		A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A4C00A1C0C7A9900812274 /* MBProgressHUD.m */; };
 		A3A4C00E1C0C8A3B00812274 /* StoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A4C00D1C0C8A3B00812274 /* StoreObserver.m */; };
 		A3A4C0101C0DB28200812274 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A4C00F1C0DB28200812274 /* StoreKit.framework */; };
@@ -127,7 +126,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BC44101C31D86800E74C67 /* Social.framework in Frameworks */,
-				A38503561C0738D7001F1866 /* iAd.framework in Frameworks */,
 				A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */,
 				A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */,
 				C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */,

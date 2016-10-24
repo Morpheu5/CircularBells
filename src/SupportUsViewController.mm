@@ -15,9 +15,9 @@
 	_requestedProduct = nil;
 	_hud = nil;
 	
-	if([[NSUserDefaults standardUserDefaults] objectForKey:@"RemoveAds"] != nil) {
-		[self removeAdsPurchased];
-	}
+//	if([[NSUserDefaults standardUserDefaults] objectForKey:@"RemoveAds"] != nil) {
+//		[self removeAdsPurchased];
+//	}
 
 	_commentButton.layer.cornerRadius = 6.0;
 	_commentButton.clipsToBounds = YES;
@@ -28,7 +28,7 @@
 	_restorePurchasesButton.layer.cornerRadius = 6.0;
 	_restorePurchasesButton.clipsToBounds = YES;
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAdsPurchased) name:@"RemoveAdsPurchased" object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAdsPurchased) name:@"RemoveAdsPurchased" object:nil];
 
 	_scrollView.contentSize = CGSizeMake(_contentView.bounds.size.width, _contentView.bounds.size.height - 44.0);
 }

@@ -19,7 +19,7 @@
 	_storeObserver = [[[StoreObserver alloc] init] retain];
 	[[SKPaymentQueue defaultQueue] addTransactionObserver:_storeObserver];
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeBanner) name:@"RemoveAdsPurchased" object:_storeObserver];
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeBanner) name:@"RemoveAdsPurchased" object:_storeObserver];
 	
 	// Setup the UI around the main Cinder application window
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
