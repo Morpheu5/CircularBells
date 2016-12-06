@@ -18,7 +18,7 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-FirstViewController *sFirstVC = [[FirstViewController alloc] init]; //[[UIStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"FirstVC"];
+FirstViewController *sFirstVC = [[FirstViewController alloc] init];
 
 void CircularBellsApp::launch() {
 	const auto &args = getCommandLineArgs();
