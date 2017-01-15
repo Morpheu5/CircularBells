@@ -44,7 +44,7 @@
 		A3EF0AD51C00AB24008D5DBC /* mopView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACD1C00AB24008D5DBC /* mopView.cpp */; };
 		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */; };
-		D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.mm */; };
+		D950037824BA4FA98FD65087 /* CircularBellsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.cpp */; };
 		DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,7 +117,7 @@
 		C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = CinderApp_ios.png; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; };
-		F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CircularBellsApp.mm; sourceTree = "<group>"; };
+		F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = CircularBellsApp.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,7 @@
 				A3A4C0091C0C7A9900812274 /* MBProgressHUD.h */,
 				A3A4C00A1C0C7A9900812274 /* MBProgressHUD.m */,
 				A3D7A4621C070B7100CD354D /* CircularBellsApp.h */,
-				F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.mm */,
+				F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.cpp */,
 				A3A4C00C1C0C8A3B00812274 /* StoreObserver.h */,
 				A3A4C00D1C0C8A3B00812274 /* StoreObserver.m */,
 				A39520891C37DA95007FD1C9 /* lzw.h */,
@@ -401,7 +401,7 @@
 				A3BC80841C05CB5D00384791 /* FirstViewController.mm in Sources */,
 				A3B077801C0E38440000C276 /* PresetsTableViewController.mm in Sources */,
 				A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */,
-				D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */,
+				D950037824BA4FA98FD65087 /* CircularBellsApp.cpp in Sources */,
 				A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */,
 				A375D7861C3D935B00510021 /* CBAppDelegateImpl.mm in Sources */,
 				A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */,

@@ -4,21 +4,24 @@
 #include "cinder/Perlin.h"
 #include "cinder/Timeline.h"
 
-#import "CBAppDelegateImpl.h"
 #include "CircularBellsApp.h"
 
 #include "mopViews.h"
 #include "BellView.h"
 
+#ifdef __APPLE__
 #import "EPSSampler.h"
-
+#import "CBAppDelegateImpl.h"
 #import "FirstViewController.h"
+#endif
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+#ifdef __APPLE__
 FirstViewController *sFirstVC = [[FirstViewController alloc] init];
+#endif
 
 void CircularBellsApp::launch() {
 	const auto &args = getCommandLineArgs();
@@ -27,8 +30,10 @@ void CircularBellsApp::launch() {
 	char* argv[argc];
 	for( int i = 0; i < argc; i++ )
 		argv[i] = const_cast<char *>( args[i].c_str() );
-	
+
+#ifdef __APPLE__
 	::UIApplicationMain( argc, argv, nil, ::NSStringFromClass( [CBAppDelegateImpl class] ) );
+#endif
 }
 
 void CircularBellsApp::setup() {
@@ -41,8 +46,8 @@ void CircularBellsApp::setup() {
 	_projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
 	_screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
 
+#ifdef __APPLE__
 	NSString *lang = [[NSBundle preferredLocalizationsFromArray:@[@"es", @"en", @"it"]] objectAtIndex:0];
-
 	NSString *filepath = [[NSBundle mainBundle] pathForResource:@"assets/Scales" ofType:@"plist"];
 	NSArray *scales = nil;
 	if([[NSFileManager defaultManager] fileExistsAtPath:filepath]) {
@@ -59,6 +64,7 @@ void CircularBellsApp::setup() {
 		_scales.push_back(pair<string, vector<int>>(scaleId, notes));
 		_localizedScaleNames.push_back(pair<string, string>(scaleId, [((NSString *)scale[@"name"][lang]) UTF8String]));
 	}
+#endif
 
 	_rootView = make_shared<mop::RootView>();
 	getWindow()->getSignalTouchesBegan().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchBegan));
