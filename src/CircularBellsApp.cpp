@@ -266,7 +266,7 @@ void CircularBellsApp::setPositions(map<int, vec2> positions) {
 
 void CircularBellsApp::setInstrument(string name) {
 	NSURL* presetUrl = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"assets/%@", [NSString stringWithUTF8String:name.c_str()]] withExtension:@"aupreset"];
-	_sampler = [[EPSSampler alloc] initWithPresetURL:presetUrl];
+//	_sampler = [[EPSSampler alloc] initWithPresetURL:presetUrl];
 	_instrumentName = name;
 }
 
@@ -358,14 +358,14 @@ void CircularBellsApp::rotateInterface(UIInterfaceOrientation orientation, NSTim
 void CircularBellsApp::noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		bellView->setStill();
-		[_sampler startPlayingNote:(48 + _tones[bellView->getPitch()]) withVelocity:1.0];
+//		[_sampler startPlayingNote:(48 + _tones[bellView->getPitch()]) withVelocity:1.0];
 	}
 }
 
 void CircularBellsApp::noteViewTouchUp(mop::View *view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		bellView->setStill(false);
-		[_sampler stopPlayingNote:(48 + _tones[bellView->getPitch()])];
+//		[_sampler stopPlayingNote:(48 + _tones[bellView->getPitch()])];
 	}
 }
 

@@ -20,7 +20,7 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	shared_ptr<mop::RootView> _rootView;
 	list<shared_ptr<mop::View>> _views;
 	
-	EPSSampler* _sampler;
+//	EPSSampler* _sampler;
 	map<int, int> _notesLifetime;
 	
 	Perlin _noise;
