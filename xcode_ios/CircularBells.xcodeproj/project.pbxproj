@@ -15,8 +15,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
-		46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */; };
 		9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03240AEABE9D4FBC87CA7719 /* Images.xcassets */; };
+		A3005D941E2C0296008AADF6 /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3005D8F1E2C0283008AADF6 /* libpd-ios.a */; };
 		A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FA1C1F35AC0002446F /* Fabric.framework */; };
 		A305D2011C1F36940002446F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FE1C1F36940002446F /* Security.framework */; };
 		A305D2021C1F36940002446F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FF1C1F36940002446F /* SystemConfiguration.framework */; };
@@ -27,12 +27,12 @@
 		A375D7861C3D935B00510021 /* CBAppDelegateImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = A375D7851C3D935B00510021 /* CBAppDelegateImpl.mm */; };
 		A37E4A3E1C567DCA003C9760 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37E4A401C567DCA003C9760 /* Storyboard.storyboard */; };
 		A37E4A451C567F54003C9760 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37E4A471C567F54003C9760 /* Localizable.strings */; };
+		A3A1A9E31E2BFEB600CFCEBA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; };
 		A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A4C00A1C0C7A9900812274 /* MBProgressHUD.m */; };
 		A3A4C00E1C0C8A3B00812274 /* StoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A4C00D1C0C8A3B00812274 /* StoreObserver.m */; };
 		A3A4C0101C0DB28200812274 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A4C00F1C0DB28200812274 /* StoreKit.framework */; };
 		A3A9CA951C00F52000CAE19B /* BellView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A9CA931C00F52000CAE19B /* BellView.cpp */; };
 		A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A9CA971C0106CC00CAE19B /* EPSSampler.m */; };
-		A3A9CA9D1C010CA600CAE19B /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = A3A9CA9C1C010CA600CAE19B /* Sounds */; };
 		A3B077771C0DD4E50000C276 /* InstrumentSelectViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B077761C0DD4E50000C276 /* InstrumentSelectViewController.mm */; };
 		A3B0777A1C0DF3BE0000C276 /* InstrumentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B077791C0DF3BE0000C276 /* InstrumentCellView.m */; };
 		A3B077801C0E38440000C276 /* PresetsTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B0777F1C0E38440000C276 /* PresetsTableViewController.mm */; };
@@ -47,6 +47,30 @@
 		D950037824BA4FA98FD65087 /* CircularBellsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.cpp */; };
 		DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3005D8E1E2C0283008AADF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3A1A9D81E2BFE5A00CFCEBA /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = "libpd-ios";
+		};
+		A3005D901E2C0283008AADF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3A1A9D81E2BFE5A00CFCEBA /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 119013AB1486450C00086F19;
+			remoteInfo = "libpd-osx";
+		};
+		A3005D921E2C0291008AADF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3A1A9D81E2BFE5A00CFCEBA /* libpd.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "libpd-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00692BCF14FF149000D0A05E /* Circular Bells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circular Bells.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +104,7 @@
 		A37E4A461C567F54003C9760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A38503551C0738D7001F1866 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A39520891C37DA95007FD1C9 /* lzw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lzw.h; sourceTree = "<group>"; };
+		A3A1A9D81E2BFE5A00CFCEBA /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = "../../../pd-for-ios/libpd/libpd.xcodeproj"; sourceTree = "<group>"; };
 		A3A4C0091C0C7A9900812274 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../ios/src/MBProgressHUD.h; sourceTree = "<group>"; };
 		A3A4C00A1C0C7A9900812274 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../ios/src/MBProgressHUD.m; sourceTree = "<group>"; };
 		A3A4C00C1C0C8A3B00812274 /* StoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreObserver.h; path = ../ios/src/StoreObserver.h; sourceTree = "<group>"; };
@@ -89,7 +114,6 @@
 		A3A9CA941C00F52000CAE19B /* BellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BellView.h; path = ../src/BellView.h; sourceTree = "<group>"; };
 		A3A9CA961C0106CC00CAE19B /* EPSSampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EPSSampler.h; path = ../ios/src/EPSSampler.h; sourceTree = "<group>"; };
 		A3A9CA971C0106CC00CAE19B /* EPSSampler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EPSSampler.m; path = ../ios/src/EPSSampler.m; sourceTree = "<group>"; };
-		A3A9CA9C1C010CA600CAE19B /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = "/Users/morpheu5/src/CircularBells/CircularBells-iOS/resources/Sounds"; sourceTree = "<absolute>"; };
 		A3B077751C0DD4E50000C276 /* InstrumentSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstrumentSelectViewController.h; path = ../ios/src/InstrumentSelectViewController.h; sourceTree = "<group>"; };
 		A3B077761C0DD4E50000C276 /* InstrumentSelectViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = InstrumentSelectViewController.mm; path = ../ios/src/InstrumentSelectViewController.mm; sourceTree = "<group>"; };
 		A3B077781C0DF3BE0000C276 /* InstrumentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstrumentCellView.h; path = ../ios/src/InstrumentCellView.h; sourceTree = "<group>"; };
@@ -116,7 +140,6 @@
 		C727C02D121B400300192073 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = CinderApp_ios.png; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; };
 		F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = CircularBellsApp.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3005D941E2C0296008AADF6 /* libpd-ios.a in Frameworks */,
+				A3A1A9E31E2BFEB600CFCEBA /* AVFoundation.framework in Frameworks */,
 				A3BC44101C31D86800E74C67 /* Social.framework in Frameworks */,
 				A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */,
 				A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */,
@@ -150,10 +175,10 @@
 		00692BC414FF149000D0A05E = {
 			isa = PBXGroup;
 			children = (
-				00692BD914FF149000D0A05E /* Source */,
 				00748057165D41390024B57A /* assets */,
+				00692BD914FF149000D0A05E /* Source */,
+				A3A1A9D71E2BFE4500CFCEBA /* libs */,
 				00692BD914FF149000D0FFFF /* Resources */,
-				A3A9CA9C1C010CA600CAE19B /* Sounds */,
 				99692BD914FF149000DFFFFF /* Blocks */,
 				00692BD214FF149000D0A05E /* Frameworks */,
 				00692BD014FF149000D0A05E /* Products */,
@@ -223,7 +248,6 @@
 				A31340AC1C10A4DF0099FED3 /* iTunesArtwork */,
 				A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */,
 				BEBF5E2121D644A190B307D0 /* CircularBells_Prefix.pch */,
-				F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */,
 				03240AEABE9D4FBC87CA7719 /* Images.xcassets */,
 				96F8211F2EEB48B5AC79BBB9 /* Info.plist */,
 				A3BF67F71C08CB44006F8B24 /* Launch Screen.storyboard */,
@@ -239,6 +263,23 @@
 				A3EF0AC71C00AB24008D5DBC /* mopViews */,
 			);
 			name = Blocks;
+			sourceTree = "<group>";
+		};
+		A3005D8A1E2C0283008AADF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3005D8F1E2C0283008AADF6 /* libpd-ios.a */,
+				A3005D911E2C0283008AADF6 /* libpd-osx.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3A1A9D71E2BFE4500CFCEBA /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				A3A1A9D81E2BFE5A00CFCEBA /* libpd.xcodeproj */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 		A3A9CA921C00F50700CAE19B /* Views */ = {
@@ -307,6 +348,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A3005D931E2C0291008AADF6 /* PBXTargetDependency */,
 			);
 			name = "Circular Bells";
 			productName = CircularBells;
@@ -346,6 +388,12 @@
 			mainGroup = 00692BC414FF149000D0A05E;
 			productRefGroup = 00692BD014FF149000D0A05E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A3005D8A1E2C0283008AADF6 /* Products */;
+					ProjectRef = A3A1A9D81E2BFE5A00CFCEBA /* libpd.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				00692BCE14FF149000D0A05E /* Circular Bells */,
@@ -353,18 +401,33 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		A3005D8F1E2C0283008AADF6 /* libpd-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-ios.a";
+			remoteRef = A3005D8E1E2C0283008AADF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3005D911E2C0283008AADF6 /* libpd-osx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-osx.a";
+			remoteRef = A3005D901E2C0283008AADF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		00692BCD14FF149000D0A05E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A3BF67F81C08CB44006F8B24 /* Launch Screen.storyboard in Resources */,
-				A3A9CA9D1C010CA600CAE19B /* Sounds in Resources */,
 				00748058165D41390024B57A /* assets in Resources */,
 				A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */,
 				A37E4A451C567F54003C9760 /* Localizable.strings in Resources */,
 				A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */,
-				46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */,
 				9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */,
 				A37E4A3E1C567DCA003C9760 /* Storyboard.storyboard in Resources */,
 			);
@@ -412,6 +475,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3005D931E2C0291008AADF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libpd-ios";
+			targetProxy = A3005D921E2C0291008AADF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A37E4A401C567DCA003C9760 /* Storyboard.storyboard */ = {
@@ -485,7 +556,7 @@
 				PROVISIONING_PROFILE = "e677647f-b123-45b3-a88b-a2ad66c03e1c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../../../pd-for-ios/libpd/**";
 			};
 			name = Debug;
 		};
@@ -533,7 +604,7 @@
 				PROVISIONING_PROFILE = "42bc9de1-533d-498f-815b-966ad277953d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../../../pd-for-ios/libpd/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
