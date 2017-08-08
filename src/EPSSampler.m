@@ -12,8 +12,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 
-#import "PdAudioController.h"
-
 enum
 {
 	kMIDIMessage_NoteOn  = 0x9,
