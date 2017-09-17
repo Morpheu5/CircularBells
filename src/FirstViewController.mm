@@ -19,7 +19,7 @@
 	_storeObserver = [[[StoreObserver alloc] init] retain];
 	[[SKPaymentQueue defaultQueue] addTransactionObserver:_storeObserver];
 	
-//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeBanner) name:@"RemoveAdsPurchased" object:_storeObserver];
+	// [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeBanner) name:@"RemoveAdsPurchased" object:_storeObserver];
 	
 	// Setup the UI around the main Cinder application window
 	UIViewController *cinderViewParent = ci::app::getWindow()->getNativeViewController();
@@ -235,24 +235,6 @@
 	NSData *s_data = [NSData dataWithBytes:compressedString.data() length:compressedString.size()*sizeof(char16_t)];
 	NSString *s_base64 = [s_data base64EncodedStringWithOptions:0];
 	NSString *s_urlencoded = [s_base64 stringByAddingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
-	
-	/*
-	NSString *d_base64 = [s_urlencoded stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
-	NSData *d_data = [[NSData alloc] initWithBase64EncodedString:d_base64 options:0];
-	
-	vector<int> d_compressed;
-	for(int i = 0; i < d_data.length/2; ++i) {
-		int d = 0;
-		[d_data getBytes:&d range:NSMakeRange(2*i, 2)];
-		d_compressed.push_back(d);
-	}
-	
-	string dst;
-	if(d_compressed == compressed) {
-		console() << "Success!" << endl;
-		dst = decompress(d_compressed.begin(), d_compressed.end());
-	}
-	 */
 	
 	UIActivityViewController *vc = [[UIActivityViewController alloc]
 									initWithActivityItems:@[[NSString stringWithFormat:NSLocalizedString(@"Look what I made with #CircularBells! http://cb.morpheu5.net/v1/%@", @"Share message"), s_urlencoded], image]
