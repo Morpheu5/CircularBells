@@ -63,10 +63,7 @@ enum
 	UInt32 noteCommand = kMIDIMessage_NoteOn << 4 | 0;
 	
 	OSStatus result = noErr;
-	require_noerr(result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, onVelocity, 0), logTheError);
-	
-logTheError:
-	
+	result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, onVelocity, 0);
 	if (result != noErr)
 	{
 		NSLog(@"Unable to start playing the low note. Error code: %d '%.4s'\n", (int)result, (const char *)&result);
@@ -79,11 +76,7 @@ logTheError:
 	UInt32 noteCommand = kMIDIMessage_NoteOff << 4 | 0;
 	
 	OSStatus result = noErr;
-	
-	require_noerr(result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, 0, 0), logTheError);
-	
-logTheError:
-	
+	result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, 0, 0);
 	if (result != noErr)
 	{
 		NSLog(@"Unable to stop playing the low note. Error code: %d '%.4s'\n", (int)result, (const char *)&result);

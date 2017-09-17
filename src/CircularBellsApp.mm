@@ -32,6 +32,14 @@ void CircularBellsApp::launch() {
 }
 
 void CircularBellsApp::setup() {
+	NSError *error = nil;
+	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+	
+	if(error != nil) {
+		console() << "Could not set AVAudioSession category: " << [AVAudioSessionCategoryPlayback cStringUsingEncoding:NSUnicodeStringEncoding];
+		console() << "Error: " << [[error description] cStringUsingEncoding:NSUnicodeStringEncoding];
+	}
+	
 	_zoom = 1.0;
 	_w = getWindowWidth()/(_zoom);
 	_h = getWindowHeight()/(_zoom);
