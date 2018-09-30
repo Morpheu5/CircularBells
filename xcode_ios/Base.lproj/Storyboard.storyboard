@@ -41,13 +41,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="We are a tiny bunch of app makers. If you like Circular Bells, here is how you can support us to make more beautiful apps!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="odH-HU-zc5" userLabel="Big Head">
-                                                <rect key="frame" x="0.0" y="61.5" width="591" height="74"/>
+                                                <rect key="frame" x="0.0" y="61.5" width="571" height="74"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assets/colorwheel.png" translatesAutoresizingMaskIntoConstraints="NO" id="TeQ-zV-NCT">
-                                                <rect key="frame" x="591" y="20" width="157" height="157"/>
+                                                <rect key="frame" x="571" y="20" width="157" height="157"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="157" id="P28-ba-MUz"/>
                                                     <constraint firstAttribute="height" constant="157" id="mXh-Qw-3lu"/>
@@ -163,7 +163,7 @@
                                             <constraint firstItem="TeQ-zV-NCT" firstAttribute="top" secondItem="NGV-Nm-glT" secondAttribute="top" constant="20" id="f0o-Zy-Uo8"/>
                                             <constraint firstItem="NWM-lV-w8n" firstAttribute="top" secondItem="Jma-uV-BwF" secondAttribute="bottom" constant="20" id="hCb-PM-vTE"/>
                                             <constraint firstItem="NWM-lV-w8n" firstAttribute="centerX" secondItem="NGV-Nm-glT" secondAttribute="centerX" id="i4d-GU-Xqk"/>
-                                            <constraint firstAttribute="trailing" secondItem="TeQ-zV-NCT" secondAttribute="trailing" constant="20" id="puW-BU-4z0"/>
+                                            <constraint firstAttribute="trailing" secondItem="TeQ-zV-NCT" secondAttribute="trailing" constant="40" id="puW-BU-4z0"/>
                                             <constraint firstItem="ciK-Yp-qKD" firstAttribute="leading" secondItem="NGV-Nm-glT" secondAttribute="leading" constant="40" id="qjy-kb-rba"/>
                                             <constraint firstItem="ciK-Yp-qKD" firstAttribute="top" secondItem="TeQ-zV-NCT" secondAttribute="bottom" constant="24" id="yV6-ZS-rLH"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NWM-lV-w8n" secondAttribute="bottom" constant="40" id="ybN-vz-fEo"/>
