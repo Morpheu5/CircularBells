@@ -97,11 +97,11 @@
 	
 	[cinderViewParent.view addSubview:_pullDownButton];
 	_pullDownButton.translatesAutoresizingMaskIntoConstraints = NO;
-	[cinderViewParent.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(==0)-[_pullDownButton(44.0)]-(>=0)-|"
+	[cinderViewParent.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(==16)-[_pullDownButton(44.0)]-(>=0)-|"
 																				  options:0
 																				  metrics:nil
 																					views:NSDictionaryOfVariableBindings(_pullDownButton)]];
-	[cinderViewParent.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(==0)-[_pullDownButton(44.0)]-(>=0)-|"
+	[cinderViewParent.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(==16)-[_pullDownButton(44.0)]-(>=0)-|"
 																				  options:0
 																				  metrics:nil
 																					views:NSDictionaryOfVariableBindings(_pullDownButton)]];

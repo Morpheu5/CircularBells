@@ -144,6 +144,10 @@
 
 #pragma mark - Leave comment business logic
 
+- (IBAction)surveyPushed:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://docs.google.com/forms/d/e/1FAIpQLSfaWzWjGYExG_QumdmDZsuuTPW7NkGPbuhzpBL771gqn3ehMA/viewform?usp=sf_link"]];
+}
+
 - (IBAction)commentPushed:(UIButton *)sender {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/it/app/circular-bells/id1062362784?mt=8&ls=1"]];
 }
