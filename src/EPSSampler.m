@@ -64,6 +64,10 @@ enum
 	
 	OSStatus result = noErr;
 	result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, onVelocity, 0);
+	__Require_noErr(result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, onVelocity, 0), logTheError);
+	
+logTheError:
+	
 	if (result != noErr)
 	{
 		NSLog(@"Unable to start playing the low note. Error code: %d '%.4s'\n", (int)result, (const char *)&result);
@@ -77,6 +81,11 @@ enum
 	
 	OSStatus result = noErr;
 	result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, 0, 0);
+	
+    __Require_noErr(result = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, 0, 0), logTheError);
+	
+logTheError:
+	
 	if (result != noErr)
 	{
 		NSLog(@"Unable to stop playing the low note. Error code: %d '%.4s'\n", (int)result, (const char *)&result);
