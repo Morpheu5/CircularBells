@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 
+- (IBAction)surveyPushed:(UIButton *)sender;
 - (IBAction)commentPushed:(UIButton *)sender;
 - (IBAction)getInTouchPushed:(UIButton *)sender;
 - (IBAction)restorePurchasesPushed:(UIButton *)sender;

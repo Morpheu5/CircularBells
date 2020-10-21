@@ -1,29 +1,11 @@
-
-/* Class = "UILabel"; text = "Non ti piace la pubblicità. Va bene così, non piace neanche a noi, ma ci serve per continuare a fare app. Schiaccia il carrello per rimuovere la pubblicità per pochi spiccioli… o per niente, se l'hai già fatto in passato!"; ObjectID = "8gh-92-10r"; */
-"8gh-92-10r.text" = "Non ti piace la pubblicità. Va bene così, non piace neanche a noi, ma ci serve per continuare a fare app. Schiaccia il carrello per rimuovere la pubblicità per pochi spiccioli… o gratis, se l'hai già fatto in passato!";
-
-/* Class = "UILabel"; text = "Rimuovi la pubblicità"; ObjectID = "DTY-DZ-1tj"; */
-"DTY-DZ-1tj.text" = "Rimuovi la pubblicità";
+/* Class = "UILabel"; text = "Leave feedback"; ObjectID = "kMQ-EX-GCw"; */
+"kMQ-EX-GCw.text" = "Dì al mondo cosa ne pensi";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "MP9-C4-4ON"; */
 "MP9-C4-4ON.text" = "Titolo";
 
-/* Class = "UILabel"; text = "Se ti piace questa app, perché non lo racconti in giro? Puoi votarla e lasciare un commento sull'App Store."; ObjectID = "Mnd-Jw-dWU"; */
-"Mnd-Jw-dWU.text" = "Se ti piace questa app, perché non lo dici in giro? Vota sull'App Store e lascia un commento!";
-
-/* Class = "UIButton"; normalTitle = "Ripristina acquisti"; ObjectID = "a3M-Yu-QIu"; */
-"a3M-Yu-QIu.normalTitle" = "Ripristina acquisti";
-
-/* Class = "UIButton"; normalTitle = "Contattaci!"; ObjectID = "bPw-JJ-dn4"; */
-"bPw-JJ-dn4.normalTitle" = "Contattaci!";
-
-/* Class = "UILabel"; text = "Dì al mondo cosa ne pensi"; ObjectID = "cLT-Ja-0ck"; */
-"cLT-Ja-0ck.text" = "Dì al mondo cosa ne pensi";
-
-/* Class = "UILabel"; text = "Siamo un piccolo gruppo di designer.
- Se Circular Bells ti piace, ecco come
- incoraggiarci a fare altre app!"; ObjectID = "dcn-aa-zNN"; */
-"dcn-aa-zNN.text" = "Siamo un piccolo gruppo di designer.
+/* Class = "UILabel"; text = "We are a tiny bunch of app makers. If you like Circular Bells, here is how you can support us to make more beautiful apps!"; ObjectID = "odH-HU-zc5"; */
+"odH-HU-zc5.text" = "Siamo un piccolo gruppo di designer.
 Se Circular Bells ti piace, ecco come
 incoraggiarci a fare altre app!";
 
@@ -32,3 +14,13 @@ incoraggiarci a fare altre app!";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "oP2-rX-NHR"; */
 "oP2-rX-NHR.text" = "Titolo";
+
+/* Class = "UILabel"; text = "We would like to know how you use Circular Bells and how we can make it even better. The survey is very short and anonymous."; ObjectID = "qEE-OL-P9s"; */
+"qEE-OL-P9s.text" = "Ci piacerebbe sapere come usi Circular Bells e come possiamo migliorarlo. Il sondaggio è molto breve e anonimo.";
+
+/* Class = "UILabel"; text = "If you like this app, why not tell others? Rate this app on the App Store, and leave a comment."; ObjectID = "sZS-1b-ZTG"; */
+"sZS-1b-ZTG.text" = "Se ti piace questa app, perché non lo dici in giro? Vota sull'App Store e lascia un commento!";
+
+/* Class = "UILabel"; text = "Answer our survey!"; ObjectID = "yg2-jO-Ohy"; */
+"yg2-jO-Ohy.text" = "Rispondi al sondaggio!";
+
