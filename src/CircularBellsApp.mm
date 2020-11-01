@@ -1,3 +1,5 @@
+#include <exception>
+
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
@@ -39,6 +41,19 @@ void CircularBellsApp::setup() {
 		console() << "Could not set AVAudioSession category: " << [AVAudioSessionCategoryPlayback cStringUsingEncoding:NSUnicodeStringEncoding];
 		console() << "Error: " << [[error description] cStringUsingEncoding:NSUnicodeStringEncoding];
 	}
+
+    _pd = [[PdAudioController alloc] init];
+    PdAudioStatus pdInit = [_pd configureAmbientWithSampleRate:44100 numberChannels:2 mixingEnabled:YES];
+    if (pdInit != PdAudioOK) {
+        console() << "Could not initialize PD." << std::endl;
+    }
+    try {
+        _pdSampler = shared_ptr<PDSampler>(new PDSampler(@"pd-sampler/main.pd"));
+    } catch (std::runtime_error& e) {
+        console() << "Could not load the PD patch." << std::endl;
+    }
+    _pd.active = YES;
+    _pdSampler->loadSample(@"../Sounds/Xylo-C5.wav");
 	
 	_zoom = 1.0;
 	_w = getWindowWidth()/(_zoom);
@@ -198,6 +213,7 @@ void CircularBellsApp::willResignActive() {
 	_cue->reset();
 	_cue = nullptr;
 	_active = false;
+    _pd.active = NO;
 	
 	// Save the current state
 	NSMutableDictionary *state = [@{} mutableCopy];
@@ -230,6 +246,7 @@ void CircularBellsApp::didBecomeActive() {
 	_cue->setAutoRemove(false);
 	_cue->setLoop();
 	_active = true;
+    _pd.active = YES;
 
 	setupNotes();
 	
@@ -360,14 +377,16 @@ void CircularBellsApp::rotateInterface(UIInterfaceOrientation orientation, NSTim
 void CircularBellsApp::noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		bellView->setStill();
-		[_sampler startPlayingNote:(48 + _tones[bellView->getPitch()]) withVelocity:1.0];
+		// [_sampler startPlayingNote:(48 + _tones[bellView->getPitch()]) withVelocity:1.0];
+        _pdSampler->noteOn(48 + _tones[bellView->getPitch()]);
 	}
 }
 
 void CircularBellsApp::noteViewTouchUp(mop::View *view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		bellView->setStill(false);
-		[_sampler stopPlayingNote:(48 + _tones[bellView->getPitch()])];
+		// [_sampler stopPlayingNote:(48 + _tones[bellView->getPitch()])];
+        _pdSampler->noteOff(48 + _tones[bellView->getPitch()]);
 	}
 }
 

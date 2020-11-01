@@ -2,11 +2,15 @@
 #include "cinder/Perlin.h"
 #include "cinder/Timeline.h"
 
-#include "mopViews.h"
+#include "../blocks/mopViews/src/mopViews.h"
 #include "BellView.h"
+
+#include "PDSampler.h"
 
 #import "EPSSampler.h"
 #import <UIKit/UIKit.h>
+
+#import "PdAudioController.h"
 
 class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	CameraOrtho _cam;
@@ -21,6 +25,9 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	list<shared_ptr<mop::View>> _views;
 	
 	EPSSampler* _sampler;
+    PdAudioController* _pd;
+    shared_ptr<PDSampler> _pdSampler;
+
 	map<int, int> _notesLifetime;
 	
 	Perlin _noise;
