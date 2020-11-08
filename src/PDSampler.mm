@@ -22,18 +22,24 @@ PDSampler::PDSampler(NSString *pdFilename) {
 }
 
 void PDSampler::loadSample(NSString *sampleFilename) {
-//    NSString *fullPath = [[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], sampleFilename] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
-//    NSLog(@"Loading %@", fullPath);
     int err = [PdBase sendMessage:sampleFilename withArguments:nil toReceiver:@"filename"];
-    NSLog(@"loadSampler: %d", err);
+    if (err != 0) {
+        NSLog(@"loadSampler :: Could not load %@, error %d", sampleFilename, err);
+    }
 }
 
 void PDSampler::noteOn(unsigned int note) {
-    int err = [PdBase sendMessage:[NSString stringWithFormat:@"%d 127", note] withArguments:nil toReceiver:@"toPoly"];
-    NSLog(@"noteOn: %d", err);
+    NSArray *args = @[ [NSNumber numberWithInt:note], [NSNumber numberWithInt:64] ];
+    int err = [PdBase sendList:args toReceiver:@"toPoly"];
+    if (err != 0) {
+        NSLog(@"noteOn :: %@", args);
+    }
 }
 
 void PDSampler::noteOff(unsigned int note) {
-    int err = [PdBase sendMessage:[NSString stringWithFormat:@"%d 0", note] withArguments:nil toReceiver:@"toPoly"];
-    NSLog(@"noteOff: %d", err);
+    NSArray *args = @[ [NSNumber numberWithInt:note], [NSNumber numberWithInt:0] ];
+    int err = [PdBase sendList:args toReceiver:@"toPoly"];
+    if (err != 0) {
+        NSLog(@"noteOn :: %@", args);
+    }
 }

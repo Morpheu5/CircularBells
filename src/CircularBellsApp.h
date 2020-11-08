@@ -80,7 +80,7 @@ public:
 	
 	void rootDragged(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
 	
-	void setInstrument(string name);
+	void setInstrument(string name, string filename);
 	string& getInstrument() { return _instrumentName; }
 	const string& getCurrentScaleName() { return _currentScaleName; }
 	void setCurrentScale(string name);

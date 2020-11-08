@@ -47,13 +47,16 @@ void CircularBellsApp::setup() {
     if (pdInit != PdAudioOK) {
         console() << "Could not initialize PD." << std::endl;
     }
+    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    [PdBase addToSearchPath:[NSString stringWithFormat:@"%@/pd-sampler/", bundlePath]];
     try {
         _pdSampler = shared_ptr<PDSampler>(new PDSampler(@"pd-sampler/main.pd"));
     } catch (std::runtime_error& e) {
-        console() << "Could not load the PD patch." << std::endl;
+        console() << "Could not load the PD patch." << std::endl << e.what() << std::endl;
     }
     _pd.active = YES;
-    _pdSampler->loadSample(@"../Sounds/Xylo-C5.wav");
+//    _pdSampler->loadSample([NSString stringWithFormat:@"%@/Sounds/C.wav", bundlePath]);
+    setInstrument("CircBell", "C.wav");
 	
 	_zoom = 1.0;
 	_w = getWindowWidth()/(_zoom);
@@ -145,7 +148,7 @@ void CircularBellsApp::setupNotes() {
 	} else {
 		// Some sensible defaults
 		setCurrentScale("major");
-		setInstrument("CircBell");
+		setInstrument("CircBell", "C.wav");
 	}
 	
 	if(_rootView->getSubviews().empty()) {
@@ -283,9 +286,9 @@ void CircularBellsApp::setPositions(map<int, vec2> positions) {
 	}
 }
 
-void CircularBellsApp::setInstrument(string name) {
-	NSURL* presetUrl = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"assets/%@", [NSString stringWithUTF8String:name.c_str()]] withExtension:@"aupreset"];
-	_sampler = [[EPSSampler alloc] initWithPresetURL:presetUrl];
+void CircularBellsApp::setInstrument(string name, string filename) {
+    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    _pdSampler->loadSample([NSString stringWithFormat:@"%@/Sounds/%@", bundlePath, [NSString stringWithCString:filename.c_str() encoding:NSUTF8StringEncoding]]);
 	_instrumentName = name;
 }
 

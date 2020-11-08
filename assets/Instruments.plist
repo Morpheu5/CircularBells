@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>filename</key>
+		<string>C.wav</string>
 		<key>name</key>
 		<dict>
 			<key>en</key>
@@ -18,6 +20,8 @@
 		<false/>
 	</dict>
 	<dict>
+		<key>filename</key>
+		<string>Vibraphone-60.wav</string>
 		<key>name</key>
 		<dict>
 			<key>en</key>
@@ -33,6 +37,8 @@
 		<false/>
 	</dict>
 	<dict>
+		<key>filename</key>
+		<string>Xylo-C5.wav</string>
 		<key>name</key>
 		<dict>
 			<key>en</key>

@@ -73,7 +73,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
-	theApp->setInstrument([_instrumentsList[indexPath.row][@"preset"] cStringUsingEncoding:NSUTF8StringEncoding]);
+	theApp->setInstrument([_instrumentsList[indexPath.row][@"filename"] cStringUsingEncoding:NSUTF8StringEncoding]);
 	_currentInstrument = theApp->getInstrument();
 	[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }

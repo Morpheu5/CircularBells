@@ -21,6 +21,7 @@
 		A305D2011C1F36940002446F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FE1C1F36940002446F /* Security.framework */; };
 		A305D2021C1F36940002446F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FF1C1F36940002446F /* SystemConfiguration.framework */; };
 		A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D2001C1F36940002446F /* Crashlytics.framework */; };
+		A30F8F33254C631A000920B5 /* PDSampler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A30F8F32254C631A000920B5 /* PDSampler.mm */; };
 		A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A31340AC1C10A4DF0099FED3 /* iTunesArtwork */; };
 		A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */; };
 		A36851CA1C0B4E7C00180A4D /* SupportUsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */; };
@@ -42,11 +43,52 @@
 		A3BF67F81C08CB44006F8B24 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BF67F71C08CB44006F8B24 /* Launch Screen.storyboard */; };
 		A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACB1C00AB24008D5DBC /* mopRootView.cpp */; };
 		A3EF0AD51C00AB24008D5DBC /* mopView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACD1C00AB24008D5DBC /* mopView.cpp */; };
+		A3FA44E225489BC9004931B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; };
+		A3FA44E325489BD6004931B5 /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FA44D425489B4E004931B5 /* libpd-ios.a */; };
+		A3FA44F325489D25004931B5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FA44F225489D25004931B5 /* CoreServices.framework */; };
+		A3FA44F625489DED004931B5 /* pd-sampler in Resources */ = {isa = PBXBuildFile; fileRef = A3FA44F525489DED004931B5 /* pd-sampler */; };
 		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */; };
 		D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9DEEB22B4F54E51A99B63BF /* CircularBellsApp.mm */; };
-		DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3FA44D325489B4E004931B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = "libpd-ios";
+		};
+		A3FA44D525489B4E004931B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 119013AB1486450C00086F19;
+			remoteInfo = "libpd-osx";
+		};
+		A3FA44D725489B4E004931B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30C3D36D1FAA200100C67F08;
+			remoteInfo = "libpd-ios-multi";
+		};
+		A3FA44D925489B4E004931B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30C3D2FA1FAA1FCC00C67F08;
+			remoteInfo = "libpd-osx-multi";
+		};
+		A3FA44E025489BA5004931B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "libpd-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00692BCF14FF149000D0A05E /* Circular Bells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circular Bells.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +107,8 @@
 		A305D1FE1C1F36940002446F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A305D1FF1C1F36940002446F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A305D2001C1F36940002446F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		A30F8F2E254C622E000920B5 /* PDSampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDSampler.h; sourceTree = "<group>"; };
+		A30F8F32254C631A000920B5 /* PDSampler.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PDSampler.mm; sourceTree = "<group>"; };
 		A31340AC1C10A4DF0099FED3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		A341675C1C56A8F30084A4D8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -110,6 +154,9 @@
 		A3EF0ACF1C00AB24008D5DBC /* mopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopViewController.h; sourceTree = "<group>"; };
 		A3EF0AD01C00AB24008D5DBC /* mopViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopViews.h; sourceTree = "<group>"; };
 		A3EF0AD11C00AB24008D5DBC /* mopViewsApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopViewsApp.h; sourceTree = "<group>"; };
+		A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = "../../pd-for-ios/libpd/libpd.xcodeproj"; sourceTree = "<group>"; };
+		A3FA44F225489D25004931B5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		A3FA44F525489DED004931B5 /* pd-sampler */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pd-sampler"; path = "../../pd-sampler"; sourceTree = "<group>"; };
 		BEBF5E2121D644A190B307D0 /* CircularBells_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = CircularBells_Prefix.pch; sourceTree = "<group>"; };
 		C725E000121DAC8F00FA186B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C727C02B121B400300192073 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -125,11 +172,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3FA44E325489BD6004931B5 /* libpd-ios.a in Frameworks */,
+				A3FA44E225489BC9004931B5 /* AVFoundation.framework in Frameworks */,
 				A3BC44101C31D86800E74C67 /* Social.framework in Frameworks */,
+				A3FA44F325489D25004931B5 /* CoreServices.framework in Frameworks */,
 				A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */,
 				A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */,
 				C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */,
-				DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
@@ -150,8 +199,10 @@
 		00692BC414FF149000D0A05E = {
 			isa = PBXGroup;
 			children = (
+				A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */,
 				00692BD914FF149000D0A05E /* Source */,
 				00748057165D41390024B57A /* assets */,
+				A3FA44F525489DED004931B5 /* pd-sampler */,
 				00692BD914FF149000D0FFFF /* Resources */,
 				A3A9CA9C1C010CA600CAE19B /* Sounds */,
 				99692BD914FF149000DFFFFF /* Blocks */,
@@ -171,6 +222,7 @@
 		00692BD214FF149000D0A05E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3FA44F225489D25004931B5 /* CoreServices.framework */,
 				A3BC440F1C31D86800E74C67 /* Social.framework */,
 				A305D1FE1C1F36940002446F /* Security.framework */,
 				A305D1FF1C1F36940002446F /* SystemConfiguration.framework */,
@@ -212,6 +264,8 @@
 				A39520891C37DA95007FD1C9 /* lzw.h */,
 				A375D7841C3D935B00510021 /* CBAppDelegateImpl.h */,
 				A375D7851C3D935B00510021 /* CBAppDelegateImpl.mm */,
+				A30F8F2E254C622E000920B5 /* PDSampler.h */,
+				A30F8F32254C631A000920B5 /* PDSampler.mm */,
 			);
 			name = Source;
 			path = ../src;
@@ -292,6 +346,17 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		A3FA44CD25489B4E004931B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3FA44D425489B4E004931B5 /* libpd-ios.a */,
+				A3FA44D625489B4E004931B5 /* libpd-osx.a */,
+				A3FA44D825489B4E004931B5 /* libpd-ios-multi.a */,
+				A3FA44DA25489B4E004931B5 /* libpd-osx-multi.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,6 +372,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A3FA44E125489BA5004931B5 /* PBXTargetDependency */,
 			);
 			name = "Circular Bells";
 			productName = CircularBells;
@@ -320,7 +386,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00692BCE14FF149000D0A05E = {
 						DevelopmentTeam = 4P5WJRFVXA;
@@ -335,10 +401,9 @@
 			};
 			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "CircularBells" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				it,
@@ -347,12 +412,49 @@
 			mainGroup = 00692BC414FF149000D0A05E;
 			productRefGroup = 00692BD014FF149000D0A05E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A3FA44CD25489B4E004931B5 /* Products */;
+					ProjectRef = A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				00692BCE14FF149000D0A05E /* Circular Bells */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A3FA44D425489B4E004931B5 /* libpd-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-ios.a";
+			remoteRef = A3FA44D325489B4E004931B5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3FA44D625489B4E004931B5 /* libpd-osx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-osx.a";
+			remoteRef = A3FA44D525489B4E004931B5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3FA44D825489B4E004931B5 /* libpd-ios-multi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-ios-multi.a";
+			remoteRef = A3FA44D725489B4E004931B5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3FA44DA25489B4E004931B5 /* libpd-osx-multi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-osx-multi.a";
+			remoteRef = A3FA44D925489B4E004931B5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00692BCD14FF149000D0A05E /* Resources */ = {
@@ -364,6 +466,7 @@
 				00748058165D41390024B57A /* assets in Resources */,
 				A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */,
 				A37E4A451C567F54003C9760 /* Localizable.strings in Resources */,
+				A3FA44F625489DED004931B5 /* pd-sampler in Resources */,
 				A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */,
 				46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */,
 				9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */,
@@ -407,12 +510,21 @@
 				A375D7861C3D935B00510021 /* CBAppDelegateImpl.mm in Sources */,
 				A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */,
 				A3A4C00E1C0C8A3B00812274 /* StoreObserver.m in Sources */,
+				A30F8F33254C631A000920B5 /* PDSampler.mm in Sources */,
 				A3B077771C0DD4E50000C276 /* InstrumentSelectViewController.mm in Sources */,
 				A3A9CA951C00F52000CAE19B /* BellView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3FA44E125489BA5004931B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libpd-ios";
+			targetProxy = A3FA44E025489BA5004931B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A37E4A401C567DCA003C9760 /* Storyboard.storyboard */ = {
@@ -460,6 +572,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -489,12 +602,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "e677647f-b123-45b3-a88b-a2ad66c03e1c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../../pd-for-ios/** ../blocks/**";
 			};
 			name = Debug;
 		};
@@ -520,6 +633,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -545,12 +659,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "42bc9de1-533d-498f-815b-966ad277953d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../../pd-for-ios/** ../blocks/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
