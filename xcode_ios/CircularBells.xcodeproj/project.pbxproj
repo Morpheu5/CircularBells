@@ -43,6 +43,7 @@
 		A3BF67F81C08CB44006F8B24 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BF67F71C08CB44006F8B24 /* Launch Screen.storyboard */; };
 		A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACB1C00AB24008D5DBC /* mopRootView.cpp */; };
 		A3EF0AD51C00AB24008D5DBC /* mopView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3EF0ACD1C00AB24008D5DBC /* mopView.cpp */; };
+		A3F017632559CB9900A319A5 /* StoredStateManager_iOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F017612559C8CD00A319A5 /* StoredStateManager_iOS.mm */; };
 		A3FA44E225489BC9004931B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; };
 		A3FA44E325489BD6004931B5 /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FA44D425489B4E004931B5 /* libpd-ios.a */; };
 		A3FA44F325489D25004931B5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FA44F225489D25004931B5 /* CoreServices.framework */; };
@@ -154,6 +155,8 @@
 		A3EF0ACF1C00AB24008D5DBC /* mopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopViewController.h; sourceTree = "<group>"; };
 		A3EF0AD01C00AB24008D5DBC /* mopViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopViews.h; sourceTree = "<group>"; };
 		A3EF0AD11C00AB24008D5DBC /* mopViewsApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mopViewsApp.h; sourceTree = "<group>"; };
+		A3F0175C2559C47C00A319A5 /* StoredStateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoredStateManager.h; sourceTree = "<group>"; };
+		A3F017612559C8CD00A319A5 /* StoredStateManager_iOS.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = StoredStateManager_iOS.mm; sourceTree = "<group>"; };
 		A3FA44CC25489B4E004931B5 /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = "../../pd-for-ios/libpd/libpd.xcodeproj"; sourceTree = "<group>"; };
 		A3FA44F225489D25004931B5 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		A3FA44F525489DED004931B5 /* pd-sampler */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pd-sampler"; path = "../../pd-sampler"; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				A375D7851C3D935B00510021 /* CBAppDelegateImpl.mm */,
 				A30F8F2E254C622E000920B5 /* PDSampler.h */,
 				A30F8F32254C631A000920B5 /* PDSampler.mm */,
+				A3F0175C2559C47C00A319A5 /* StoredStateManager.h */,
+				A3F017612559C8CD00A319A5 /* StoredStateManager_iOS.mm */,
 			);
 			name = Source;
 			path = ../src;
@@ -506,6 +511,7 @@
 				A3B077801C0E38440000C276 /* PresetsTableViewController.mm in Sources */,
 				A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */,
 				D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */,
+				A3F017632559CB9900A319A5 /* StoredStateManager_iOS.mm in Sources */,
 				A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */,
 				A375D7861C3D935B00510021 /* CBAppDelegateImpl.mm in Sources */,
 				A3EF0AD41C00AB24008D5DBC /* mopRootView.cpp in Sources */,

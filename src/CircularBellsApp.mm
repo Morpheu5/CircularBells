@@ -1,4 +1,5 @@
 #include <exception>
+#include <algorithm>
 
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
@@ -11,6 +12,8 @@
 
 #include "mopViews.h"
 #include "BellView.h"
+
+#include "StoredStateManager.h"
 
 #import "EPSSampler.h"
 
@@ -34,14 +37,16 @@ void CircularBellsApp::launch() {
 }
 
 void CircularBellsApp::setup() {
-	NSError *error = nil;
-	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
-	
-	if(error != nil) {
-		console() << "Could not set AVAudioSession category: " << [AVAudioSessionCategoryPlayback cStringUsingEncoding:NSUnicodeStringEncoding];
-		console() << "Error: " << [[error description] cStringUsingEncoding:NSUnicodeStringEncoding];
-	}
+    _zoom = 1.0;
+    _w = getWindowWidth()/(_zoom);
+    _h = getWindowHeight()/(_zoom);
+    _pan = vec2(0,0);
+    _cam = CameraOrtho(-_w/_zoom, _w/_zoom, -_h/_zoom, _h/_zoom, -1000, 1000);
+    _cam.lookAt(vec3(0,0,1), vec3(0));
+    _projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
+    _screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
 
+    // Pure Data setup
     _pd = [[PdAudioController alloc] init];
     PdAudioStatus pdInit = [_pd configureAmbientWithSampleRate:44100 numberChannels:2 mixingEnabled:YES];
     if (pdInit != PdAudioOK) {
@@ -55,17 +60,11 @@ void CircularBellsApp::setup() {
         console() << "Could not load the PD patch." << std::endl << e.what() << std::endl;
     }
     _pd.active = YES;
-//    _pdSampler->loadSample([NSString stringWithFormat:@"%@/Sounds/C.wav", bundlePath]);
-    setInstrument("CircBell", "C.wav");
-	
-	_zoom = 1.0;
-	_w = getWindowWidth()/(_zoom);
-	_h = getWindowHeight()/(_zoom);
-	_pan = vec2(0,0);
-	_cam = CameraOrtho(-_w/_zoom, _w/_zoom, -_h/_zoom, _h/_zoom, -1000, 1000);
-	_cam.lookAt(vec3(0,0,1), vec3(0));
-	_projection = _cam.getProjectionMatrix() * _cam.getViewMatrix();
-	_screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
+
+    auto m = StoredStateManager::getManager();
+    if (m != nullptr) {
+        setInstrument(m->preset(), m->filename());
+    }
 
 	NSString *lang = [[NSBundle preferredLocalizationsFromArray:@[@"es", @"en", @"it"]] objectAtIndex:0];
 
@@ -96,12 +95,17 @@ void CircularBellsApp::setup() {
 	getSignalDidBecomeActive().connect(ci::signals::slot(this, &CircularBellsApp::didBecomeActive));
 }
 
-vector<vec2> CircularBellsApp::getInitialPositions() {
-	vector<vec2> positions;
-	float a = toRadians(360.0/(_tones.size()+1));
-	for(int i = 0; i < _tones.size(); ++i) {
-		positions.push_back(vec2(rotate((float)M_PI-a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0)));
-	}
+map<int, vec2> CircularBellsApp::getInitialPositions() {
+	map<int, vec2> positions;
+    auto m = StoredStateManager::getManager();
+    if (m != nullptr && !m->notes().empty()) {
+        positions = m->notes();
+    } else {
+        float a = toRadians(360.0/(_tones.size()+1));
+        for(int i = 0; i < _tones.size(); ++i) {
+            positions[i] = vec2(rotate((float)M_PI-a*i, vec3(0.0, 0.0, 1.0)) * vec4(200 + arc4random_uniform(100), 0.0, 1.0, 1.0));
+        }
+    }
 	return positions;
 }
 
@@ -116,41 +120,22 @@ void CircularBellsApp::resetPositions() {
 }
 
 void CircularBellsApp::setupNotes() {
-	NSFileManager *fm = [NSFileManager defaultManager];
-	NSError *error;
-	NSURL *url = [fm URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
-	NSDictionary *state = nil;
-	if(url != nil) {
-		url = [url URLByAppendingPathComponent:@"restoreState.plist"];
-		if([fm fileExistsAtPath:url.path]) {
-			state = [NSDictionary dictionaryWithContentsOfURL:url];
-		}
-	}
-	if(state != nil) {
-		// If the stored scale isn't one of the available scales, reset it to "major"
-		// This should actually never happen more than once ever.
-		NSString *scale = (NSString *)state[@"scale"];
-		vector<pair<string, string>> scales = getAvailableScales();
-		string cScale = [scale cStringUsingEncoding:NSUTF8StringEncoding];
-		BOOL scaleFound = NO;
-		for(pair<string, string> p : scales) {
-			if(cScale == p.first) {
-				setCurrentScale(cScale);
-				scaleFound = YES;
-			}
-		}
-		if(!scaleFound) {
-			setCurrentScale("major");
-		}
+    StoredStateManager* m = StoredStateManager::getManager();
+    if (m != nullptr) {
+        string scale = m->scale();
+        vector<pair<string, string>> scales = getAvailableScales();
+        auto foundScale = std::find_if(scales.begin(), scales.end(), [&] (const pair<string, string>& s) { return s.first == scale; });
 
-		NSString *instrument = (NSString *)state[@"instrument"];
-		setInstrument([instrument cStringUsingEncoding:NSUTF8StringEncoding]);
+        if (foundScale != scales.end()) {
+            setCurrentScale(foundScale->first);
+        } else {
+            setCurrentScale("major");
+        }
 	} else {
 		// Some sensible defaults
-		setCurrentScale("major");
-		setInstrument("CircBell", "C.wav");
-	}
-	
+        setCurrentScale("major");
+    }
+
 	if(_rootView->getSubviews().empty()) {
 		// We have to start fresh
 		vector<ColorAf> colors {
@@ -163,7 +148,7 @@ void CircularBellsApp::setupNotes() {
 			ColorAf(ColorModel::CM_HSV, 290.0/360.0, 1.0, 0.8, 1.0),		//
 		};
 
-		vector<vec2> positions = getInitialPositions();
+		map<int, vec2> positions = getInitialPositions();
 
 		for(int i = 0; i < _tones.size(); ++i) {
 			auto bv = make_shared<BellView>();
@@ -172,43 +157,16 @@ void CircularBellsApp::setupNotes() {
 			bv->setPitch(i);
 			auto color = colors[i%7];
 			bv->setColor(color);
-			
-			if(state != nil) {
-				// But if we do have a state, let's restore it
-				NSString *pitch = [NSString stringWithFormat:@"%d", i];
-				NSArray *notePosition = (NSArray *)state[@"notes"][pitch];
-				bv->setPosition(vec2( ((NSNumber *)notePosition[0]).floatValue, ((NSNumber *)notePosition[1]).floatValue ));
-			} else {
-				bv->setPosition(positions[i]);
-			}
-			
+            bv->setPosition(positions[i]);
+
 			bv->getTouchDownInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchDown));
 			bv->getTouchUpInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
 			bv->getTouchUpOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewTouchUp));
 			bv->getTouchDragInside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
 			bv->getTouchDragOutside().connect(ci::signals::slot(this, &CircularBellsApp::noteViewDragged));
-			
+
 			_rootView->addSubView(bv);
 		}
-	} else {
-		// We have them already, let's see if we have a state
-		if(state != nil) {
-			// We have a state
-			for(auto v : _rootView->getSubviews()) {
-				if(auto bv = dynamic_pointer_cast<BellView>(v)) {
-					NSString *pitch = [NSString stringWithFormat:@"%d", bv->getPitch()];
-					NSArray *notePosition = (NSArray *)state[@"notes"][pitch];
-					bv->setPosition(vec2( ((NSNumber *)notePosition[0]).floatValue, ((NSNumber *)notePosition[1]).floatValue ));
-				}
-			}
-		} else {
-			// We don't have a state
-			// So we do nothing
-		}
-	}
-	
-	if(state != nil) {
-		[fm removeItemAtURL:url error:&error];
 	}
 }
 
@@ -219,26 +177,26 @@ void CircularBellsApp::willResignActive() {
     _pd.active = NO;
 	
 	// Save the current state
-	NSMutableDictionary *state = [@{} mutableCopy];
-	NSMutableDictionary *notes = [@{} mutableCopy];
-	
-	for(auto v : _rootView->getSubviews()) {
-		if(auto bv = dynamic_pointer_cast<BellView>(v)) {
-			NSArray *notePosition = @[[NSNumber numberWithFloat:bv->getPosition().x], [NSNumber numberWithFloat:bv->getPosition().y]];
-			[notes setObject:notePosition forKey:[NSString stringWithFormat:@"%d", bv->getPitch()]];
-		}
-	}
-	state[@"notes"] = notes;
-	state[@"instrument"] = [NSString stringWithUTF8String:_instrumentName.c_str()];
-	state[@"scale"] = [NSString stringWithUTF8String:_currentScaleName.c_str()];
-	
-	NSError *error;
-	NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
-	BOOL success;
-	if(url != nil) {
-		url = [url URLByAppendingPathComponent:@"restoreState.plist"];
-		success = [state writeToFile:url.path atomically:YES];
-	}
+    auto m = StoredStateManager::getManager();
+    if (m != nullptr) {
+        m->setPreset(_preset);
+        m->setFilename(_sampleFilename);
+        m->setScale(_currentScaleName);
+
+        map<int, vec2> notes;
+        if (_rootView != nullptr && !(_rootView->getSubviews().empty())) {
+            auto subviews = _rootView->getSubviews();
+            for (auto v : subviews) {
+                if (auto bv = dynamic_pointer_cast<BellView>(v)) {
+                    int pitch = bv->getPitch();
+                    notes[pitch] = bv->getPosition();
+                }
+            }
+        }
+        m->setNotes(notes);
+
+        m->saveState();
+    }
 	
 	slowDownFrameRate();
 }
@@ -286,10 +244,16 @@ void CircularBellsApp::setPositions(map<int, vec2> positions) {
 	}
 }
 
-void CircularBellsApp::setInstrument(string name, string filename) {
+void CircularBellsApp::setInstrument(string preset, string filename) {
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     _pdSampler->loadSample([NSString stringWithFormat:@"%@/Sounds/%@", bundlePath, [NSString stringWithCString:filename.c_str() encoding:NSUTF8StringEncoding]]);
-	_instrumentName = name;
+	_preset = preset;
+    _sampleFilename = filename;
+    auto m = StoredStateManager::getManager();
+    if (m != nullptr) {
+        m->setPreset(preset);
+        m->setFilename(filename);
+    }
 }
 
 vector<pair<string, string>> CircularBellsApp::getAvailableScales() {
@@ -380,7 +344,6 @@ void CircularBellsApp::rotateInterface(UIInterfaceOrientation orientation, NSTim
 void CircularBellsApp::noteViewTouchDown(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		bellView->setStill();
-		// [_sampler startPlayingNote:(48 + _tones[bellView->getPitch()]) withVelocity:1.0];
         _pdSampler->noteOn(48 + _tones[bellView->getPitch()]);
 	}
 }
@@ -388,7 +351,6 @@ void CircularBellsApp::noteViewTouchDown(mop::View* view, mop::TouchSignalType t
 void CircularBellsApp::noteViewTouchUp(mop::View *view, mop::TouchSignalType type, vec2 position, vec2 prevPosition) {
 	if(auto bellView = static_cast<BellView*>(view)) {
 		bellView->setStill(false);
-		// [_sampler stopPlayingNote:(48 + _tones[bellView->getPitch()])];
         _pdSampler->noteOff(48 + _tones[bellView->getPitch()]);
 	}
 }

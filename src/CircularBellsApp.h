@@ -42,7 +42,8 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	vector<pair<string, string>> _localizedScaleNames;
 	string _currentScaleName;
 	
-	string _instrumentName;
+	string _preset;
+    string _sampleFilename;
 	
 	bool _active = true;
 	bool _locked = false;
@@ -66,7 +67,7 @@ public:
 		return q;
 	}
 
-	vector<vec2> getInitialPositions();
+	map<int, vec2> getInitialPositions();
 	void resetPositions();
 	
 	string saveScreenshot();
@@ -80,8 +81,8 @@ public:
 	
 	void rootDragged(mop::View* view, mop::TouchSignalType type, vec2 position, vec2 prevPosition);
 	
-	void setInstrument(string name, string filename);
-	string& getInstrument() { return _instrumentName; }
+	void setInstrument(string preset, string filename);
+	string& getInstrument() { return _preset; }
 	const string& getCurrentScaleName() { return _currentScaleName; }
 	void setCurrentScale(string name);
 	vector<pair<string, string>> getAvailableScales();
