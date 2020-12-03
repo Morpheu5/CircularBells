@@ -47,6 +47,7 @@ void CircularBellsApp::setup() {
     _screen = vec4(0.0f, getWindowHeight(), getWindowWidth(), -getWindowHeight());
 
     // Pure Data setup
+#ifdef __APPLE__
     _pd = [[PdAudioController alloc] init];
     PdAudioStatus pdInit = [_pd configureAmbientWithSampleRate:44100 numberChannels:2 mixingEnabled:YES];
     if (pdInit != PdAudioOK) {
@@ -54,12 +55,16 @@ void CircularBellsApp::setup() {
     }
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     [PdBase addToSearchPath:[NSString stringWithFormat:@"%@/pd-sampler/", bundlePath]];
+#elif __ANDROID__
+    // TODO: Complete this
+    _pd = whatevs
+#endif
     try {
         _pdSampler = shared_ptr<PDSampler>(new PDSampler(@"pd-sampler/main.pd"));
     } catch (std::runtime_error& e) {
         console() << "Could not load the PD patch." << std::endl << e.what() << std::endl;
     }
-    _pd.active = YES;
+    _pd.active = true;
 
     auto m = StoredStateManager::getManager();
     if (m != nullptr) {
