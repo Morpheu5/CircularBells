@@ -1,0 +1,202 @@
+[
+  {
+    "id": "major",
+    "name": {
+      "it": "Maggiore",
+      "en": "Major",
+      "es": "Mayor"
+    },
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12,
+      14,
+      16,
+      17,
+      19,
+      21,
+      23,
+      24
+    ]
+  },
+  {
+    "id": "dorian",
+    "name": {
+      "it": "Dorica",
+      "en": "Dorian",
+      "es": "Dórica"
+    },
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      10,
+      12,
+      14,
+      15,
+      17,
+      19,
+      21,
+      22,
+      24
+    ]
+  },
+  {
+    "id": "phrygian",
+    "name": {
+      "it": "Frigia",
+      "en": "Phrygian",
+      "es": "Frigia"
+    },
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12,
+      13,
+      15,
+      17,
+      19,
+      20,
+      22,
+      24
+    ]
+  },
+  {
+    "id": "lydian",
+    "name": {
+      "it": "Lidia",
+      "en": "Lydian",
+      "es": "Lidia"
+    },
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      7,
+      9,
+      11,
+      12,
+      14,
+      16,
+      18,
+      19,
+      21,
+      23,
+      24
+    ]
+  },
+  {
+    "id": "mixolydian",
+    "name": {
+      "it": "Misolidia",
+      "en": "Mixolydian",
+      "es": "Mixolidia"
+    },
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10,
+      12,
+      14,
+      15,
+      17,
+      19,
+      20,
+      22,
+      24
+    ]
+  },
+  {
+    "id": "natural-minor",
+    "name": {
+      "it": "Minore Naturale",
+      "en": "Natural Minor",
+      "es": "Menor Natural"
+    },
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12,
+      14,
+      15,
+      17,
+      19,
+      20,
+      22,
+      24
+    ]
+  },
+  {
+    "id": "harmonic-minor",
+    "name": {
+      "it": "Minore Armonica",
+      "en": "Harmonic Minor",
+      "es": "Menor Armónica"
+    },
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      11,
+      12,
+      14,
+      15,
+      17,
+      19,
+      20,
+      23,
+      24
+    ]
+  },
+  {
+    "id": "locrian",
+    "name": {
+      "it": "Locria",
+      "en": "Locrian",
+      "es": "Locria"
+    },
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      10,
+      12,
+      13,
+      15,
+      17,
+      18,
+      20,
+      22,
+      24
+    ]
+  }
+]

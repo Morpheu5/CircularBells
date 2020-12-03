@@ -22,6 +22,7 @@
 		A30F8F33254C631A000920B5 /* PDSampler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A30F8F32254C631A000920B5 /* PDSampler.mm */; };
 		A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A31340AC1C10A4DF0099FED3 /* iTunesArtwork */; };
 		A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */; };
+		A3484B93257821D900FDE319 /* Scales.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484B92257821D900FDE319 /* Scales.swift */; };
 		A36851CA1C0B4E7C00180A4D /* SupportUsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */; };
 		A375D7861C3D935B00510021 /* CBAppDelegateImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = A375D7851C3D935B00510021 /* CBAppDelegateImpl.mm */; };
 		A37E4A3E1C567DCA003C9760 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37E4A401C567DCA003C9760 /* Storyboard.storyboard */; };
@@ -111,6 +112,8 @@
 		A31340AC1C10A4DF0099FED3 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		A341675C1C56A8F30084A4D8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A3484B91257821D800FDE319 /* Circular Bells-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Circular Bells-Bridging-Header.h"; sourceTree = "<group>"; };
+		A3484B92257821D900FDE319 /* Scales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scales.swift; sourceTree = "<group>"; };
 		A36851C41C09B6A800180A4D /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		A36851C81C0B4E7C00180A4D /* SupportUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportUsViewController.h; sourceTree = "<group>"; };
 		A36851C91C0B4E7C00180A4D /* SupportUsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SupportUsViewController.mm; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				A30F8F32254C631A000920B5 /* PDSampler.mm */,
 				A3F0175C2559C47C00A319A5 /* StoredStateManager.h */,
 				A3F017612559C8CD00A319A5 /* StoredStateManager_iOS.mm */,
+				A3484B92257821D900FDE319 /* Scales.swift */,
+				A3484B91257821D800FDE319 /* Circular Bells-Bridging-Header.h */,
 			);
 			name = Source;
 			path = ../src;
@@ -391,6 +396,7 @@
 				TargetAttributes = {
 					00692BCE14FF149000D0A05E = {
 						DevelopmentTeam = 4P5WJRFVXA;
+						LastSwiftMigration = 1220;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
@@ -507,6 +513,7 @@
 				A3B077801C0E38440000C276 /* PresetsTableViewController.mm in Sources */,
 				A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */,
 				D950037824BA4FA98FD65087 /* CircularBellsApp.mm in Sources */,
+				A3484B93257821D900FDE319 /* Scales.swift in Sources */,
 				A3F017632559CB9900A319A5 /* StoredStateManager_iOS.mm in Sources */,
 				A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */,
 				A375D7861C3D935B00510021 /* CBAppDelegateImpl.mm in Sources */,
@@ -584,6 +591,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrea Franceschini (APT37F7659)";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
@@ -645,6 +653,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -710,7 +719,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "../src/Circular Bells-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -755,6 +766,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "../src/Circular Bells-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
