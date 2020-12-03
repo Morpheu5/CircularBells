@@ -17,10 +17,8 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		46D99625DF0E40B1AEBA0A3F /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BBDDA1C472442C8509E1E9 /* CinderApp_ios.png */; };
 		9D20CA325E33400FAC4C376B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03240AEABE9D4FBC87CA7719 /* Images.xcassets */; };
-		A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FA1C1F35AC0002446F /* Fabric.framework */; };
 		A305D2011C1F36940002446F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FE1C1F36940002446F /* Security.framework */; };
 		A305D2021C1F36940002446F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D1FF1C1F36940002446F /* SystemConfiguration.framework */; };
-		A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A305D2001C1F36940002446F /* Crashlytics.framework */; };
 		A30F8F33254C631A000920B5 /* PDSampler.mm in Sources */ = {isa = PBXBuildFile; fileRef = A30F8F32254C631A000920B5 /* PDSampler.mm */; };
 		A31340AE1C10A4DF0099FED3 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A31340AC1C10A4DF0099FED3 /* iTunesArtwork */; };
 		A31340AF1C10A4DF0099FED3 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A31340AD1C10A4DF0099FED3 /* iTunesArtwork@2x */; };
@@ -179,8 +177,6 @@
 				A3FA44E225489BC9004931B5 /* AVFoundation.framework in Frameworks */,
 				A3BC44101C31D86800E74C67 /* Social.framework in Frameworks */,
 				A3FA44F325489D25004931B5 /* CoreServices.framework in Frameworks */,
-				A305D2031C1F36940002446F /* Crashlytics.framework in Frameworks */,
-				A305D1FC1C1F35AC0002446F /* Fabric.framework in Frameworks */,
 				C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
