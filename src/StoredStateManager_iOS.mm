@@ -41,7 +41,7 @@ StoredStateManager* StoredStateManager::getManager() {
             manager->_state->notes.clear();
             NSDictionary *notes = state[@"notes"];
             [notes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-                int pitch = [(NSString *)key intValue];
+                unsigned long pitch = [(NSString *)key intValue];
                 NSArray *nsPosition = (NSArray *)obj;
                 manager->_state->notes[pitch] = ci::vec2([nsPosition[0] floatValue], [nsPosition[1] floatValue]);
             }];
@@ -65,10 +65,10 @@ void StoredStateManager::saveState() {
     [state setValue:[NSString stringWithCString:_state->scale.c_str() encoding:NSUTF8StringEncoding] forKey:@"scale"];
     NSDictionary *notes = [@{} mutableCopy];
     for (auto note : _state->notes) {
-        int pitch = note.first;
+        unsigned long pitch = note.first;
         ci::vec2 position = note.second;
         NSArray *nsPosition = [NSArray arrayWithObjects:[NSNumber numberWithFloat:position.x], [NSNumber numberWithFloat:position.y], nil];
-        [notes setValue:nsPosition forKey:[NSString stringWithFormat:@"%d", pitch]];
+        [notes setValue:nsPosition forKey:[NSString stringWithFormat:@"%ld", pitch]];
     }
     [state setValue:notes forKey:@"notes"];
 

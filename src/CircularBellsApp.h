@@ -7,10 +7,13 @@
 
 #include "PDSampler.h"
 
+#ifdef __APPLE__
 #import "EPSSampler.h"
 #import <UIKit/UIKit.h>
-
 #import "PdAudioController.h"
+#elif __ANDROID__
+// TODO: Complete this
+#endif
 
 class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	CameraOrtho _cam;
@@ -37,8 +40,8 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	void _timedPush();
 	
 	int _root;
-	vector<int> _tones;
-	vector<pair<string, vector<int>>> _scales;
+	vector<unsigned long> _tones;
+	vector<pair<string, vector<unsigned long>>> _scales;
 	vector<pair<string, string>> _localizedScaleNames;
 	string _currentScaleName;
 	
@@ -67,7 +70,7 @@ public:
 		return q;
 	}
 
-	map<int, vec2> getInitialPositions();
+	map<unsigned long, vec2> getInitialPositions();
 	void resetPositions();
 	
 	string saveScreenshot();

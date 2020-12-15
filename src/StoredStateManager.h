@@ -17,7 +17,7 @@ struct StoredState {
     std::string scale;
     std::string preset;
     std::string filename;
-    std::map<int, ci::vec2> notes;
+    std::map<unsigned long, ci::vec2> notes;
 };
 
 class StoredStateManager {
@@ -37,12 +37,12 @@ public:
     std::string scale()    { return _state->scale; }
     std::string preset()   { return _state->preset; }
     std::string filename() { return _state->filename; }
-    std::map<int, ci::vec2> notes() { return _state->notes; }
+    std::map<unsigned long, ci::vec2> notes() { return _state->notes; }
 
     void setScale(std::string& scale)       { _state->scale = std::string(scale); }
     void setPreset(std::string& preset)     { _state->preset = std::string(preset); }
     void setFilename(std::string& filename) { _state->filename = std::string(filename); }
-    void setNotes(std::map<int, ci::vec2>& notes) { _state->notes = std::map<int, ci::vec2>(notes); }
+    void setNotes(std::map<unsigned long, ci::vec2>& notes) { _state->notes = std::map<unsigned long, ci::vec2>(notes); }
 
     void saveState();
 };

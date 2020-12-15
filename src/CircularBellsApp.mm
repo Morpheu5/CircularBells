@@ -7,23 +7,31 @@
 #include "cinder/Perlin.h"
 #include "cinder/Timeline.h"
 
-#import "CBAppDelegateImpl.h"
 #include "CircularBellsApp.h"
 
 #include "mopViews.h"
 #include "BellView.h"
 
 #include "StoredStateManager.h"
+#include "Utils.h"
 
+#ifdef __APPLE__
+#import "CBAppDelegateImpl.h"
 #import "EPSSampler.h"
-
 #import "FirstViewController.h"
+#elif __ANDROID
+// TODO: Complete this
+#endif
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+#ifdef __APPLE__
 FirstViewController *sFirstVC = [[FirstViewController alloc] init];
+#elif __ANDROID__
+// TODO: Complete this
+#endif
 
 void CircularBellsApp::launch() {
 	const auto &args = getCommandLineArgs();
@@ -32,8 +40,11 @@ void CircularBellsApp::launch() {
 	char* argv[argc];
 	for( int i = 0; i < argc; i++ )
 		argv[i] = const_cast<char *>( args[i].c_str() );
-	
+#ifdef __APPLE__
 	::UIApplicationMain( argc, argv, nil, ::NSStringFromClass( [CBAppDelegateImpl class] ) );
+#elif __ANDROID__
+    // TODO: Complete this
+#endif
 }
 
 void CircularBellsApp::setup() {
@@ -71,24 +82,27 @@ void CircularBellsApp::setup() {
         setInstrument(m->preset(), m->filename());
     }
 
-	NSString *lang = [[NSBundle preferredLocalizationsFromArray:@[@"es", @"en", @"it"]] objectAtIndex:0];
+#ifdef __APPLE__
+    string lang = [[NSBundle preferredLocalizationsFromArray:@[@"es", @"en", @"it"]] objectAtIndex:0].UTF8String;
+    string filepath = [[NSBundle mainBundle] pathForResource:@"assets/Scales" ofType:@"json"].UTF8String;
+#elif __ANDROID__
+    // TODO: Complete this
+    string lang = ...
+    string filepath = ...
+#endif
+    std::ifstream i(filepath);
+    nlohmann::json j = nlohmann::json::parse(i);
+    auto scales = j.get<std::vector<Scale>>();
 
-	NSString *filepath = [[NSBundle mainBundle] pathForResource:@"assets/Scales" ofType:@"plist"];
-	NSArray *scales = nil;
-	if([[NSFileManager defaultManager] fileExistsAtPath:filepath]) {
-		scales = [NSArray arrayWithContentsOfFile:filepath];
-	} else {
-		console() << "Horrible things happened!" << endl;
-	}
-	for(NSDictionary *scale in scales) {
-		vector<int> notes;
-		for(NSNumber *note in scale[@"notes"]) {
-			notes.push_back((int)[note intValue]);
-		}
-		string scaleId = [((NSString *)scale[@"id"]) UTF8String];
-		_scales.push_back(pair<string, vector<int>>(scaleId, notes));
-		_localizedScaleNames.push_back(pair<string, string>(scaleId, [((NSString *)scale[@"name"][lang]) UTF8String]));
-	}
+    for(Scale scale : scales) {
+        std::vector<unsigned long> notes;
+        for(unsigned long note : scale.notes) {
+            notes.push_back(note);
+        }
+        std::string scaleId = scale.id;
+        _scales.push_back(std::pair<std::string, std::vector<unsigned long>>(scaleId, notes));
+        _localizedScaleNames.push_back(std::pair<std::string, std::string>(scaleId, scale.name[lang]));
+    }
 
 	_rootView = make_shared<mop::RootView>();
 	getWindow()->getSignalTouchesBegan().connect(bind(&mop::View::propagateTouches, _rootView, std::placeholders::_1, mop::TouchEventType::TouchBegan));
@@ -100,8 +114,8 @@ void CircularBellsApp::setup() {
 	getSignalDidBecomeActive().connect(ci::signals::slot(this, &CircularBellsApp::didBecomeActive));
 }
 
-map<int, vec2> CircularBellsApp::getInitialPositions() {
-	map<int, vec2> positions;
+map<unsigned long, vec2> CircularBellsApp::getInitialPositions() {
+	map<unsigned long, vec2> positions;
     auto m = StoredStateManager::getManager();
     if (m != nullptr && !m->notes().empty()) {
         positions = m->notes();
@@ -153,7 +167,7 @@ void CircularBellsApp::setupNotes() {
 			ColorAf(ColorModel::CM_HSV, 290.0/360.0, 1.0, 0.8, 1.0),		//
 		};
 
-		map<int, vec2> positions = getInitialPositions();
+		map<unsigned long, vec2> positions = getInitialPositions();
 
 		for(int i = 0; i < _tones.size(); ++i) {
 			auto bv = make_shared<BellView>();
@@ -179,7 +193,7 @@ void CircularBellsApp::willResignActive() {
 	_cue->reset();
 	_cue = nullptr;
 	_active = false;
-    _pd.active = NO;
+    _pd.active = false;
 	
 	// Save the current state
     auto m = StoredStateManager::getManager();
@@ -188,7 +202,7 @@ void CircularBellsApp::willResignActive() {
         m->setFilename(_sampleFilename);
         m->setScale(_currentScaleName);
 
-        map<int, vec2> notes;
+        map<unsigned long, vec2> notes;
         if (_rootView != nullptr && !(_rootView->getSubviews().empty())) {
             auto subviews = _rootView->getSubviews();
             for (auto v : subviews) {
@@ -220,14 +234,15 @@ void CircularBellsApp::didBecomeActive() {
 }
 
 string CircularBellsApp::saveScreenshot() {
-	NSError *error;
-	NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
-	if(url != nil) {
-		url = [url URLByAppendingPathComponent:@"screenshot.png"];
-		string path = string(url.path.UTF8String);
-		writeImage(path, copyWindowSurface());
-		return path;
-	}
+    // TODO: Convert this to C++
+//	NSError *error;
+//	NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
+//	if(url != nil) {
+//		url = [url URLByAppendingPathComponent:@"screenshot.png"];
+//		string path = string(url.path.UTF8String);
+//		writeImage(path, copyWindowSurface());
+//		return path;
+//	}
 	return "";
 }
 
@@ -250,8 +265,12 @@ void CircularBellsApp::setPositions(map<int, vec2> positions) {
 }
 
 void CircularBellsApp::setInstrument(string preset, string filename) {
+#ifdef __APPLE__
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     _pdSampler->loadSample([NSString stringWithFormat:@"%@/Sounds/%@", bundlePath, [NSString stringWithCString:filename.c_str() encoding:NSUTF8StringEncoding]]);
+#elif __ANDROID__
+    // TODO: Complete this
+#endif
 	_preset = preset;
     _sampleFilename = filename;
     auto m = StoredStateManager::getManager();
@@ -385,7 +404,11 @@ void CircularBellsApp::prepareSettings(App::Settings* settings) {
 	settings->setHighDensityDisplayEnabled(true);
 	settings->setMultiTouchEnabled();
 	settings->setFrameRate(60.0f);
+#ifdef __APPLE__
 	settings->prepareWindow(Window::Format().rootViewController(sFirstVC));
+#elif __ANROID__
+    // TODO: Complete this
+#endif
 }
 
 CINDER_APP(CircularBellsApp,

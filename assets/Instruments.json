@@ -1,0 +1,29 @@
+[
+  {
+    "filename": "C.wav",
+    "name": {
+      "en": "Tone Bells",
+      "it": "Campanelle",
+      "es": "Campanas"
+    },
+    "preset": "CircBell"
+  },
+  {
+    "filename": "Xylo-C5.wav",
+    "name": {
+      "en": "Xylophone",
+      "it": "Xilofono",
+      "es": "Xilófono"
+    },
+    "preset": "Xylo"
+  },
+  {
+    "filename": "Vibraphone-60.wav",
+    "name": {
+      "en": "Vibraphone",
+      "it": "Vibrafono",
+      "es": "Vibráfono"
+    },
+    "preset": "Vibraphone"
+  }
+]

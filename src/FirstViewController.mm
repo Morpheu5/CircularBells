@@ -158,12 +158,15 @@
 						   animated:YES
 						 completion:nil];
 	} else {
-		[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unexpected error", nil)
-									message:NSLocalizedString(@"Instrument list not found. Please contact us and report this bug.", nil)
-								   delegate:nil
-						  cancelButtonTitle:NSLocalizedString(@"OK", nil)
-						  otherButtonTitles:nil]
-		 show];
+        UIAlertController *ac = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Unexpected error", nil)
+                                                                    message:NSLocalizedString(@"Instrument list not found. Please contact us and report this bug.", nil)
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:nil];
+        [ac addAction:cancelBtn];
+        [self presentViewController:ac animated:YES completion: nil];
+
 	}
 }
 
@@ -212,43 +215,44 @@
 }
 
 - (void)sharePushed:(UIBarButtonItem *)sender {
-	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
-	NSString *path = [NSString stringWithUTF8String:theApp->saveScreenshot().c_str()];
-	UIImage *image = [UIImage imageWithContentsOfFile:path];
-	map<int, vec2> positions = theApp->getPositions();
-	
-	ostringstream stream;
-	for(pair<int, vec2> p : positions) {
-		stream << to_string((int)round(p.second.x)) << "," << to_string((int)round(p.second.y)) << ",";
-	}
-	string src = stream.str();
-	src.pop_back();
-	
-	std::vector<int> compressed;
-	compress(src, std::back_inserter(compressed));
-	u16string compressedString;
-	for(int i : compressed) {
-		auto c = (char16_t)i;
-		compressedString.push_back(c);
-	}
-
-	NSData *s_data = [NSData dataWithBytes:compressedString.data() length:compressedString.size()*sizeof(char16_t)];
-	NSString *s_base64 = [s_data base64EncodedStringWithOptions:0];
-	NSString *s_urlencoded = [s_base64 stringByAddingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
-	
-	UIActivityViewController *vc = [[UIActivityViewController alloc]
-									initWithActivityItems:@[[NSString stringWithFormat:NSLocalizedString(@"Look what I made with #CircularBells! http://cb.morpheu5.net/v1/%@", @"Share message"), s_urlencoded], image]
-									applicationActivities:nil];
-	
-	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		if([vc respondsToSelector:@selector(popoverPresentationController)]) {
-			vc.popoverPresentationController.barButtonItem = sender;
-		}
-	}
-	
-	[self presentViewController:vc
-					   animated:YES
-					 completion:nil];
+    // TODO: Implement sharing
+//	CircularBellsApp *theApp = static_cast<CircularBellsApp *>(cinder::app::App::get());
+//	NSString *path = [NSString stringWithUTF8String:theApp->saveScreenshot().c_str()];
+//	UIImage *image = [UIImage imageWithContentsOfFile:path];
+//	map<int, vec2> positions = theApp->getPositions();
+//	
+//	ostringstream stream;
+//	for(pair<int, vec2> p : positions) {
+//		stream << to_string((int)round(p.second.x)) << "," << to_string((int)round(p.second.y)) << ",";
+//	}
+//	string src = stream.str();
+//	src.pop_back();
+//	
+//	std::vector<int> compressed;
+//	compress(src, std::back_inserter(compressed));
+//	u16string compressedString;
+//	for(int i : compressed) {
+//		auto c = (char16_t)i;
+//		compressedString.push_back(c);
+//	}
+//
+//	NSData *s_data = [NSData dataWithBytes:compressedString.data() length:compressedString.size()*sizeof(char16_t)];
+//	NSString *s_base64 = [s_data base64EncodedStringWithOptions:0];
+//	NSString *s_urlencoded = [s_base64 stringByAddingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
+//	
+//	UIActivityViewController *vc = [[UIActivityViewController alloc]
+//									initWithActivityItems:@[[NSString stringWithFormat:NSLocalizedString(@"Look what I made with #CircularBells! http://cb.morpheu5.net/v1/%@", @"Share message"), s_urlencoded], image]
+//									applicationActivities:nil];
+//	
+//	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//		if([vc respondsToSelector:@selector(popoverPresentationController)]) {
+//			vc.popoverPresentationController.barButtonItem = sender;
+//		}
+//	}
+//	
+//	[self presentViewController:vc
+//					   animated:YES
+//					 completion:nil];
 }
 
 #pragma mark - Memory management
