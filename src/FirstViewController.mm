@@ -28,7 +28,16 @@
 	cinderViewParent.navigationController.delegate = self;
 	
 	[self setNavigationBarHidden:YES];
-	[self.navigationBar setTintColor:[UIColor purpleColor]];
+    if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+        [self.navigationBar setTintColor:[UIColor purpleColor]];
+    } else {
+        [self.navigationBar setTintColor:[UIColor colorWithRed:0.652 green:0.309 blue:0.676 alpha:1.0]];
+    }
+    if (@available(iOS 13.0, *)) {
+        [self.navigationBar setBackgroundColor:UIColor.systemBackgroundColor];
+    } else {
+        [self.navigationBar setBackgroundColor:UIColor.whiteColor];
+    }
 	UIBarButtonItem *leftSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 	leftSpacer.width = -10;
 	
