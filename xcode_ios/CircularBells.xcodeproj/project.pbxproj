@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,7 +28,6 @@
 		A37E4A451C567F54003C9760 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A37E4A471C567F54003C9760 /* Localizable.strings */; };
 		A3A4C00B1C0C7A9900812274 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A4C00A1C0C7A9900812274 /* MBProgressHUD.m */; };
 		A3A4C00E1C0C8A3B00812274 /* StoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A4C00D1C0C8A3B00812274 /* StoreObserver.m */; };
-		A3A4C0101C0DB28200812274 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A4C00F1C0DB28200812274 /* StoreKit.framework */; };
 		A3A9CA951C00F52000CAE19B /* BellView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A9CA931C00F52000CAE19B /* BellView.cpp */; };
 		A3A9CA981C0106CC00CAE19B /* EPSSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A9CA971C0106CC00CAE19B /* EPSSampler.m */; };
 		A3A9CA9D1C010CA600CAE19B /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = A3A9CA9C1C010CA600CAE19B /* Sounds */; };
@@ -127,7 +126,6 @@
 		A3A4C00A1C0C7A9900812274 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		A3A4C00C1C0C8A3B00812274 /* StoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreObserver.h; sourceTree = "<group>"; };
 		A3A4C00D1C0C8A3B00812274 /* StoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreObserver.m; sourceTree = "<group>"; };
-		A3A4C00F1C0DB28200812274 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A3A9CA931C00F52000CAE19B /* BellView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BellView.cpp; path = ../src/BellView.cpp; sourceTree = "<group>"; };
 		A3A9CA941C00F52000CAE19B /* BellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BellView.h; path = ../src/BellView.h; sourceTree = "<group>"; };
 		A3A9CA961C0106CC00CAE19B /* EPSSampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPSSampler.h; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 				A305D2021C1F36940002446F /* SystemConfiguration.framework in Frameworks */,
 				00CFDF6B1138442D0091E310 /* CoreGraphics.framework in Frameworks */,
 				C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */,
-				A3A4C0101C0DB28200812274 /* StoreKit.framework in Frameworks */,
 				00A66A361965AC8800B17EB3 /* Accelerate.framework in Frameworks */,
 				A305D2011C1F36940002446F /* Security.framework in Frameworks */,
 				0087D25512CD809F002CD69F /* CoreText.framework in Frameworks */,
@@ -210,6 +207,7 @@
 				00692BD014FF149000D0A05E /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		00692BD014FF149000D0A05E /* Products */ = {
 			isa = PBXGroup;
@@ -228,7 +226,6 @@
 				A305D1FF1C1F36940002446F /* SystemConfiguration.framework */,
 				A305D2001C1F36940002446F /* Crashlytics.framework */,
 				A305D1FA1C1F35AC0002446F /* Fabric.framework */,
-				A3A4C00F1C0DB28200812274 /* StoreKit.framework */,
 				A36851C41C09B6A800180A4D /* SceneKit.framework */,
 				A38503551C0738D7001F1866 /* iAd.framework */,
 				C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */,
@@ -404,7 +401,7 @@
 				};
 			};
 			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "CircularBells" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -613,7 +610,12 @@
 				PROVISIONING_PROFILE = "e677647f-b123-45b3-a88b-a2ad66c03e1c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../../pd-for-ios/** ../blocks/**";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(CINDER_PATH)/include\"",
+					../include,
+					"../../pd-for-ios/**",
+					"../blocks/**",
+				);
 			};
 			name = Debug;
 		};
@@ -671,7 +673,12 @@
 				PROVISIONING_PROFILE = "42bc9de1-533d-498f-815b-966ad277953d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../../pd-for-ios/** ../blocks/**";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(CINDER_PATH)/include\"",
+					../include,
+					"../../pd-for-ios/**",
+					"../blocks/**",
+				);
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -680,6 +687,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CINDER_PATH = /Users/morpheu5/src/libcinder;
 				CLANG_ENABLE_MODULES = YES;
@@ -687,6 +695,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_TEAM = 4P5WJRFVXA;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -700,7 +709,13 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_KEY_CFBundleDisplayName = "Circular Bells";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.0;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = (
 					"\"$(CINDER_PATH)/lib/ios/Debug/libcinder.a\"",
 					"-lz",
@@ -727,6 +742,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CINDER_PATH = /Users/morpheu5/src/libcinder;
 				CLANG_ENABLE_MODULES = YES;
@@ -734,6 +750,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_TEAM = 4P5WJRFVXA;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -747,7 +764,13 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_KEY_CFBundleDisplayName = "Circular Bells";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.0;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = (
 					"\"$(CINDER_PATH)/lib/ios/Release/libcinder.a\"",
 					"-lz",
