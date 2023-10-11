@@ -17,7 +17,7 @@
 struct Scale {
     std::string id;
     std::map<std::string, std::string> name;
-    std::vector<unsigned long> notes;
+    std::vector<int> notes;
 
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(Scale, id, name, notes)
 };

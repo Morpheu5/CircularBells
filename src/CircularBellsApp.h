@@ -40,8 +40,8 @@ class CircularBellsApp : public AppCocoaTouch, public mop::mopViewsApp {
 	void _timedPush();
 	
 	int _root;
-	vector<unsigned long> _tones;
-	vector<pair<string, vector<unsigned long>>> _scales;
+	vector<int> _tones;
+	vector<pair<string, vector<int>>> _scales;
 	vector<pair<string, string>> _localizedScaleNames;
 	string _currentScaleName;
 	

@@ -19,7 +19,7 @@
 	for( auto &windowImpl : mAppImpl->mWindows )
 		[windowImpl finishLoad];
 	
-	mApp->privateSetup__();
+    mApp->privateSetup__();
 	mAppImpl->mSetupHasFired = YES;
 	
 	[mAppImpl startAnimation];

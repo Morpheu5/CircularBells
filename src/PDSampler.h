@@ -18,8 +18,8 @@ public:
     PDSampler(NSString *pdFilename);
 
     void loadSample(NSString *sampleFilename);
-    void noteOn(unsigned long note);
-    void noteOff(unsigned long note);
+    void noteOn(int note);
+    void noteOff(int note);
 };
 
 #endif /* PDSampler_h */

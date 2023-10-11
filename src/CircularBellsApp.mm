@@ -60,7 +60,9 @@ void CircularBellsApp::setup() {
     // Pure Data setup
 #ifdef __APPLE__
     _pd = [[PdAudioController alloc] init];
-    PdAudioStatus pdInit = [_pd configureAmbientWithSampleRate:44100 numberChannels:2 mixingEnabled:YES];
+    int sampleRate = (int)[[AVAudioSession sharedInstance] sampleRate];
+    int numberOfChannels = (int)[[AVAudioSession sharedInstance] outputNumberOfChannels];
+    PdAudioStatus pdInit = [_pd configurePlaybackWithSampleRate:sampleRate numberChannels:numberOfChannels inputEnabled:NO mixingEnabled:YES];
     if (pdInit != PdAudioOK) {
         console() << "Could not initialize PD." << std::endl;
     }
@@ -76,7 +78,7 @@ void CircularBellsApp::setup() {
         console() << "Could not load the PD patch." << std::endl << e.what() << std::endl;
     }
     _pd.active = true;
-
+    
     auto m = StoredStateManager::getManager();
     if (m != nullptr) {
         setInstrument(m->preset(), m->filename());
@@ -95,12 +97,12 @@ void CircularBellsApp::setup() {
     auto scales = j.get<std::vector<Scale>>();
 
     for(Scale scale : scales) {
-        std::vector<unsigned long> notes;
-        for(unsigned long note : scale.notes) {
+        std::vector<int> notes;
+        for(int note : scale.notes) {
             notes.push_back(note);
         }
         std::string scaleId = scale.id;
-        _scales.push_back(std::pair<std::string, std::vector<unsigned long>>(scaleId, notes));
+        _scales.push_back(std::pair<std::string, std::vector<int>>(scaleId, notes));
         _localizedScaleNames.push_back(std::pair<std::string, std::string>(scaleId, scale.name[lang]));
     }
 

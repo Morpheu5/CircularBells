@@ -28,7 +28,7 @@ void PDSampler::loadSample(NSString *sampleFilename) {
     }
 }
 
-void PDSampler::noteOn(unsigned long note) {
+void PDSampler::noteOn(int note) {
     NSArray *args = @[ [NSNumber numberWithInt:note], [NSNumber numberWithInt:64] ];
     int err = [PdBase sendList:args toReceiver:@"toPoly"];
     if (err != 0) {
@@ -36,7 +36,7 @@ void PDSampler::noteOn(unsigned long note) {
     }
 }
 
-void PDSampler::noteOff(unsigned long note) {
+void PDSampler::noteOff(int note) {
     NSArray *args = @[ [NSNumber numberWithInt:note], [NSNumber numberWithInt:0] ];
     int err = [PdBase sendList:args toReceiver:@"toPoly"];
     if (err != 0) {

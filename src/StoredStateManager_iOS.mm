@@ -35,11 +35,30 @@ StoredStateManager* StoredStateManager::getManager() {
         }
         if (state != nil) {
             // Pull from plist
-            manager->_state->filename = std::string([(NSString *)state[@"filename"] cStringUsingEncoding:NSUTF8StringEncoding]);
-            manager->_state->preset   = std::string([(NSString *)state[@"preset"]   cStringUsingEncoding:NSUTF8StringEncoding]);
-            manager->_state->scale    = std::string([(NSString *)state[@"scale"]    cStringUsingEncoding:NSUTF8StringEncoding]);
-            manager->_state->notes.clear();
+            NSString *filename = (NSString *)state[@"filename"];
+            NSString *preset = (NSString *)state[@"preset"];
+            NSString *scale = (NSString *)state[@"scale"];
             NSDictionary *notes = state[@"notes"];
+            
+            // This is necessary in case we are migrating an old file.
+            if (filename != nil) {
+                manager->_state->filename = std::string([filename cStringUsingEncoding:NSUTF8StringEncoding]);
+            } else {
+                manager->_state->filename = "C.wav";
+            }
+            if (preset != nil) {
+                manager->_state->preset = std::string([preset cStringUsingEncoding:NSUTF8StringEncoding]);
+            } else {
+                manager->_state->preset = "CircBell";
+            }
+            if (scale != nil) {
+                manager->_state->scale    = std::string([(NSString *)state[@"scale"]    cStringUsingEncoding:NSUTF8StringEncoding]);
+            } else {
+                manager->_state->scale = "major";
+            }
+            
+            // Notes should be alright, no need to panic.
+            manager->_state->notes.clear();
             [notes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 unsigned long pitch = [(NSString *)key intValue];
                 NSArray *nsPosition = (NSArray *)obj;
