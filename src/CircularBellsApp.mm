@@ -116,10 +116,10 @@ void CircularBellsApp::setup() {
 	getSignalDidBecomeActive().connect(ci::signals::slot(this, &CircularBellsApp::didBecomeActive));
 }
 
-map<unsigned long, vec2> CircularBellsApp::getInitialPositions() {
+map<unsigned long, vec2> CircularBellsApp::getInitialPositions(const bool reset = false) {
 	map<unsigned long, vec2> positions;
     auto m = StoredStateManager::getManager();
-    if (m != nullptr && !m->notes().empty()) {
+    if (!reset && m != nullptr && !m->notes().empty()) {
         positions = m->notes();
     } else {
         float a = toRadians(360.0/(_tones.size()+1));
@@ -131,7 +131,7 @@ map<unsigned long, vec2> CircularBellsApp::getInitialPositions() {
 }
 
 void CircularBellsApp::resetPositions() {
-	auto positions = getInitialPositions();
+	auto positions = getInitialPositions(true);
 	for(auto v : _rootView->getSubviews()) {
 		if(auto bv = dynamic_pointer_cast<BellView>(v)) {
 			vec2 d = positions[bv->id()-2] - bv->getPosition();

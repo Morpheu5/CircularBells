@@ -70,7 +70,7 @@ public:
 		return q;
 	}
 
-	map<unsigned long, vec2> getInitialPositions();
+	map<unsigned long, vec2> getInitialPositions(const bool reset);
 	void resetPositions();
 	
 	string saveScreenshot();
